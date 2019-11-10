@@ -1,0 +1,21 @@
+.login_container
+{
+
+	width: 100%;
+	background-color: white;
+	opacity: 0.9;
+}
+
+
+.login_logo
+{
+
+	width: 50%;
+}
+
+.cont
+{
+	background-image: url('../images/banner.jpg');
+	background-size: 100vw 100vh;
+	background-repeat: no-repeat;
+}
