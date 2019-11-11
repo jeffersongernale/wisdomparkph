@@ -50,7 +50,7 @@
         <div class="row align-items-center">
           
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="index.html" class="mb-0 text-nowrap"><img class="img-responsive logo" src="asset/images/LOGO/LOGO.png">Wisdom Park</a></h1>
+            <h3 class="mb-0 site-logo"><a href="index.html" class="mb-0 text-nowrap"><img class="img-responsive logo" src="asset/images/LOGO/LOGO.png">Wisdom Park</a></h3>
           </div>
 
           <div class="col-12 col-md-10 d-none d-xl-block">
