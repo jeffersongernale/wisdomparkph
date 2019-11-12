@@ -5,8 +5,28 @@
 
 .btn-primary
 {
-	background-color: #5eacf7 !important;
+	background-color: #22609c !important;
 	border-color: #0562f3 !important;
-	color: black !important;
+	color: white !important;
 }
   
+
+.accordion_header
+{
+	background-color: #1f1f1f;
+	/* background-color: #22609c; */
+	color: white !important;
+	cursor: pointer;
+}
+
+.nav-pills .nav-link.active
+{
+	color: white;
+	background-color: #22609c;
+	
+}
+
+.btn-success
+{
+	color:white !important;
+}

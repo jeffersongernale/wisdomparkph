@@ -9,6 +9,9 @@
       <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fa fa-info"></i> &nbsp;Website Details</a>
       <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fa fa-photo-video"></i> &nbsp;Photos</a>
       <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fa fa-calendar-check"></i> &nbsp;Events</a>
+      <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fa fa-envelope"></i> &nbsp;Newsletter Subsriber</a>
+      <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fa fa-user"></i> &nbsp;User Management</a>
+
     </div>
   </div>
   <!-- /#sidebar-wrapper -->
