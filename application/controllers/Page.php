@@ -27,4 +27,9 @@ class Page extends CI_Controller {
 		$this->load->view('template/app', $page_data);
 	}
 
+	public function login2()
+	{
+		$this->load->view('login2');
+	}
+
 }
