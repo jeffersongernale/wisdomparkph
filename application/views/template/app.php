@@ -15,6 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="asset/css/simple-sidebar.css" rel="stylesheet">
+    <link href="asset/node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 
 </head>
 
