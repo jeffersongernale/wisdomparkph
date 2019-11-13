@@ -13,7 +13,7 @@
 
 .accordion_header
 {
-	background-color: #1f1f1f;
+	background-color: #545454;
 	/* background-color: #22609c; */
 	color: white !important;
 	cursor: pointer;
@@ -29,4 +29,10 @@
 .btn-success
 {
 	color:white !important;
+	background-color: rgb(59, 126, 59) !important;
+}
+
+legend
+{
+	font-size: 1em;
 }

@@ -10,7 +10,7 @@
     </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="pill" href="#menu1">Menu 1</a>
+      <a class="nav-link" data-toggle="pill" href="#menu1">FAQ's</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="pill" href="#menu2">Menu 2</a>
@@ -20,12 +20,13 @@
   <!-- Tab panes -->
   <div class="tab-content">
 
-    <?php include 'company_details/about.php' ?>
+    <?php include 'company_details/about.php'; ?>
 
-    <?php include 'company_details/mission.php' ?>
+    <?php include 'company_details/mission.php'; ?>
 
-    <?php include 'company_details/vision.php' ?>
-    <?php include 'company_details/goal.php' ?>
+    <?php include 'company_details/vision.php'; ?>
+    
+    <?php include 'company_details/goal.php'; ?>
 
     <div id="menu1" class="container tab-pane fade"><br>
       <h3>Menu 1</h3>

@@ -1,4 +1,4 @@
-<div id="about" class="container-fluid tab-pane active"><br>
+<div id="about" class="container tab-pane active"><br>
     <h3>ABOUT</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
@@ -9,7 +9,7 @@
         <div class="card">
             <div class="card-header p-1 accordion_header" id="accordion_header" data-toggle="collapse" data-target="#collapse_header" aria-expanded="true" aria-controls="collapseOne">
                 <h6 class="mb-0 p-1">
-                    <i class="fa fa-paper-plane"></i>&nbsp;HEADERS
+                    <i class="fa fa-list"></i>&nbsp;HEADERS
                 </h6>
             </div>
             <div id="collapse_header" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
@@ -41,12 +41,12 @@
         <div class="card">
             <div class="card-header p-1  accordion_header" id="headingTwo" data-toggle="collapse" data-target="#collapse_details" aria-expanded="false" aria-controls="collapseTwo">
                 <h6 class="mb-0  p-1">
-                <i class="fa fa-paper-plane"></i>&nbsp;DETAILS
+                    <i class="fa fa-info-circle"></i>&nbsp;DETAILS
                 </h6>
             </div>
             <div id="collapse_details" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
-                <div class="card">
+                    <div class="card">
                         <!-- <img src="..." class="card-img-top" alt="..."> -->
                         <div class="card-body">
                             <h5 class="card-title">DETAILS</h5>
@@ -71,21 +71,21 @@
         </div>
 
         <div class="card">
-            <div class="card-header p-1  accordion_header" id="headingThree"  data-toggle="collapse" data-target="#collapse_subdetails" aria-expanded="false" aria-controls="collapseThree">
+            <div class="card-header p-1  accordion_header" id="headingThree" data-toggle="collapse" data-target="#collapse_subdetails" aria-expanded="false" aria-controls="collapseThree">
                 <h6 class="mb-0  p-1">
-                <i class="fa fa-paper-plane"></i>&nbsp;SUB-DETAILS
+                    <i class="fa fa-clipboard-list"></i>&nbsp;SUB-DETAILS
                 </h6>
             </div>
             <div id="collapse_subdetails" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                 <div class="card-body">
-                <div class="card">
+                    <div class="card">
                         <!-- <img src="..." class="card-img-top" alt="..."> -->
                         <div class="card-body">
                             <h5 class="card-title">SUB-DETAILS</h5>
                             <fieldset class="border pb-3 pr-3 pl-3 mb-4">
                                 <legend class="w-auto font-weight-bold pl-2 pr-2"><i class="fa fa-database"></i>&nbsp;Current</legend>
                                 <p class="card-text">
-                                    <i class="fa fa-check"></i>&nbsp;The mainstream activities in this Center comprise of lectures on Buddhism, Science, Philosophy, Psychology, Health, and the Environment. 
+                                    <i class="fa fa-check"></i>&nbsp;The mainstream activities in this Center comprise of lectures on Buddhism, Science, Philosophy, Psychology, Health, and the Environment.
                                     <br>
                                     <i class="fa fa-check"></i>&nbsp;The Center is equipped with multi-media facilitation rooms designed to continuously conduct programs, lectures, and dialogues relevant to the abovementioned goal.
                                     <br>
@@ -98,7 +98,7 @@
                                 <button class="btn btn-sm btn-danger float-right" style="color:white"><i class="fa fa-minus"></i></button>
                                 <button class="btn btn-sm btn-success float-right mr-2 ml-2 mb-2"><i class="fa fa-plus"></i></button>
                                 <span class="float-right">Field Controls</span>
-                                
+
                                 <input type="text" class="form-control m-2" placeholder="Input Text Here">
                                 <input type="text" class="form-control m-2" placeholder="Input Text Here">
                             </fieldset>
@@ -110,14 +110,14 @@
                         </div>
                     </div>
                 </div>
-                </div>
             </div>
+
         </div>
 
         <div class="card">
-            <div class="card-header p-1 accordion_header" id="headingThree"  data-toggle="collapse" data-target="#collapse_image" aria-expanded="false" aria-controls="collapseThree">
+            <div class="card-header p-1 accordion_header" id="headingThree" data-toggle="collapse" data-target="#collapse_image" aria-expanded="false" aria-controls="collapseThree">
                 <h6 class="mb-0  p-1">
-                <i class="fa fa-image"></i>&nbsp;IMAGE
+                    <i class="fa fa-image"></i>&nbsp;IMAGE
                 </h6>
             </div>
             <div id="collapse_image" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
