@@ -1,8 +1,9 @@
 <div id="about" class="container tab-pane active"><br>
     <h3>ABOUT</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-
+    <p>All details regarding with the about section can be edited here. For more detailed illustration please view the attached guide.</p>
+    <button class="btn btn-sm btn-primary float-right"><i class="fa fa-eye"></i>&nbsp;VIEW GUIDE</button>
+    <br>
+    <br>
 
     <div id="accordion">
 
