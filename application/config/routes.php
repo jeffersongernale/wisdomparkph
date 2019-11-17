@@ -54,6 +54,36 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'Page/login';
-$route['login2'] = 'Page/login2';
-$route['admin-home'] = 'Page/admin_home';
+$route['facilities'] = 'Page/facilities';
+$route['gallery'] = 'Page/gallery';
+
+
+/**
+ * ------------------------------------------------
+ * ADMIN ROUTES
+ * ------------------------------------------------
+ **/
+$route['admin-details']     = 'Page/admin_details';
+$route['admin-gallery']     = 'Page/admin_gallery';
+$route['admin-newsletter']  = 'Page/admin_newsletter';
+
+$route['insert-details']    = 'AboutController/insert_details';
+$route['delete-details']    = 'AboutController/delete_details';
+$route['update-mission']    = 'AboutController/update_mission';
+$route['update-vision']     = 'AboutController/update_vision';
+$route['update-goals']      = 'AboutController/update_goals';
+$route['update-faqs']       = 'AboutController/update_faqs';
+
+
+/**
+ * ---------------------------------------------------
+ * WEBSITE DETAILS
+ * ---------------------------------------------------
+  */
+  $route['get-details'] = 'WebsiteDetailsController/get_details';
+
+
+
+
+
 

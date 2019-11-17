@@ -13,7 +13,7 @@
                     <i class="fa fa-list"></i>&nbsp;HEADERS
                 </h6>
             </div>
-            <div id="collapse_header" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div id="collapse_header" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
                     <div class="card">
                         <!-- <img src="..." class="card-img-top" alt="..."> -->

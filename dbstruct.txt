@@ -1,0 +1,4 @@
+DB : wisdom_park
+
+
+CREATE TABLE `wisdom_park`.`details` ( `id` INT NOT NULL AUTO_INCREMENT , `section` VARCHAR(255) NOT NULL , `description` LONGTEXT NOT NULL , `answer` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;

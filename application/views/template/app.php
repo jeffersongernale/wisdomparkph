@@ -55,6 +55,7 @@
         });
     </script>
 
+<?php echo $custom_script ?>
 </body>
 
 </html>
