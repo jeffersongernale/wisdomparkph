@@ -68,8 +68,8 @@ body:after {
     -webkit-box-shadow: none !important;
     box-shadow: none !important; }
   .btn.btn-primary {
-    background: #007bff;
-    border-color: #007bff;
+    background: #532782 !important;
+    border: solid 3px #d4bdfc !important;
     color: #fff; }
     .btn.btn-primary:hover {
       background: #000;
@@ -364,7 +364,7 @@ body:after {
             padding: 9px 20px;
             display: block; }
             .site-navbar .site-navigation .site-menu .has-children .dropdown > li > a:hover {
-              background: #eff1f3;
+              background: #d4bdfc;
               color: #000; }
           .site-navbar .site-navigation .site-menu .has-children .dropdown > li.has-children > a:before {
             content: "\e315";
@@ -539,7 +539,11 @@ body:after {
     .sticky-wrapper .site-navbar .site-menu > li > a {
       color: rgba(255, 255, 255, 0.7) !important; }
       .sticky-wrapper .site-navbar .site-menu > li > a:hover, .sticky-wrapper .site-navbar .site-menu > li > a.active {
-        color: #fff !important; }
+        color: #fff !important;
+        background-color: #532782 !important;
+      border: dashed 3px #d4bdfc;
+     
+    border-radius: 5px; }
   .sticky-wrapper.is-sticky .site-navbar {
     background: #fff;
     border-bottom: 1px solid transparent;
@@ -548,11 +552,15 @@ body:after {
     .sticky-wrapper.is-sticky .site-navbar .site-menu-toggle {
       color: #000; }
     .sticky-wrapper.is-sticky .site-navbar .site-logo a {
-      color: #007bff; }
+      color: #532782; }
     .sticky-wrapper.is-sticky .site-navbar .site-menu > li > a {
       color: #000 !important; }
       .sticky-wrapper.is-sticky .site-navbar .site-menu > li > a:hover, .sticky-wrapper.is-sticky .site-navbar .site-menu > li > a.active {
-        color: #007bff !important; }
+      color: white !important; 
+      background-color: #8b77ae;
+      border-radius: 3px;
+      /* border: dashed 3px #532782 !important; */
+  }
   .sticky-wrapper .shrink {
     padding-top: 10px !important;
     padding-bottom: 10px !important; }
@@ -1582,7 +1590,8 @@ body:after {
   text-transform: uppercase; }
 
 .section-title {
-  color: #007bff;
+  color: #532782;
+  text-shadow: #d4bdfc;
   font-size: 40px;
   font-weight: 900; }
   @media (max-width: 991.98px) {

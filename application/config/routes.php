@@ -54,6 +54,43 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'Page/login';
-$route['login2'] = 'Page/login2';
-$route['admin-home'] = 'Page/admin_home';
+$route['facilities'] = 'Page/facilities';
+$route['gallery'] = 'Page/gallery';
+$route['events'] = 'Page/events';
+
+
+/**
+ * ------------------------------------------------
+ * ADMIN ROUTES
+ * ------------------------------------------------
+ **/
+$route['admin-details']     = 'Page/admin_details';
+$route['admin-gallery']     = 'Page/admin_gallery';
+$route['admin-newsletter']  = 'Page/admin_newsletter';
+
+$route['insert-details']['POST']    = 'AboutController/insert_details';
+$route['delete-details']['POST']    = 'AboutController/delete_details';
+$route['update-mission']['POST']    = 'AboutController/update_mission';
+$route['update-vision']['POST']     = 'AboutController/update_vision';
+$route['update-goals']['POST']      = 'AboutController/update_goals';
+$route['update-faqs']['POST']       = 'AboutController/update_faqs';
+$route['login-submit']['POST']      = 'LoginController/login_submit';
+
+
+
+/**
+ * ---------------------------------------------------
+ * WEBSITE DETAILS
+ * ---------------------------------------------------
+  */
+  $route['get-details']                     = 'WebsiteDetailsController/get_details';
+  $route['get-facilities-details']          = 'WebsiteDetailsController/get_facilities_details';
+  $route['get-events']                      = 'WebsiteDetailsController/get_events_details';
+  $route['get-gallery']                     = 'GalleryController/get_gallery';
+  
+
+
+
+
+
 

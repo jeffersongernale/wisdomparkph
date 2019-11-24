@@ -1,42 +1,59 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-
-    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
-	<link rel="stylesheet" href="asset/css/custom.css">
-	<link rel="stylesheet" href="asset/css/login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wisdom Park - Admin Panel</title>
+    <link rel="stylesheet" href="asset/css/login.css">
+    <link href="asset/node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 </head>
-<body class="cont">
 
+<body>
 
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-lg-4 col-sm-3"></div>
-			<div class="col-lg-4 col-sm-6 p-5 text-center">
-				<div class="border login_container p-5">
-					<img src="asset/images/LOGO/LOGO.png" class="login_logo">
-					<h2>WISDOM PARK</h2> <br>
-					<h4>Administrator Panel</h4>
-					<br>
-					<div class="text-left">
-					<b>Username:</b>
-					<input type="text" class="form-control" id="txt_username" name="txt_username" placeholder="Input Username"> 
-					<br>
-					<b>Password:</b>
-					<input type="password" class="form-control" id="txt_password" name="txt_password"  placeholder="Input Password">
-					<br>
-					</div>
-					<button class="btn btn-md btn-info font-weight-bold form-control mb-3">LOGIN</button>
-					<button class="btn btn-md btn-danger font-weight-bold form-control">CANCEL</button>
-				</div>
-			</div>
-			<div class="col-lg-4  col-sm-3"></div>
-		</div>
-	</div>
+    <div class="wrapper">
+        <div class="container">
+            <img src="asset/images/LOGO/LOGO.png" class="login_logo">
+            <h2>WISDOM PARK</h2> <br>
+            <h4>Administrator Panel</h4>
+            <br>
 
+            <form class="form" action="login-submit" method="POST">
+                <input type="text" placeholder="Username" name="txt_username">
+                <input type="password" placeholder="Password" name="txt_password">
+                <button type="submit" id="login-button"><i class="fa fa-paper-plane"></i>&nbsp;LOGIN</button>
+                <button type="button" id="login-button"><i class="fa fa-undo"></i>&nbsp;RETURN</button>
+            </form>
 
+          
+                
+        </div>
 
-	<script src="asset/js/jquery-3.3.1.min.js"></script>
-  	<script src="asset/js/bootstrap.min.js"></script>
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+        // $("#login-button").click(function(event) {
+        //     event.preventDefault();
+
+        //     $('form').fadeOut(500);
+        //     $('.wrapper').addClass('form-success');
+        // });
+    </script>
+
+      
 </body>
+
 </html>
