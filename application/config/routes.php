@@ -64,9 +64,11 @@ $route['events'] = 'Page/events';
  * ADMIN ROUTES
  * ------------------------------------------------
  **/
-$route['admin-details']     = 'Page/admin_details';
-$route['admin-gallery']     = 'Page/admin_gallery';
-$route['admin-newsletter']  = 'Page/admin_newsletter';
+$route['admin-details']          = 'Page/admin_details';
+$route['admin-gallery']          = 'Page/admin_gallery';
+$route['admin-newsletter']       = 'Page/admin_newsletter';
+$route['admin-events']           = 'Page/admin_events';
+$route['select-events-section']  = 'EventController/get_section';
 
 $route['insert-details']['POST']    = 'AboutController/insert_details';
 $route['delete-details']['POST']    = 'AboutController/delete_details';
@@ -75,7 +77,9 @@ $route['update-vision']['POST']     = 'AboutController/update_vision';
 $route['update-goals']['POST']      = 'AboutController/update_goals';
 $route['update-faqs']['POST']       = 'AboutController/update_faqs';
 $route['login-submit']['POST']      = 'LoginController/login_submit';
-
+$route['insert-event']['POST']    = 'EventController/insert_event';
+$route['delete-event']['POST']    = 'EventController/delete_event';
+$route['update-event']['POST']    = 'EventController/update_event';
 
 
 /**

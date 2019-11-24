@@ -54,8 +54,8 @@ class Page extends CI_Controller {
 		$page_data = $this->page_data;
 		$page_data['sidebar']= $this->load->view('template/sidebar.php', null, TRUE);
 		$page_data['navbar']= $this->load->view('template/navbar.php', null, TRUE);
-		$page_data['page_content']= $this->load->view('admin/gallery.php', null, TRUE);
-		$page_data['custom_script']='<script src="asset/scripts/gallery.js"></script>';
+		$page_data['page_content']= $this->load->view('admin/admin_gallery.php', null, TRUE);
+		$page_data['custom_script']='<script src="asset/scripts/admin_gallery.js"></script>';
 		$this->load->view('template/app', $page_data);
 	}
 
@@ -66,6 +66,16 @@ class Page extends CI_Controller {
 		$page_data['navbar']= $this->load->view('template/navbar.php', null, TRUE);
 		$page_data['page_content']= $this->load->view('admin/newsletter.php', null, TRUE);
 		$page_data['custom_script'] = '';
+		$this->load->view('template/app', $page_data);
+	}
+
+	public function admin_events()
+	{
+		$page_data = $this->page_data;
+		$page_data['sidebar']= $this->load->view('template/sidebar.php', null, TRUE);
+		$page_data['navbar']= $this->load->view('template/navbar.php', null, TRUE);
+		$page_data['page_content']= $this->load->view('admin/events.php', null, TRUE);
+		$page_data['custom_script']='<script src="asset/scripts/admin_events.js"></script>';
 		$this->load->view('template/app', $page_data);
 	}
 
