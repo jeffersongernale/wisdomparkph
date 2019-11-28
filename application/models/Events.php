@@ -20,7 +20,7 @@ class Events extends CI_Model {
     public function get_section($condition = [0])
     {
         $this->db->where($condition);
-        $this->db->select('DISTINCT(section)');
+        $this->db->select('DISTINCT(section),id');
         $this->db->from('events');
         return $this->db->get()->result_array();
     }

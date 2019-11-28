@@ -46,9 +46,9 @@ class Page extends CI_Controller {
 		$page_data['navbar']= $this->load->view('template/navbar.php', null, TRUE);
 		$page_data['page_content']= $this->load->view('admin/admin_details.php', null, TRUE);
 
-		$dependency_script = ['datatable','website_details'];
+		$dependency_script = ['datatable','website_details','iziToast'];
 		$page_data['custom_script'] = dependencies_script($dependency_script);
-		$dependency_css = ['datatable'];
+		$dependency_css = ['datatable','iziToast'];
 		$page_data['custom_css'] = dependencies_css($dependency_css);
 
 		$this->load->view('template/app', $page_data);

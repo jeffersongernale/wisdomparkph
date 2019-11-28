@@ -18,7 +18,13 @@
 
       <fieldset class="border pb-3 pr-3 pl-3 mb-4 mt-4">
         <legend class="w-auto font-weight-bold pl-2 pr-2"><i class="fa fa-database"></i>&nbsp;Current</legend>
-        <table  id="current_goals" class="card-text table table-bordered"></table>
+        <table  id="current_goals" class="card-text table table-bordered">
+          <thead>
+            <th>Details</th>
+            <th>Controls</th>
+          </thead>
+          <tbody></tbody>
+        </table>
       </fieldset>
 
       

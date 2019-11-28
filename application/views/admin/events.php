@@ -67,10 +67,11 @@
                             <div class="card-body">
                                 <h5 class="card-title">SAVED EVENTS</h5>
                                 <div class="table-responsive">
-                                <table id="tbl_admin_events1" class="table table-sm table-bordered">
+                                <table id="tbl_event_section" class="table table-sm table-bordered">
                                     <thead>
-                                        <th>CTRLS</th>
                                         <th style="width: 20vw">SECTION</th>
+                                        <th>CTRLS</th>
+                                       
                                     </thead>
                                     <tbody></tbody>
                                 </table>

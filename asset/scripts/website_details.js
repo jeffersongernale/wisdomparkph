@@ -2,12 +2,18 @@
 $(document).ready(()=>{
     DETAILS.get_data();
     DETAILS.get_facilities();
+
+   
 });
+
+
 
 const DETAILS = (()=>
 {
 
     let this_details = {};
+
+
 
     this_details.get_data = () =>
     {
@@ -65,8 +71,15 @@ const DETAILS = (()=>
 
                 $('#current_mission').html(mission_text);
                 $('#current_vision').html(vision_text);
-                $('#current_goals').html(goals);
+                $('#current_goals tbody').html(goals);
                 $('#current_faqs tbody').html(faqs_text);
+
+                $('#current_faqs').DataTable().destroy();
+                $('#current_faqs').DataTable();
+
+                $('#current_goals').DataTable().destroy();
+                $('#current_goals').DataTable();
+                
             }
         });
     }
@@ -202,12 +215,26 @@ const DETAILS = (()=>
             cache      : false,
             success: data => 
             {
-                console.log(data);
-                // iziToast.success({
-                //     title: 'OK',
-                //     message: 'Successfully inserted record!',
-                //     position: 'topCenter'
-                // });
+                if(data == true)
+                {   
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Record Inserted Successfully!',
+                        position: 'topCenter'
+                    }); 
+
+                    DETAILS.get_facilities();
+                    $('#form_facilities')[0].reset();
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: data.error,
+                        position: 'topCenter'
+                    });
+                }
+             
             }
         });
     }
@@ -238,9 +265,11 @@ const DETAILS = (()=>
                                 </td>
                             </tr>`;
                 });
-
+                $('#tbl_admin_facilities').DataTable().destroy();
                 $('#tbl_admin_facilities tbody').html(tbody);
-                $('#tbl_admin_facilities').DataTable();
+                $('#tbl_admin_facilities').DataTable({
+                    pageLength: 10
+                });
 
             }
         });

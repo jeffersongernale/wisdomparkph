@@ -1,7 +1,7 @@
 $(document).ready(()=>
 {
     EVENTS.get_event();
-    // EVENTS.get_section();
+    EVENTS.get_section();
 });
 
 const EVENTS = (()=>
@@ -42,6 +42,7 @@ const EVENTS = (()=>
                 });
 
                 $('#tbl_admin_events tbody').html(events_detail);
+                $('#tbl_admin_events').DataTable();
             }
         });
 
@@ -54,28 +55,23 @@ const EVENTS = (()=>
             type: 'GET',
             success:data =>
             {
-                console.log(data);
+               
 
                 let events_detail = '';
                 $.each(data,function(){
+                    
                     events_detail += `<tr>
-                                        <td class="text-nowrap">
-                                            <button class="btn btn-sm btn-primary"><i class="fa fa-save"></i></button>
-                                            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-                                        </td>
                                         <td>
-                                            <input type="text" class="form-control" id="txt_title_${this.id}" value="${this.title}">
+                                            <input type="text" class="form-control" id="txt_title_${this.id}" value="${this.section}">
                                         </td>
-                                        <td style="width:500px">
-                                            <textarea class="form-control" rows="5"> ${this.description}</textarea>
-                                       </td>
                                         <td class="text-nowrap">
-                                        <input type="date" class="form-control" id="txt_event_date_${this.id}" value="${this.event_date}">
+                                        <button class="btn btn-sm btn-primary"><i class="fa fa-save"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                         </td>
                                       </tr>`;
                 });
 
-                // $('#tbl_admin_events tbody').html(events_detail);
+                $('#tbl_event_section tbody').html(events_detail);
             }
         });
 
