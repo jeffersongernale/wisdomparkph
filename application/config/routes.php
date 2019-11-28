@@ -77,9 +77,10 @@ $route['update-vision']['POST']     = 'AboutController/update_vision';
 $route['update-goals']['POST']      = 'AboutController/update_goals';
 $route['update-faqs']['POST']       = 'AboutController/update_faqs';
 $route['login-submit']['POST']      = 'LoginController/login_submit';
-$route['insert-event']['POST']    = 'EventController/insert_event';
-$route['delete-event']['POST']    = 'EventController/delete_event';
-$route['update-event']['POST']    = 'EventController/update_event';
+$route['insert-event']['POST']      = 'EventController/insert_event';
+$route['delete-event']['POST']      = 'EventController/delete_event';
+$route['update-event']['POST']      = 'EventController/update_event';
+$route['insert-facilities']['POST'] = 'FacilitiesController/insert_facilities';
 
 
 /**

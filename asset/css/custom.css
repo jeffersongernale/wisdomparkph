@@ -1,3 +1,20 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/PALSCRI.TTF');
+  }
+  
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/PALSCRI.TTF');
+    font-weight: bold;
+  }
+
+
+/* .site-navbar .site-logo
+{
+    font-family: myFirstFont !important;
+} */
+
 .logo
 {
  width: 40%;

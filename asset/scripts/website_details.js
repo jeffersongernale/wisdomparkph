@@ -1,6 +1,7 @@
 
 $(document).ready(()=>{
     DETAILS.get_data();
+    DETAILS.get_facilities();
 });
 
 const DETAILS = (()=>
@@ -30,6 +31,7 @@ const DETAILS = (()=>
                     {
                         vision_text = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${this.description}`;
                     }
+
                     if (this.section === 'goals')
                     {
                         goals+=`<tr>
@@ -189,6 +191,60 @@ const DETAILS = (()=>
         });
     }
 
+    this_details.insert_facilities = () =>
+    {
+        $.ajax({
+            url        : 'insert-facilities',
+            type       : 'POST',
+            data       : new FormData($('#form_facilities')[0]),
+            processData: false,
+            contentType: false,
+            cache      : false,
+            success: data => 
+            {
+                console.log(data);
+                // iziToast.success({
+                //     title: 'OK',
+                //     message: 'Successfully inserted record!',
+                //     position: 'topCenter'
+                // });
+            }
+        });
+    }
+
+    this_details.get_facilities = () => 
+    {
+        $.ajax({
+            url: 'get-facilities-details',
+            type: 'GET',
+            success:data => 
+            {
+                console.log(data);
+
+                let tbody = '';
+
+                $.each(data,function(){
+                    tbody += `<tr>
+                                <td>
+                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-image"></i>&nbsp;VIEW PICTURE</a>
+                                    <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>&nbsp;EDIT</button>
+                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>&nbsp;DELETE</button>
+                                </td>
+                                <td>
+                                    ${this.facilities_name}
+                                </td>
+                                <td>
+                                   <p>${this.description}</p>
+                                </td>
+                            </tr>`;
+                });
+
+                $('#tbl_admin_facilities tbody').html(tbody);
+                $('#tbl_admin_facilities').DataTable();
+
+            }
+        });
+    }
     
     return this_details;
 })();

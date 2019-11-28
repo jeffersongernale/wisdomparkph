@@ -17,6 +17,11 @@ class Facilities extends CI_Model {
         return $this->db->get()->result_array();
     }
 
+    public function insert_facilities($data)
+    {
+        return $this->db->insert('facilities',$data);
+    }
+
   
     
    

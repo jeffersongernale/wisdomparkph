@@ -9,7 +9,7 @@ class Page extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		
+		$this->load->helper('Plugin_helper');
 	}
 	public function index()
 	{
@@ -45,7 +45,12 @@ class Page extends CI_Controller {
 		$page_data['sidebar']= $this->load->view('template/sidebar.php', null, TRUE);
 		$page_data['navbar']= $this->load->view('template/navbar.php', null, TRUE);
 		$page_data['page_content']= $this->load->view('admin/admin_details.php', null, TRUE);
-		$page_data['custom_script']='<script src="asset/scripts/website_details.js"></script>';
+
+		$dependency_script = ['datatable','website_details'];
+		$page_data['custom_script'] = dependencies_script($dependency_script);
+		$dependency_css = ['datatable'];
+		$page_data['custom_css'] = dependencies_css($dependency_css);
+
 		$this->load->view('template/app', $page_data);
 	}
 
@@ -55,7 +60,12 @@ class Page extends CI_Controller {
 		$page_data['sidebar']= $this->load->view('template/sidebar.php', null, TRUE);
 		$page_data['navbar']= $this->load->view('template/navbar.php', null, TRUE);
 		$page_data['page_content']= $this->load->view('admin/admin_gallery.php', null, TRUE);
-		$page_data['custom_script']='<script src="asset/scripts/admin_gallery.js"></script>';
+		$page_data['custom_script']='';
+
+		$dependency_script = ['datatable','admin_gallery'];
+		$page_data['custom_script'] = dependencies_script($dependency_script);
+		$dependency_css = ['datatable'];
+		$page_data['custom_css'] = dependencies_css($dependency_css);
 		$this->load->view('template/app', $page_data);
 	}
 
@@ -65,7 +75,11 @@ class Page extends CI_Controller {
 		$page_data['sidebar']= $this->load->view('template/sidebar.php', null, TRUE);
 		$page_data['navbar']= $this->load->view('template/navbar.php', null, TRUE);
 		$page_data['page_content']= $this->load->view('admin/newsletter.php', null, TRUE);
-		$page_data['custom_script'] = '';
+		
+		$dependency_script = ['datatable','admin_gallery'];
+		$page_data['custom_script'] = dependencies_script($dependency_script);
+		$dependency_css = ['datatable'];
+		$page_data['custom_css'] = dependencies_css($dependency_css);
 		$this->load->view('template/app', $page_data);
 	}
 
@@ -75,7 +89,12 @@ class Page extends CI_Controller {
 		$page_data['sidebar']= $this->load->view('template/sidebar.php', null, TRUE);
 		$page_data['navbar']= $this->load->view('template/navbar.php', null, TRUE);
 		$page_data['page_content']= $this->load->view('admin/events.php', null, TRUE);
-		$page_data['custom_script']='<script src="asset/scripts/admin_events.js"></script>';
+
+		$dependency_script = ['datatable','admin_events'];
+		$page_data['custom_script'] = dependencies_script($dependency_script);
+		$dependency_css = ['datatable'];
+		$page_data['custom_css'] = dependencies_css($dependency_css);
+
 		$this->load->view('template/app', $page_data);
 	}
 

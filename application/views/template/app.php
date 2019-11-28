@@ -14,6 +14,13 @@
     <link rel="stylesheet" href="asset/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
+
+    <?php
+    foreach ($custom_css as $css) {
+        echo $css;
+    }
+    ?>
+
     <link href="asset/css/simple-sidebar.css" rel="stylesheet">
     <link href="asset/node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="asset/css/custom.css" rel="stylesheet">
@@ -55,7 +62,13 @@
         });
     </script>
 
-<?php echo $custom_script ?>
+
+
+    <?php
+    foreach ($custom_script as $script) {
+        echo $script;
+    }
+    ?>
 </body>
 
 </html>
