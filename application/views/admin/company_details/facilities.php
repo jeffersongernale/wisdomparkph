@@ -42,14 +42,8 @@
                             <legend class="w-auto font-weight-bold pl-2 pr-2"><i class="fa fa-database"></i>&nbsp;Current</legend>
                             
                             <table class="table table-bordered table-striped" id="tbl_admin_facilities">
-                                <thead>
-                                    <th class="text-nowrap text-center" style="width:20vw;">CONTROLS</th>
-                                    <th  class="text-nowrap">TITLE</th>
-                                    <th>DESCRIPTION</th>
-                                </thead>
-                                <tbody>
-                                    
-                                </tbody>
+                                
+                               
                             </table>
 
                             

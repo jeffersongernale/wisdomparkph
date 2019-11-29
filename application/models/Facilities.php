@@ -14,12 +14,19 @@ class Facilities extends CI_Model {
         $this->db->where($condition);
         $this->db->select('*');
         $this->db->from('facilities');
+        $this->db->order_by('id', 'asc');
         return $this->db->get()->result_array();
     }
 
     public function insert_facilities($data)
     {
         return $this->db->insert('facilities',$data);
+    }
+
+    public function delete_facilities($data)
+    {
+        $this->db->where($data);
+        return $this->db->delete('facilities');
     }
 
   

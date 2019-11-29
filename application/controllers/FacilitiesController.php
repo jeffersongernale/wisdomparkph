@@ -41,9 +41,11 @@ class FacilitiesController extends CI_Controller {
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }
 
-    public function do_upload()
+    public function delete_facilities()
     {
-       
+        $post=$this->input->post();
+       $result =  $this->Facilities->delete_facilities(['id' => $post['id']]);
+       $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }
 
 

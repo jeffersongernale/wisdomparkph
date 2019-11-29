@@ -27,6 +27,7 @@
                         
                         <fieldset class="border pb-3 pr-3 pl-3 mb-4 mt-4">
                             <legend class="w-auto font-weight-bold pl-2 pr-2"><i class="fa fa-database"></i>&nbsp;Current</legend>
+                            <button type="button" onclick="DETAILS.get_data();">RELOAD</button>
                             <table  id="current_faqs" class="card-text table table-bordered">
                                 <thead>
                                     <th class="text-center">QUESTION</th>

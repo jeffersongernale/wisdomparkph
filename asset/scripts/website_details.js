@@ -74,12 +74,20 @@ const DETAILS = (()=>
                 $('#current_goals tbody').html(goals);
                 $('#current_faqs tbody').html(faqs_text);
 
-                $('#current_faqs').DataTable().destroy();
-                $('#current_faqs').DataTable();
-
-                $('#current_goals').DataTable().destroy();
-                $('#current_goals').DataTable();
+               
                 
+            },
+            complete: () =>
+            {
+                if ($.fn.DataTable.isDataTable( '#current_faqs' ) ) {
+                    $('#current_faqs').dataTable().destroy();
+                }
+                $('#current_faqs').dataTable();
+
+                if ($.fn.DataTable.isDataTable( '#current_goals' ) ) {
+                    $('#current_goals').dataTable().destroy();
+                }
+                $('#current_goals').dataTable();
             }
         });
     }
@@ -95,6 +103,23 @@ const DETAILS = (()=>
             success: data =>
             {
                 console.log(data);
+                if(data == true)
+                {
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Record Updated Successfully!',
+                        position: 'center'
+                    });
+                    $('#txt_mission').val('');
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: 'Opps Something went wrong. Please try again.',
+                        position: 'center'
+                    });
+                }
                 DETAILS.get_data();
             }
         });
@@ -111,6 +136,23 @@ const DETAILS = (()=>
             success: data =>
             {
                 console.log(data);
+                if(data == true)
+                {
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Record Updated Successfully!',
+                        position: 'center'
+                    });
+                    $('#txt_vision').val('');
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: 'Opps Something went wrong. Please try again.',
+                        position: 'center'
+                    });
+                }
                 DETAILS.get_data();
             }
         });
@@ -128,6 +170,22 @@ const DETAILS = (()=>
             success: data =>
             {
                 console.log(data);
+                if(data == true)
+                {
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Record Updated Successfully!',
+                        position: 'center'
+                    });
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: 'Opps Something went wrong. Please try again.',
+                        position: 'center'
+                    });
+                }
                 DETAILS.get_data();
             }
         });
@@ -145,6 +203,22 @@ const DETAILS = (()=>
             success: data =>
             {
                 console.log(data);
+                if(data == true)
+                {
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Record Inserted Successfully!',
+                        position: 'center'
+                    });
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: 'Opps Something went wrong. Please try again.',
+                        position: 'center'
+                    });
+                }
                 DETAILS.get_data();
                 $(`#txt_goals`).val('');
             }
@@ -162,6 +236,23 @@ const DETAILS = (()=>
             success: data =>
             {
                 console.log(data);
+                if(data == true)
+                {
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Record Deleted Successfully!',
+                        position: 'center'
+                    });
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: 'Opps Something went wrong. Please try again.',
+                        position: 'center'
+                    });
+                }
+
                 DETAILS.get_data();
             }
         });
@@ -180,6 +271,22 @@ const DETAILS = (()=>
             success: data =>
             {
                 console.log(data);
+                if(data == true)
+                {
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Record Updated Successfully!',
+                        position: 'center'
+                    });
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: 'Opps Something went wrong. Please try again.',
+                        position: 'center'
+                    });
+                }
             }
         });
     }
@@ -197,9 +304,26 @@ const DETAILS = (()=>
             success: data =>
             {
                 console.log(data);
+                if(data == true)
+                {
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Record Inserted Successfully!',
+                        position: 'center'
+                    }); 
+                    
+                    $(`#txt_question`).val('');
+                    $(`#txt_answer`).val('');
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: 'Opps Something went wrong. Please try again.',
+                        position: 'center'
+                    });
+                }
                 DETAILS.get_data();
-                $(`#txt_question`).val('');
-                $(`#txt_answer`).val('');
             }
         });
     }
@@ -220,7 +344,7 @@ const DETAILS = (()=>
                     iziToast.success({
                         title: 'OK',
                         message: 'Record Inserted Successfully!',
-                        position: 'topCenter'
+                        position: 'center'
                     }); 
 
                     DETAILS.get_facilities();
@@ -231,7 +355,7 @@ const DETAILS = (()=>
                     iziToast.error({
                         title: 'OK',
                         message: data.error,
-                        position: 'topCenter'
+                        position: 'center'
                     });
                 }
              
@@ -248,31 +372,97 @@ const DETAILS = (()=>
             {
                 console.log(data);
 
-                let tbody = '';
-
+                let tbody = `<thead>
+                <th class="text-nowrap text-center" style="width:20vw;">CONTROLS</th>
+                <th  class="text-nowrap">TITLE</th>
+                <th>DESCRIPTION</th>
+                </thead> <tbody>`;
+                
                 $.each(data,function(){
                     tbody += `<tr>
                                 <td>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-image"></i>&nbsp;VIEW PICTURE</a>
                                     <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>&nbsp;EDIT</button>
-                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>&nbsp;DELETE</button>
+                                    <button class="btn btn-danger btn-sm" onclick="DETAILS.delete_facilities(${this.id})"><i class="fa fa-trash"></i>&nbsp;DELETE</button>
                                 </td>
                                 <td>
-                                    ${this.facilities_name}
+                                <input class="form-control" type="text" id="txt_facilities_name_${this.id}" value="${this.facilities_name}">
+                                    
                                 </td>
                                 <td>
-                                   <p>${this.description}</p>
+                                    <textarea rows="5" class="form-control" id="txt_facilities_desc_${this.id}">${this.description}</textarea>
                                 </td>
                             </tr>`;
                 });
+                tbody+='</tbody>';
+                $('#tbl_admin_facilities').html(tbody);
                 $('#tbl_admin_facilities').DataTable().destroy();
-                $('#tbl_admin_facilities tbody').html(tbody);
                 $('#tbl_admin_facilities').DataTable({
                     pageLength: 10
                 });
+               
 
             }
         });
+    }
+
+    this_details.delete_facilities = (id) => 
+    {
+        iziToast.show({
+                theme: 'dark',
+                icon: 'icon-person',
+                title: 'Confirmation :',
+                message: 'Are you sure you want to delete this?',
+                position: 'center', // bottomRight, bottomLeft, topRight, topLeft, center, bottomCenter
+                progressBarColor: 'rgb(0, 255, 184)',
+                titleSize: '20px',
+                messageSize: '20px',
+                transitionIn:'bounceInUp',
+                buttons: [
+                    [`<button>YES</button>`, function (instance, toast) {
+                       //ajax here
+                        $.ajax({
+                            url:'delete-facilities',
+                            type:'post',
+                            data:{
+                                'id': id
+                            },
+                            success: data =>
+                            {
+                                console.log(data);
+                                if(data == true)
+                                {
+                                    iziToast.success({
+                                        title: 'OK',
+                                        message: 'Record Deleted Successfully!',
+                                        position: 'center'
+                                    });
+                                }
+                                else
+                                {
+                                    iziToast.error({
+                                        title: 'OK',
+                                        message: 'Opps Something went wrong. Please try again.',
+                                        position: 'center'
+                                    });
+                                }
+                
+                                DETAILS.get_facilities();
+                            }
+                        });
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }, true], // true to focus
+                    ['<button>Close</button>', function (instance, toast) {
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }]
+                ]
+            });
+
+        
     }
     
     return this_details;
