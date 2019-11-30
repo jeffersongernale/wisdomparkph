@@ -82,6 +82,7 @@ $route['delete-event']['POST']      = 'EventController/delete_event';
 $route['update-event']['POST']      = 'EventController/update_event';
 $route['insert-facilities']['POST'] = 'FacilitiesController/insert_facilities';
 $route['delete-facilities']['POST'] = 'FacilitiesController/delete_facilities';
+$route['update-facilities']['POST'] = 'FacilitiesController/update_facilities';
 
 
 /**

@@ -29,6 +29,11 @@ class Facilities extends CI_Model {
         return $this->db->delete('facilities');
     }
 
+    public function update_facilities($data,$condition)
+    {
+        $this->db->where($condition);
+        return $this->db->update('facilities',$data);
+    }
   
     
    

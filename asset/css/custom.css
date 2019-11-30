@@ -24,8 +24,9 @@
 {
 	background-color: #22609c !important;
 	border-color: #0562f3 !important;
-	color: white !important;
+    color: white !important;
 }
+
   
 
 .accordion_header
@@ -91,3 +92,6 @@ div.panel.show {
     width: 100%;
     height: 400px;
 }
+
+
+

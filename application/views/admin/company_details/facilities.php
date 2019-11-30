@@ -42,19 +42,36 @@
                             <legend class="w-auto font-weight-bold pl-2 pr-2"><i class="fa fa-database"></i>&nbsp;Current</legend>
                             
                             <table class="table table-bordered table-striped" id="tbl_admin_facilities">
-                                
-                               
                             </table>
-
-                            
                         </fieldset>
 
-                        <button type="button" id="btn_header_submit" class="btn btn-sm btn-danger float-right mt-3"><i class="fa fa-times"></i>&nbsp;CANCEL</button>
-                        <button type="button" id="btn_header_submit" class="btn btn-sm btn-primary float-right mt-3 mr-2"><i class="fa fa-paper-plane"></i>&nbsp;SUBMIT</button>
-
+                       
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modal_facilities_change_pic" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <form id="modal_form_facilities" enctype="multipart/form-data">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa fa-image"></i>&nbsp;CHANGE PICTURE</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <b>Select a picture to upload</b>
+                <input type="file" class="form-control" id="file_facilities_image">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary" onclick="DETAILS.update_facilities_modals_submit()"><i class="fa fa-save"></i>&nbsp;SAVE</button>
+            </div>
+        </div>
+        </form>
     </div>
 </div>

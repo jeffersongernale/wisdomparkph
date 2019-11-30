@@ -13,7 +13,7 @@ class FacilitiesController extends CI_Controller {
     {
         $post = $this->input->post();
 
-        $config['upload_path']   = './asset/upload';
+        $config['upload_path']   = './asset/upload/facilities';
         $config['allowed_types'] = 'jpg|png|jpeg';
         $config['max_width']     = '1024';
         $config['max_height']    = '786';
@@ -43,10 +43,22 @@ class FacilitiesController extends CI_Controller {
 
     public function delete_facilities()
     {
-        $post=$this->input->post();
+       $post=$this->input->post();
        $result =  $this->Facilities->delete_facilities(['id' => $post['id']]);
        $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }
 
+    public function update_facilities()
+    {
+        $post = $this->input->post();
+        $data = [
+            'facilities_name'   => $post['facilities_name'], 
+            'description'       => $post['description']
+        ];
+        
+        $result = $this->Facilities->update_facilities($data,['id' => $post['id']]);
+        $this->output->set_content_type('application/json')->set_output(json_encode($result));
+
+    }
 
 }
