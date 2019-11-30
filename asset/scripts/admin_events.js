@@ -31,12 +31,12 @@ const EVENTS = (()=>
                                         </td>
                                         <td style="width:500px">
                                             <textarea class="form-control" rows="5" id="txt_description_${this.id}"> ${this.description}</textarea>
-                                       </td>
-                                        <td class="text-nowrap">
-                                        <input type="date" class="form-control" id="txt_event_date_${this.id}" value="${this.event_date}">
                                         </td>
                                         <td class="text-nowrap">
-                                        <input type="text" class="form-control" id="slc_section_${this.id}" value="${this.section}">
+                                            <input type="date" class="form-control" id="txt_event_date_${this.id}" value="${this.event_date}">
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <input type="text" class="form-control" id="slc_section_${this.id}" value="${this.section}">
                                         </td>
                                       </tr>`;
                 });

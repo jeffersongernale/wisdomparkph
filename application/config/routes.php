@@ -83,6 +83,8 @@ $route['update-event']['POST']      = 'EventController/update_event';
 $route['insert-facilities']['POST'] = 'FacilitiesController/insert_facilities';
 $route['delete-facilities']['POST'] = 'FacilitiesController/delete_facilities';
 $route['update-facilities']['POST'] = 'FacilitiesController/update_facilities';
+$route['insert-gallery-photo']['POST'] = 'GalleryController/insert_gallery_photo';
+$route['delete-gallery-photo']['POST'] = 'GalleryController/delete_gallery_photo';
 
 
 /**
@@ -93,7 +95,7 @@ $route['update-facilities']['POST'] = 'FacilitiesController/update_facilities';
   $route['get-details']                     = 'WebsiteDetailsController/get_details';
   $route['get-facilities-details']          = 'WebsiteDetailsController/get_facilities_details';
   $route['get-events']                      = 'WebsiteDetailsController/get_events_details';
-  $route['get-gallery']                     = 'GalleryController/get_gallery';
+  $route['get-gallery']['GET']                     = 'GalleryController/get_gallery';
   
 
 

@@ -20,31 +20,29 @@
                         <div class="card-body">
                             <h5 class="card-title">GALLERY PHOTOS</h5>
                             <fieldset class="border pb-3 pr-3 pl-3">
+                                <form id="gallery_upload" enctype="multipart/form-data" method="post">
                                 <div class="row mt-3">
+                                    
                                     <div class="col-lg-2 font-weight-bold">
                                         IMAGE:
                                     </div>
                                     <div class="col-lg-10">
-                                        <input type="file" name="file_image" id="file_image" class="form-control">
+                                        <input type="file" name="gallery_file_image" id="gallery_file_image" class="form-control">
                                     </div>
                                     <div class="w-100 mb-1"></div>
                                     <div class="col-lg-12">
                                     <button type="button" id="btn_header_submit" class="btn btn-sm btn-danger float-right mt-3"><i class="fa fa-times"></i>&nbsp;CANCEL</button>
-                                    <button type="button" id="btn_header_submit" class="btn btn-sm btn-primary float-right mt-3 mr-2"><i class="fa fa-paper-plane"></i>&nbsp;SUBMIT</button>
+                                    <button type="button" id="btn_header_submit" class="btn btn-sm btn-primary float-right mt-3 mr-2" onclick="GALLERY.insert_gallery_photo()"><i class="fa fa-paper-plane"></i>&nbsp;SUBMIT</button>
                                     </div>
+                                   
                                 </div>
+                                </form>
                             </fieldset>
 
                             <fieldset class="border pb-3 pr-3 pl-3 mb-4">
                                 <legend class="w-auto font-weight-bold pl-2 pr-2"><i class="fa fa-database"></i>&nbsp;Current</legend>
                                 <table class="table table-bordered table-striped" id="tbl_gallery_admin">
-                                <thead>
-                                    <th class="text-nowrap text-center" style="width:20vw;">CONTROLS</th>
-                                    <th>IMAGE</th>
-                                </thead>
-                                <tbody class="text-center">
-                                   
-                                </tbody>
+                                
                             </table>
                             </fieldset>
 

@@ -614,7 +614,8 @@ const DETAILS = (()=>
 
     this_details.update_facilities_modals_submit = () =>
     {
-       
+    //    form = new FormData($('#modal_facilities_change_pic')[0]);
+    //    console.log(form);
     }
 
     $('#modal_facilities_change_pic').on('hidden.bs.modal', function(){

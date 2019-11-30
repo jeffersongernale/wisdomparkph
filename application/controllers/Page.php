@@ -10,6 +10,7 @@ class Page extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper('Plugin_helper');
+		$this->load->model('Gallery');
 	}
 	public function index()
 	{
@@ -28,7 +29,12 @@ class Page extends CI_Controller {
 
 	public function gallery()
 	{
-		$this->load->view('gallery');
+	
+		$result['photos'] = $this->Gallery->get_gallery(['section'=>'photos']);
+        $result['videos'] = $this->Gallery->get_gallery(['section'=>'videos']);
+		$result['songs'] = $this->Gallery->get_gallery(['section'=>'songs']);
+		// $this->output->set_content_type('application/json')->set_output(json_encode($result));
+		$this->load->view('gallery',$result);
 	}
 
 	public function events()
@@ -62,9 +68,9 @@ class Page extends CI_Controller {
 		$page_data['page_content']= $this->load->view('admin/admin_gallery.php', null, TRUE);
 		$page_data['custom_script']='';
 
-		$dependency_script = ['datatable','admin_gallery'];
+		$dependency_script = ['datatable','admin_gallery','iziToast'];
 		$page_data['custom_script'] = dependencies_script($dependency_script);
-		$dependency_css = ['datatable'];
+		$dependency_css = ['datatable','iziToast'];
 		$page_data['custom_css'] = dependencies_css($dependency_css);
 		$this->load->view('template/app', $page_data);
 	}

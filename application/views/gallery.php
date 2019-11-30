@@ -80,105 +80,57 @@
         <div class="row justify-content-center mb-5" data-aos="fade-up">
           <div id="filters" class="filters text-center button-group col-md-7">
             <button class="btn btn-primary active" data-filter="*">All</button>
-            <button class="btn btn-primary" data-filter=".web">Web</button>
-            <button class="btn btn-primary" data-filter=".design">Design</button>
-            <button class="btn btn-primary" data-filter=".brand">Brand</button>
+            <button class="btn btn-primary" data-filter=".photos">Photos</button>
+            <button class="btn btn-primary" data-filter=".videos">Videos</button>
+            <button class="btn btn-primary" data-filter=".songs">Songs</button>
           </div>
         </div>  
         
-        <div id="posts" class="row no-gutter">
-          <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+        <div id="posts" class="row no-gutter gallery_container">
+          <!-- <div class="item photos col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
             <a href="asset/images/img_1.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
               <span class="icon-search2"></span>
               <img class="img-fluid" src="asset/images/img_1.jpg">
             </a>
-          </div>
-         
-         
-          <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-            <a href="asset/images/img_7.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
-              <span class="icon-search2"></span>
-              <img class="img-fluid" src="asset/images/img_7.jpg">
-            </a>
-          </div>
-          <div class="item design col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-            <a href="asset/images/img_8.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
-              <span class="icon-search2"></span>
-              <img class="img-fluid" src="asset/images/img_8.jpg">
-            </a>
-          </div>
-          <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-            <a href="asset/images/img_9.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
-              <span class="icon-search2"></span>
-              <img class="img-fluid" src="asset/images/img_9.jpg">
-            </a>
-          </div>
-          <div class="item design col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-            <a href="asset/images/img_10.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
-              <span class="icon-search2"></span>
-              <img class="img-fluid" src="asset/images/img_10.jpg">
-            </a>
-          </div>
-          <div class="item brand col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-            <a href="asset/images/img_11.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
-              <span class="icon-search2"></span>
-              <img class="img-fluid" src="asset/images/img_11.jpg">
-            </a>
-          </div>
-          <div class="item design col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-            <a href="asset/images/img_12.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
-              <span class="icon-search2"></span>
-              <img class="img-fluid" src="asset/images/img_12.jpg">
-            </a>
-          </div>
-          <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-            <a href="asset/images/img_13.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
-              <span class="icon-search2"></span>
-              <img class="img-fluid" src="asset/images/img_13.jpg">
-            </a>
-          </div>
-          <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-            <a href="asset/images/Portfolio_Pictures/img1.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
-              <span class="icon-search2"></span>
-              <img class="img-fluid" src="asset/images/Portfolio_Pictures/img1.jpg">
-            </a>
-          </div>
-          <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-            <a href="asset/images/Portfolio_Pictures/img2.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
-              <span class="icon-search2"></span>
-              <img class="img-fluid" src="asset/images/Portfolio_Pictures/img2.jpg">
-            </a>
-          </div>
-          <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-            <a href="asset/images/Portfolio_Pictures/img3.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
-              <span class="icon-search2"></span>
-              <img class="img-fluid" src="asset/images/Portfolio_Pictures/img3.jpg">
-            </a>
-          </div>
-          <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-            <a href="asset/images/Portfolio_Pictures/img4.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
-              <span class="icon-search2"></span>
-              <img class="img-fluid" src="asset/images/Portfolio_Pictures/img4.jpg">
-            </a>
-          </div>
-          <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-            <a href="asset/images/Portfolio_Pictures/img5.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
-              <span class="icon-search2"></span>
-              <img class="img-fluid" src="asset/images/Portfolio_Pictures/img5.jpg">
-            </a>
-          </div>
-          <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-            <a href="asset/images/Portfolio_Pictures/img6.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
-              <span class="icon-search2"></span>
-              <img class="img-fluid" src="asset/images/Portfolio_Pictures/img6.jpg">
-            </a>
-          </div>
-          <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-            <a href="asset/images/Portfolio_Pictures/img7.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
-              <span class="icon-search2"></span>
-              <img class="img-fluid" src="asset/images/Portfolio_Pictures/img7.jpg">
-            </a>
-          </div>
+          </div> -->
+          <?php 
+          if(count($photos) > 0)
+          {
+            foreach($photos as $photo_val)
+            {
+              echo "<div class='item photos col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4'>
+                      <a href='asset/upload/gallery/photo/{$photo_val['image_name']}' class='item-wrap fancybox' data-fancybox='gallery2'>
+                      <span class='icon-search2'></span>
+                      <img class='img-fluid' src='asset/upload/gallery/photo/{$photo_val['image_name']}'>
+                      </a>
+                  </div>";
+            }
+          }
+          if(count($videos) > 0)
+          {
+            foreach($videos as $videos_val)
+            {
+              echo "<div class='item videos col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4'>
+                      <a href='asset/upload/gallery/photo/{$videos_val['image_name']}' class='item-wrap fancybox' data-fancybox='gallery2'>
+                      <span class='icon-search2'></span>
+                      <img class='img-fluid' src='asset/upload/gallery/photo/{$videos_val['image_name']}'>
+                      </a>
+                  </div>";
+            }
+          }
+          if(count($songs) > 0)
+          {
+            foreach($songs as $songs_val)
+            {
+              echo "<div class='item songs col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4'>
+                      <a href='asset/upload/gallery/photo/{$songs_val['image_name']}' class='item-wrap fancybox' data-fancybox='gallery2'>
+                      <span class='icon-search2'></span>
+                      <img class='img-fluid' src='asset/upload/gallery/photo/{$songs_val['image_name']}'>
+                      </a>
+                  </div>";
+            }
+          }
+           ?>
         </div>
 
       </div>
@@ -201,8 +153,9 @@
   <script src="asset/js/jquery.sticky.js"></script>
   <script src="asset/js/isotope.pkgd.min.js"></script>
 
-  
-  <script src="asset/js/main.js"></script>
+  <script src="asset/scripts/website_gallery.js" defer></script>
+  <script src="asset/js/main.js" defer></script>
+ 
 
   
     
