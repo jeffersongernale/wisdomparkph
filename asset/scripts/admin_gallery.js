@@ -132,7 +132,7 @@ const GALLERY = (()=>
                         }, toast, 'buttonName');
                     }]
                 ]
-            });
+        });
     }
 
     return this_gallery;

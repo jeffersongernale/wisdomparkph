@@ -21,16 +21,16 @@ const EVENTS = (()=>
                 $.each(data,function(){
                     events_detail += `<tr>
                                         <td class="text-nowrap">
-                                            <button type="button" class="btn btn-sm btn-primary" onclick="EVENTS.update_event(${this.id})"><i class="fa fa-save"></i></button>
-                                            <button class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></button>
-                                            <button class="btn btn-sm btn-success"><i class="fa fa-image"></i></button>
-                                            <button class="btn btn-sm btn-danger" onclick="EVENTS.delete_event(${this.id})"><i class="fa fa-trash"></i></button>
+                                            <button title="SAVE CHANGES" type="button" class="btn btn-sm btn-primary" onclick="EVENTS.update_event(${this.id})"><i class="fa fa-save"></i></button>
+                                            <a href="#" onclick="window.open('asset/upload/event/${this.image}')" title="VIEW PICTURE" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
+                                            <button onclick="EVENTS.show_modal_events_change_pic(${this.id})" title="CHANGE PICTURE" class="btn btn-sm btn-success"><i class="fa fa-image"></i></button>
+                                            <button title="DELETE" class="btn btn-sm btn-danger" onclick="EVENTS.delete_event(${this.id})"><i class="fa fa-trash"></i></button>
                                         </td>
                                         <td>
                                             <input type="text" class="form-control" id="txt_title_${this.id}" value="${this.title}">
                                         </td>
                                         <td style="width:500px">
-                                            <textarea class="form-control" rows="5" id="txt_description_${this.id}"> ${this.description}</textarea>
+                                            <textarea class="form-control" rows="5" id="txt_description_${this.id}">${this.description}</textarea>
                                         </td>
                                         <td class="text-nowrap">
                                             <input type="date" class="form-control" id="txt_event_date_${this.id}" value="${this.event_date}">
@@ -59,19 +59,10 @@ const EVENTS = (()=>
 
                 let events_detail = '';
                 $.each(data,function(){
-                    
-                    events_detail += `<tr>
-                                        <td>
-                                            <input type="text" class="form-control" id="txt_title_${this.id}" value="${this.section}">
-                                        </td>
-                                        <td class="text-nowrap">
-                                        <button class="btn btn-sm btn-primary"><i class="fa fa-save"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-                                        </td>
-                                      </tr>`;
+                    events_detail += `<option>${this.section}</option>`;
                 });
 
-                $('#tbl_event_section tbody').html(events_detail);
+                $('#datalist_section').html(events_detail);
             }
         });
 
@@ -82,15 +73,28 @@ const EVENTS = (()=>
         $.ajax({
             url: 'insert-event',
             type: 'post',
-            data: {
-                title: $('#txt_title').val(),
-                event_date: $('#txt_date_event').val(),
-                description: $('#txt_description').val(),
-                section: $('#slc_section').val(),
-            },
+            data: new FormData($('#form_event')[0]),
+            processData: false,
+            contentType: false,
+            cache      : false,
             success: data =>
             {
-                console.log(data);
+                if(data == true)
+                {
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Record Inserted Successfully!',
+                        position: 'center'
+                    });
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: 'Opps Something went wrong. Please try again.',
+                        position: 'center'
+                    });
+                }
                 EVENTS.get_event();
             }
         });
@@ -98,39 +102,130 @@ const EVENTS = (()=>
 
     this_events.delete_event = (id) =>
     {
-        $.ajax({
-            url: 'delete-event',
-            type: 'post',
-            data: {
-               'id':id
-            },
-            success: data =>
-            {
-                console.log(data);
-                EVENTS.get_event();
-            }
+
+        iziToast.show({
+                theme: 'dark',
+                icon: 'icon-person',
+                title: 'Confirmation :',
+                message: 'Are you sure you want to delete this?',
+                position: 'center', // bottomRight, bottomLeft, topRight, topLeft, center, bottomCenter
+                progressBarColor: 'rgb(0, 255, 184)',
+                titleSize: '20px',
+                messageSize: '20px',
+                transitionIn:'bounceInUp',
+                buttons: [
+                    [`<button>YES</button>`, function (instance, toast) {
+                       //ajax here
+                       $.ajax({
+                            url: 'delete-event',
+                            type: 'post',
+                            data: {
+                            'id':id
+                            },
+                            success: data =>
+                            {
+                                if(data == true)
+                                {
+                                    iziToast.success({
+                                        title: 'OK',
+                                        message: 'Record Deleted Successfully!',
+                                        position: 'center'
+                                    });
+                                }
+                                else
+                                {
+                                    iziToast.error({
+                                        title: 'OK',
+                                        message: 'Opps Something went wrong. Please try again.',
+                                        position: 'center'
+                                    });
+                                }
+                                EVENTS.get_event();
+                            }
+                        });
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }, true], // true to focus
+                    ['<button>CLOSE</button>', function (instance, toast) {
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }]
+                ]
         });
+
+       
     }
 
     this_events.update_event = (id) =>
     {
-        $.ajax({
-            url: 'update-event',
-            type: 'post',
-            data: {
-                title: $(`#txt_title_${id}`).val(),
-                event_date: $(`#txt_event_date_${id}`).val(),
-                description: $(`#txt_description_${id}`).val(),
-                section: $(`#slc_section_${id}`).val(),
-                'id':id
-            },
-            success: data =>
-            {
-                console.log(data);
-                EVENTS.get_event();
-            }
+
+        iziToast.show({
+                theme: 'dark',
+                icon: 'icon-person',
+                title: 'Confirmation :',
+                message: 'Are you sure you want to update this?',
+                position: 'center', // bottomRight, bottomLeft, topRight, topLeft, center, bottomCenter
+                progressBarColor: 'rgb(0, 255, 184)',
+                titleSize: '20px',
+                messageSize: '20px',
+                transitionIn:'bounceInUp',
+                buttons: [
+                    [`<button>YES</button>`, function (instance, toast) {
+                       //ajax here
+
+                       $.ajax({
+                            url: 'update-event',
+                            type: 'post',
+                            data: {
+                                title: $(`#txt_title_${id}`).val(),
+                                event_date: $(`#txt_event_date_${id}`).val(),
+                                description: $(`#txt_description_${id}`).val(),
+                                section: $(`#slc_section_${id}`).val(),
+                                'id':id
+                            },
+                            success: data =>
+                            {
+                                if(data == true)
+                                {
+                                    iziToast.success({
+                                        title: 'OK',
+                                        message: 'Record Updated Successfully!',
+                                        position: 'center'
+                                    });
+                                }
+                                else
+                                {
+                                    iziToast.error({
+                                        title: 'OK',
+                                        message: 'Opps Something went wrong. Please try again.',
+                                        position: 'center'
+                                    });
+                                }
+                                EVENTS.get_event();
+                            }
+                        });
+                      
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }, true], // true to focus
+                    ['<button>CLOSE</button>', function (instance, toast) {
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }]
+                ]
         });
+
+       
     }
 
+    this_events.show_modal_events_change_pic = (id) =>
+    {
+        
+        $('#modal_events_change_pic').modal('show');
+    }
     return this_events;
 })();
