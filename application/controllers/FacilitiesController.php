@@ -44,6 +44,13 @@ class FacilitiesController extends CI_Controller {
     public function delete_facilities()
     {
        $post=$this->input->post();
+
+        $get_file_name = $this->Facilities->get_details(['id' => $post['id']]);
+        $path = './asset/upload/facilities/'.$get_file_name['0']['image'];
+        if(file_exists('your_file_name'))
+        {
+            unlink($path);
+        }
        $result =  $this->Facilities->delete_facilities(['id' => $post['id']]);
        $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }

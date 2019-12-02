@@ -52,6 +52,13 @@ class EventController extends CI_Controller {
     {
         $post = $this->input->post();
 
+        $get_file_name = $this->Events->get_details(['id' => $post['id']]);
+        $path = './asset/upload/event/'.$get_file_name['0']['image'];
+        if(file_exists('your_file_name'))
+        {
+            unlink($path);
+        }
+
         $result  = $this->Events->delete_event($post);
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }
