@@ -69,6 +69,9 @@
         echo $script;
     }
     ?>
+    <script>
+      const _BASE_URL = "<?php echo base_url()?>";
+    </script>
 </body>
 
 </html>

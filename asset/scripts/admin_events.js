@@ -22,7 +22,7 @@ const EVENTS = (()=>
                     events_detail += `<tr>
                                         <td class="text-nowrap">
                                             <button title="SAVE CHANGES" type="button" class="btn btn-sm btn-primary" onclick="EVENTS.update_event(${this.id})"><i class="fa fa-save"></i></button>
-                                            <a href="#" onclick="window.open('asset/upload/event/${this.image}')" title="VIEW PICTURE" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
+                                            <a href="#" onclick="window.open('${_BASE_URL}asset/upload/event/${this.image}')" title="VIEW PICTURE" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
                                             <button onclick="EVENTS.show_modal_events_change_pic(${this.id})" title="CHANGE PICTURE" class="btn btn-sm btn-success"><i class="fa fa-image"></i></button>
                                             <button title="DELETE" class="btn btn-sm btn-danger" onclick="EVENTS.delete_event(${this.id})"><i class="fa fa-trash"></i></button>
                                         </td>

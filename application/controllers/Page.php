@@ -12,6 +12,17 @@ class Page extends CI_Controller {
 		$this->load->helper('Plugin_helper');
 		$this->load->model('Gallery');
 	}
+
+	public function _verify()
+    {
+        if (!isset($_SESSION['wp_username'])) {
+            redirect('wp');
+            die();
+        } else {
+            return $_SESSION['wp_username'];
+        }
+	}
+	
 	public function index()
 	{
 		$this->load->view('index');
@@ -47,6 +58,7 @@ class Page extends CI_Controller {
 
 	public function admin_details()
 	{
+		$this->_verify();
 		$page_data = $this->page_data;
 		$page_data['sidebar']= $this->load->view('template/sidebar.php', null, TRUE);
 		$page_data['navbar']= $this->load->view('template/navbar.php', null, TRUE);

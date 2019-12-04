@@ -25,7 +25,7 @@ const GALLERY = (()=>
                 $.each(data['photos'],function(){
                     gallery_details += ` <tr>
                     <td>
-                    <a href="#" class="btn btn-primary btn-sm"  onclick="window.open('asset/upload/gallery/photo/${this.image_name}')" title="View Picture"><i class="fa fa-eye"></i>&nbsp;VIEW PICTURE</a>
+                    <a href="#" class="btn btn-primary btn-sm"  onclick="window.open('${_BASE_URL}asset/upload/gallery/photo/${this.image_name}')" title="View Picture"><i class="fa fa-eye"></i>&nbsp;VIEW PICTURE</a>
                         <button class="btn btn-danger btn-sm" onclick="GALLERY.delete_gallery_photo(${this.id})"><i class="fa fa-trash"></i>&nbsp;DELETE</button>
                     </td>
                     <td>

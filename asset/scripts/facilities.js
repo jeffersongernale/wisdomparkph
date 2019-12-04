@@ -19,7 +19,7 @@ const FACILITIES = (()=>
                 $.each(data,function(){
                     facility_detail += `<div class="col-md-6 col-lg-6 mb-4 mb-lg-6" data-aos="fade-up">
                     <div class="unit-4">
-                    <img class="image-size" src="asset/upload/facilities/${this.image}">
+                    <img class="image-size" src="${_BASE_URL}asset/upload/facilities/${this.image}">
                     <div class="mt-5">
                         <h3>${this.facilities_name}</h3>
                         <p>${this.description}</p>

@@ -460,7 +460,7 @@ const DETAILS = (()=>
                 $.each(data,function(){
                     tbody += `<tr class="text-center">
                                 <td>
-                                    <a href="#" class="btn btn-primary btn-sm"  onclick="window.open('asset/upload/facilities/${this.image}')" title="View Picture"><i class="fa fa-eye"></i></a>
+                                    <a href="#" class="btn btn-primary btn-sm"  onclick="window.open('${_BASE_URL}asset/upload/facilities/${this.image}')" title="View Picture"><i class="fa fa-eye"></i></a>
                                     <button type="button"  class="btn btn-primary btn-sm" onclick="DETAILS.show_modal_facilities_change_pic(${this.id})"" title="Change Picture"><i class="fa fa-image"></i></button>
                                     <button type="button" class="btn btn-success btn-sm" onclick="DETAILS.update_facilities(${this.id})" title="Save Updated Details"><i class="fa fa-save"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm" onclick="DETAILS.delete_facilities(${this.id})" title="Delete"><i class="fa fa-trash"></i></button>

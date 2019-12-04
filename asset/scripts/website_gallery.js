@@ -25,9 +25,9 @@ const GALLERY = (()=>
                     {
                         details+= `
                         <div class="item ${key} col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-                            <a href="asset/upload/gallery/photo/${this.image_name}" class="item-wrap fancybox" data-fancybox="gallery2">
+                            <a href="${_BASE_URL}asset/upload/gallery/photo/${this.image_name}" class="item-wrap fancybox" data-fancybox="gallery2">
                             <span class="icon-search2"></span>
-                            <img class="img-fluid" src="asset/upload/gallery/photo/${this.image_name}">
+                            <img class="img-fluid" src="${_BASE_URL}asset/upload/gallery/photo/${this.image_name}">
                             </a>
                         </div>`;
                     }
@@ -35,9 +35,9 @@ const GALLERY = (()=>
                     {
                         details+= `
                         <div class="item ${key} col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-                            <a href="asset/upload/gallery/photo/${this.image_name}" class="item-wrap fancybox" data-fancybox="gallery2">
+                            <a href="${_BASE_URL}asset/upload/gallery/photo/${this.image_name}" class="item-wrap fancybox" data-fancybox="gallery2">
                             <span class="icon-search2"></span>
-                            <img class="img-fluid" src="asset/upload/gallery/photo/${this.image_name}">
+                            <img class="img-fluid" src="${_BASE_URL}asset/upload/gallery/photo/${this.image_name}">
                             </a>
                         </div>`;
                     }
@@ -45,9 +45,9 @@ const GALLERY = (()=>
                     {
                         details+= `
                         <div class="item ${key} col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-                            <a href="asset/upload/gallery/photo/${this.image_name}" class="item-wrap fancybox" data-fancybox="gallery2">
+                            <a href="${_BASE_URL}asset/upload/gallery/photo/${this.image_name}" class="item-wrap fancybox" data-fancybox="gallery2">
                             <span class="icon-search2"></span>
-                            <img class="img-fluid" src="asset/upload/gallery/photo/${this.image_name}">
+                            <img class="img-fluid" src="${_BASE_URL}asset/upload/gallery/photo/${this.image_name}">
                             </a>
                         </div>`;
                     }

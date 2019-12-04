@@ -10,7 +10,6 @@ class LoginController extends CI_Controller {
 	{
         parent::__construct();
         $this->load->model('Login');
-		
 	}
 	public function login_submit()
 	{
@@ -23,15 +22,24 @@ class LoginController extends CI_Controller {
 
 
         $result = $this->Login->validate($data);
-        if(count($result) > 0)
-        {
-            redirect('/');
-        }
-      
-        // $this->output->set_content_type('application/json')->set_output(json_encode(count($result)));
-        
 
-	}
+        if(count($result) == 1)
+        {
+            $this->session->set_userdata([
+                'wp_username' => $result['0']['username'],
+            ]);
+            
+            return redirect(base_url('admin-details'));
+        }        
+
+    }
+    
+    public function sign_out()
+    {
+        $this->session->unset_userdata($array_items);
+        $this->session->sess_destroy();
+        redirect(base_url());
+    }
 
 
 

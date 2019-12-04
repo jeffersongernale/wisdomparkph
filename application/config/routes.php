@@ -57,7 +57,7 @@ $route['login'] = 'Page/login';
 $route['facilities'] = 'Page/facilities';
 $route['gallery'] = 'Page/gallery';
 $route['events'] = 'Page/events';
-
+$route['wp'] = 'Page/index';
 
 /**
  * ------------------------------------------------
@@ -77,6 +77,7 @@ $route['update-vision']['POST']     = 'AboutController/update_vision';
 $route['update-goals']['POST']      = 'AboutController/update_goals';
 $route['update-faqs']['POST']       = 'AboutController/update_faqs';
 $route['login-submit']['POST']      = 'LoginController/login_submit';
+$route['sign-out']['GET']      = 'LoginController/sign_out';
 $route['insert-event']['POST']      = 'EventController/insert_event';
 $route['delete-event']['POST']      = 'EventController/delete_event';
 $route['update-event']['POST']      = 'EventController/update_event';
