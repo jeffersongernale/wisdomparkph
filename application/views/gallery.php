@@ -111,9 +111,11 @@
             foreach($videos as $videos_val)
             {
               echo "<div class='item videos col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4'>
-                      <a href='asset/upload/gallery/photo/{$videos_val['image_name']}' class='item-wrap fancybox' data-fancybox='gallery2'>
+                      <a href='https://www.youtube.com/embed/ImtZ5yENzgE?playlist=tgbNymZ7vqY&loop=1' class='item-wrap fancybox' data-fancybox='gallery2'>
                       <span class='icon-search2'></span>
-                      <img class='img-fluid' src='asset/upload/gallery/photo/{$videos_val['image_name']}'>
+                      <iframe width='420' height='315' class='img-fluid'
+                      src='https://www.youtube.com/embed/ImtZ5yENzgE?playlist=tgbNymZ7vqY&loop=1'>
+                      </iframe>
                       </a>
                   </div>";
             }
