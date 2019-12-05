@@ -13,7 +13,7 @@
                     <i class="fa fa-image"></i>&nbsp;PHOTOS
                 </h6>
             </div>
-            <div id="collapse_header" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div id="collapse_header" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
                     <div class="card">
                         <!-- <img src="..." class="card-img-top" alt="..."> -->
@@ -41,7 +41,7 @@
 
                             <fieldset class="border pb-3 pr-3 pl-3 mb-4">
                                 <legend class="w-auto font-weight-bold pl-2 pr-2"><i class="fa fa-database"></i>&nbsp;Current</legend>
-                                <table class="table table-bordered table-striped" id="tbl_gallery_admin">
+                                <table class="table table-bordered table-striped" id="tbl_photo_admin">
                                 
                             </table>
                             </fieldset>
@@ -71,36 +71,22 @@
 
                             <fieldset class="border pb-3 pr-3 pl-3">
                                 <legend class="w-auto font-weight-bold pl-2 pr-2 fieldset_header"><i class="fa fa-edit"></i>&nbsp;New</legend>
-                                <input type="text" class="form-control" placeholder="embed video here">
+                                <b>Youtube Video ID: </b> 
+                                <a href="#" onclick="window.open('<?php echo base_url('asset/images/website/YoutubeID.png')?>');" class="ml-3"  style="text-decoration: underline"><i class="fa fa-question-circle"></i>&nbsp;What is a Youtube Video ID?</a>
+                                <input type="text" class="form-control" placeholder="Embed Video Here">
+                                <!-- <b>Title: </b>
+                                <input type="text" class="form-control" placeholder="Input here"> -->
+                                <b>Description: </b>
+                                <textarea class="form-control" rows="5" placeholder="Input Here"></textarea>
                                 <button type="button" id="btn_header_submit" class="btn btn-sm btn-danger float-right mt-3"><i class="fa fa-times"></i>&nbsp;CANCEL</button>
                             <button type="button" id="btn_header_submit" class="btn btn-sm btn-primary float-right mt-3 mr-2"><i class="fa fa-paper-plane"></i>&nbsp;SUBMIT</button>
                             </fieldset>
 
                             <fieldset class="border pb-3 pr-3 pl-3 mb-4">
                                 <legend class="w-auto font-weight-bold pl-2 pr-2"><i class="fa fa-database"></i>&nbsp;Current</legend>
-                                <table class="table table-bordered table-striped">
-                                <thead>
-                                    <th class="text-nowrap text-center" style="width:20vw;">CONTROLS</th>
-                                    <th  class="text-nowrap">TITLE</th>
-                                    <th>DESCRIPTION</th>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center">
-                                            <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>&nbsp;EDIT</button>
-                                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>&nbsp;DELETE</button>
-                                        </td>
-                                        <td>
-                                            Library
-                                        </td>
-                                        <td>
-                                        <p>Wisdom Park Library houses more than a thousand books in English, Chinese, and Filipino covering various aspects, doctrines, ethics, and practices of the Mahayana, Vajrayana, Theravada, Zen, and Tibetan schools of Buddhism. It also offers a sizable collection of books of related topics such as Psychology, Philosophy, Health, Science, and Meditation. It is a place where students may conduct research, discussions, and studies on topics such as Comparative Religion and various Buddhist schools, traditions, and orientations.
-                                        Wisdom Park Library aims to promote understanding and appreciation of Buddhism through study, discussion, and practice.
-                                        The Library is conducive to reading and studying. Its use is free of charge. It is open to the public from Mondays to Sundays between 9 am and 6 pm. There are also books for free distribution which you may enquire with the person in charge.
-                                        </p>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                <table class="table table-bordered table-striped" id="tbl_video_admin">
+                                
+                               
                             </table>
                             </fieldset>
 

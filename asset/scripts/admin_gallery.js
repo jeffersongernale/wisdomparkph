@@ -16,14 +16,14 @@ const GALLERY = (()=>
             success:data=>
             {
                 console.log(data);
-                let gallery_details = '';
-                gallery_details +=`<thead>
+                let gallery_photo = '';
+                gallery_photo +=`<thead>
                                         <th class="text-nowrap text-center" style="width:20vw;">CONTROLS</th>
                                         <th>IMAGE</th>
                                     </thead>
                                     <tbody class="text-center">`;
                 $.each(data['photos'],function(){
-                    gallery_details += ` <tr>
+                    gallery_photo += ` <tr>
                     <td>
                     <a href="#" class="btn btn-primary btn-sm"  onclick="window.open('${_BASE_URL}asset/upload/gallery/photo/${this.image_name}')" title="View Picture"><i class="fa fa-eye"></i>&nbsp;VIEW PICTURE</a>
                         <button class="btn btn-danger btn-sm" onclick="GALLERY.delete_gallery_photo(${this.id})"><i class="fa fa-trash"></i>&nbsp;DELETE</button>
@@ -33,11 +33,43 @@ const GALLERY = (()=>
                     </td>
                 </tr>`;
                 });
-                gallery_details+='</tbody>';
+                gallery_photo+='</tbody>';
+                // $('#tbl_photo_admin').dataTable().destroy();
+                $('#tbl_photo_admin').html(gallery_photo);
+                $('#tbl_photo_admin').DataTable().destroy();
+                $('#tbl_photo_admin').DataTable({
+                    pageLength: 2
+                });
 
-                $('#tbl_gallery_admin').html(gallery_details);
-                $('#tbl_gallery_admin').dataTable();
+
                 
+                let gallery_video = '';
+                gallery_video =`<thead>
+                                    <th class="text-nowrap text-center">CONTROLS</th>
+                                    <th class="text-nowrap text-center">PREVIEW</th>
+                                    <th class="text-nowrap text-center" >VIDEO ID</th>
+                                </thead>`;
+                $.each(data['videos'],function(){
+                    gallery_video += ` <tr class="text-center">
+                                            <td  style="width:20%">
+                                                <button class="btn btn-primary btn-sm" onclick="window.open('https://www.youtube.com/watch?v=${this.image_name}')"><i class="fab fa-youtube"></i>&nbsp;PLAY IN YOUTUBE</button>
+                                                <button class="btn btn-danger btn-sm" onclick="GALLERY.delete_gallery_video(${this.id})"><i class="fa fa-trash"></i>&nbsp;DELETE</button>
+                                            </td>
+                                            <td  style="width: 30%">
+                                                <iframe width='420' height='315'
+                                                src='https://www.youtube.com/embed/${this.image_name}?playlist=tgbNymZ7vqY&loop=1'>
+                                                </iframe>
+                                            </td>
+                                            <td  style="width: 50%">
+                                                <p>${this.image_name}</p>
+                                            </td>
+                                        </tr>`;
+                });
+                $('#tbl_video_admin').html(gallery_video);
+                $('#tbl_video_admin').DataTable().destroy();
+                $('#tbl_video_admin').DataTable({
+                    pageLength: 2
+                });
             }
         });
 
@@ -134,6 +166,65 @@ const GALLERY = (()=>
                 ]
         });
     }
+
+    this_gallery.delete_gallery_video = (id) =>
+    {
+        iziToast.show({
+                theme: 'dark',
+                icon: 'icon-person',
+                title: 'Confirmation :',
+                message: 'Are you sure you want to delete this?',
+                position: 'center', // bottomRight, bottomLeft, topRight, topLeft, center, bottomCenter
+                progressBarColor: 'rgb(0, 255, 184)',
+                titleSize: '20px',
+                messageSize: '20px',
+                transitionIn:'bounceInUp',
+                buttons: [
+                    [`<button>YES</button>`, function (instance, toast) {
+                       //ajax here
+                        $.ajax({
+                            url:'delete-gallery-video',
+                            type:'post',
+                            data:{
+                                'id': id
+                            },
+                            success: data =>
+                            {
+                                console.log(data);
+                                if(data == true)
+                                {
+                                    iziToast.success({
+                                        title: 'OK',
+                                        message: 'Record Deleted Successfully!',
+                                        position: 'center'
+                                    });
+                                }
+                                else
+                                {
+                                    iziToast.error({
+                                        title: 'OK',
+                                        message: 'Opps Something went wrong. Please try again.',
+                                        position: 'center'
+                                    });
+                                }
+                
+                                GALLERY.load_gallery();
+                            }
+                        });
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }, true], // true to focus
+                    ['<button>CLOSE</button>', function (instance, toast) {
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }]
+                ]
+        });
+    }
+    
+
 
     return this_gallery;
 })();

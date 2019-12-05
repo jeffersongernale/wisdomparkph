@@ -74,7 +74,15 @@ class GalleryController extends CI_Controller {
         {
             $result = unlink($path);
         }
-        $result = $this->Gallery->delete_gallery_photo(['id' => $post['id']]);
+        $result = $this->Gallery->delete_gallery(['id' => $post['id']]);
+        $this->output->set_content_type('application/json')->set_output(json_encode($result));
+    }
+
+    public function delete_gallery_video()
+    {
+        $this->_verify();
+        $post = $this->input->post();
+        $result = $this->Gallery->delete_gallery(['id' => $post['id']]);
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }
 

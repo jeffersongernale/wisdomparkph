@@ -22,7 +22,7 @@ class Gallery extends CI_Model {
     {
         return $this->db->insert('gallery',$data);
     }
-    public function delete_gallery_photo($data)
+    public function delete_gallery($data)
     {
         $this->db->where($data);
         return $this->db->delete('gallery');
