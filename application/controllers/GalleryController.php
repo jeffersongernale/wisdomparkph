@@ -69,10 +69,10 @@ class GalleryController extends CI_Controller {
         $this->_verify();
         $post = $this->input->post();
         $get_file_name = $this->Gallery->get_gallery(['id' => $post['id']]);
-        $path = './asset/upload/facilities/'.$get_file_name['0']['image_name'];
-        if(file_exists('your_file_name'))
+        $path = './asset/upload/gallery/photo/'.$get_file_name['0']['image_name'];
+        if(file_exists($path))
         {
-            unlink($path);
+            $result = unlink($path);
         }
         $result = $this->Gallery->delete_gallery_photo(['id' => $post['id']]);
         $this->output->set_content_type('application/json')->set_output(json_encode($result));

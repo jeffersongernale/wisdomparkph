@@ -58,7 +58,7 @@ class FacilitiesController extends CI_Controller {
 
         $get_file_name = $this->Facilities->get_details(['id' => $post['id']]);
         $path = './asset/upload/facilities/'.$get_file_name['0']['image'];
-        if(file_exists('your_file_name'))
+        if(file_exists($path))
         {
             unlink($path);
         }

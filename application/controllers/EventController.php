@@ -69,7 +69,7 @@ class EventController extends CI_Controller {
 
         $get_file_name = $this->Events->get_events(['id' => $post['id']]);
         $path = './asset/upload/event/'.$get_file_name['0']['image'];
-        if(file_exists('your_file_name'))
+        if(file_exists($path))
         {
             unlink($path);
         }
