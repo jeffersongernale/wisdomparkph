@@ -14,17 +14,20 @@
 
     <div class="wrapper">
         <div class="container">
-            <img src="<?php echo base_url('asset/images/LOGO/LOGO.png'); ?>" class="login_logo">
-            <h2>WISDOM PARK</h2> <br>
-            <h4>Administrator Panel</h4>
-            <br>
+            <div class="log_cont">
+                <img src="<?php echo base_url('asset/images/LOGO/LOGO.png'); ?>" class="login_logo">
+                <h2>WISDOM PARK</h2> <br>
+                <h4>Administrator Panel</h4>
+                <br>
 
-            <form class="form" action = "login-submit" method="POST" id="form_login">
-                <input type="text" placeholder="Username" name="txt_username">
-                <input type="password" placeholder="Password" name="txt_password">
-                <button type="submit" id="login-button"><i class="fa fa-paper-plane"></i>&nbsp;LOGIN</button>
-                <button type="button" id="login-button"><i class="fa fa-undo"></i>&nbsp;RETURN</button>
-            </form>
+                <form class="form" action = "login-submit" method="POST" id="form_login">
+                    <input type="text" placeholder="Username" name="txt_username">
+                    <input type="password" placeholder="Password" name="txt_password">
+                    <button type="submit" id="login-button"><i class="fa fa-paper-plane"></i>&nbsp;LOGIN</button>
+                    <button type="button" id="return-button" onclick="location.href = '<?php echo base_url()?>'"><i class="fa fa-undo"></i>&nbsp;RETURN</button>
+                </form>
+            </div>
+           
 
           
                 

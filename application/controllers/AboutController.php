@@ -7,10 +7,21 @@ class AboutController extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Details');
+        if (!isset($_SESSION['wp_username'])) 
+        {
+            redirect(base_url('login'));
+            die();
+        } 
+        else 
+        {
+            return $_SESSION['wp_username'];
+        }
     }
+	
 
     public function insert_details()
     {
+        $this->_verify();
         $post = $this->input->post();
         $result = $this->Details->insert_details($post);
         $this->output->set_content_type('application/json')->set_output(json_encode($result));

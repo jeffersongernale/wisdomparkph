@@ -11,6 +11,19 @@ class GalleryController extends CI_Controller {
         
     }
 
+    public function _verify()
+    {
+        if (!isset($_SESSION['wp_username'])) 
+        {
+            redirect(base_url('login'));
+            die();
+        } 
+        else 
+        {
+            return $_SESSION['wp_username'];
+        }
+    }
+
     public function get_gallery()
     {
         
@@ -22,6 +35,7 @@ class GalleryController extends CI_Controller {
 
     public function insert_gallery_photo()
     {
+        $this->_verify();
         $post = $this->input->post();
         $config['upload_path']   = './asset/upload/gallery/photo';
         $config['allowed_types'] = 'jpg|png|jpeg';
@@ -52,6 +66,7 @@ class GalleryController extends CI_Controller {
 
     public function delete_gallery_photo()
     {
+        $this->_verify();
         $post = $this->input->post();
         $get_file_name = $this->Gallery->get_gallery(['id' => $post['id']]);
         $path = './asset/upload/facilities/'.$get_file_name['0']['image_name'];

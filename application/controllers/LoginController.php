@@ -38,7 +38,7 @@ class LoginController extends CI_Controller {
     {
         $this->session->unset_userdata($array_items);
         $this->session->sess_destroy();
-        redirect(base_url());
+        redirect(base_url('login'));
     }
 
 

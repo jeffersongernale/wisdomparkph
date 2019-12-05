@@ -7,6 +7,17 @@ class FacilitiesController extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Facilities');
+
+        if (!isset($_SESSION['wp_username'])) 
+        {
+            redirect(base_url('login'));
+            die();
+        } 
+        else 
+        {
+            return $_SESSION['wp_username'];
+        }
+
     }
 
     public function insert_facilities()

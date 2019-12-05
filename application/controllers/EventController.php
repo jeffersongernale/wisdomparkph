@@ -9,6 +9,19 @@ class EventController extends CI_Controller {
         $this->load->model('Events');
     }
 
+    public function _verify()
+    {
+        if (!isset($_SESSION['wp_username'])) 
+        {
+            redirect(base_url('login'));
+            die();
+        } 
+        else 
+        {
+            return $_SESSION['wp_username'];
+        }
+    }
+    
     public function get_section()
     {
         
@@ -18,6 +31,7 @@ class EventController extends CI_Controller {
 
     public function insert_event()
     {
+        $this->_verify();
         $post = $this->input->post();
         $config['upload_path']   = './asset/upload/event';
         $config['allowed_types'] = 'jpg|png|jpeg';
@@ -50,6 +64,7 @@ class EventController extends CI_Controller {
 
     public function delete_event()
     {
+        $this->_verify();
         $post = $this->input->post();
 
         $get_file_name = $this->Events->get_events(['id' => $post['id']]);
@@ -65,6 +80,7 @@ class EventController extends CI_Controller {
 
     public function update_event()
     {
+        $this->_verify();
         $post = $this->input->post();
 
         $condition = ['id' => $post['id']];
