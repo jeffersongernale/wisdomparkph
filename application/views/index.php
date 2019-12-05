@@ -268,7 +268,21 @@
       </div>
   </section> -->
 
-   
+  <section class="site-section" id="blog-section">
+      <div class="container">
+          <div class="row mb-5">
+            <div class="col-12 text-center" data-aos="fade">
+              <h2 class="section-title mb-3">Our Location</h2>
+            </div>
+          </div>
+          <p class="text-center">#14, Broadway Ave, cor. 3<sup>rd</sup> St.,New Manila, Quezon City, Metro Manila, Philippines</p>
+        <div style="margin: 0 auto" class="border">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1623.2444606787572!2d121.03130684292138!3d14.613441991905187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b62d60c73005%3A0xe8f3f8143ef60931!2sWisdom%20Park!5e0!3m2!1sen!2ssg!4v1575509591775!5m2!1sen!2ssg" 
+          width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="true"></iframe>
+        </div>
+        
+      </div>
+  </section>
 
 
   <section class="site-section bg-light" id="contact-section" data-aos="fade">
