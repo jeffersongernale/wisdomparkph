@@ -99,6 +99,7 @@ $route['update-facilities-pic']['POST']              = 'FacilitiesController/upd
   $route['get-facilities-details']          = 'WebsiteDetailsController/get_facilities_details';
   $route['get-events']                      = 'WebsiteDetailsController/get_events_details';
   $route['get-gallery']['GET']                     = 'GalleryController/get_gallery';
+  $route['sendmail']['GET']                     = 'NewsletterController/send_phpmailer';
   
 
 
