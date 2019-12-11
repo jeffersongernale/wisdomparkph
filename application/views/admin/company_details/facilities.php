@@ -56,7 +56,7 @@
 
 <div class="modal fade" id="modal_facilities_change_pic" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
-        <form id="modal_form_facilities" enctype="multipart/form-data">
+        <form id="modal_form_facilities" enctype="multipart/form-data" method="POST">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"><i class="fa fa-image"></i>&nbsp;CHANGE PICTURE</h5>
@@ -66,7 +66,8 @@
             </div>
             <div class="modal-body">
                 <b>Select a picture to upload</b>
-                <input type="file" class="form-control" id="file_facilities_image">
+                <input type="file" class="form-control" id="file_facilities_image" name="file_facilities_image" required>
+                <!-- <input type="text" name="lalala"> -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-sm btn-primary" onclick="DETAILS.update_facilities_modals_submit()"><i class="fa fa-save"></i>&nbsp;SAVE</button>

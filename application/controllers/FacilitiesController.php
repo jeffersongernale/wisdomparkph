@@ -79,4 +79,46 @@ class FacilitiesController extends CI_Controller {
 
     }
 
+    public function update_facilities_pic()
+    {
+        $post = $this->input->post();
+
+        $config['upload_path']   = './asset/upload/facilities';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['max_width']     = '1024';
+        $config['max_height']    = '786';
+        $new_name                = time().$_FILES["file_facilities_image"]['name'];
+        $config['file_name']     = $new_name;
+
+        $this->load->library('upload',$config);
+
+
+        if( !$this->upload->do_upload('file_facilities_image'))
+        {
+            $result = ['error' => $this->upload->display_errors()];
+        }
+        else
+        {
+            
+            
+            $img_data = ['upload_data' => $this->upload->data()];
+
+            $get_file_name = $this->Facilities->get_details(['id' => $post['id']]);
+            $path = './asset/upload/facilities/'.$get_file_name['0']['image'];
+            if(file_exists($path))
+            {
+                unlink($path);
+            }
+
+            
+            $data = [
+                'image'           => $new_name
+            ];
+    
+
+            $result = $this->Facilities->update_facilities($data,['id' => $post['id']]);
+        }
+        $this->output->set_content_type('application/json')->set_output(json_encode($result));
+    }
+
 }

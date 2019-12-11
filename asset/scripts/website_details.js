@@ -461,7 +461,7 @@ const DETAILS = (()=>
                     tbody += `<tr class="text-center">
                                 <td>
                                     <a href="#" class="btn btn-primary btn-sm"  onclick="window.open('${_BASE_URL}asset/upload/facilities/${this.image}')" title="View Picture"><i class="fa fa-eye"></i></a>
-                                    <button type="button"  class="btn btn-primary btn-sm" onclick="DETAILS.show_modal_facilities_change_pic(${this.id})"" title="Change Picture"><i class="fa fa-image"></i></button>
+                                    <button type="button"  class="btn btn-primary btn-sm" onclick="DETAILS.show_modal_facilities_change_pic(${this.id})"" title="Change Picture"><i class="fa fa-camera"></i></button>
                                     <button type="button" class="btn btn-success btn-sm" onclick="DETAILS.update_facilities(${this.id})" title="Save Updated Details"><i class="fa fa-save"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm" onclick="DETAILS.delete_facilities(${this.id})" title="Delete"><i class="fa fa-trash"></i></button>
                                 </td>
@@ -601,7 +601,7 @@ const DETAILS = (()=>
                         }, toast, 'buttonName');
                     }]
                 ]
-            });
+        });
 
       
     }
@@ -614,12 +614,47 @@ const DETAILS = (()=>
 
     this_details.update_facilities_modals_submit = () =>
     {
-    //    form = new FormData($('#modal_facilities_change_pic')[0]);
-    //    console.log(form);
+        var form = new FormData($('#modal_form_facilities')[0]);
+        form.append('id',facilities_update_id);
+
+        $.ajax({
+            url        : 'update-facilities-pic',
+            type       : 'POST',
+            data       : form,
+            processData: false,
+            contentType: false,
+            cache      : false,
+            success: data => 
+            {
+                if(data == true)
+                {
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Record Deleted Successfully!',
+                        position: 'center'
+                    });
+                    $('#modal_facilities_change_pic').modal('hide');
+
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: data.error,
+                        position: 'center'
+                    });
+                }
+                DETAILS.get_facilities();
+            }
+        });
+
+
+      
     }
 
     $('#modal_facilities_change_pic').on('hidden.bs.modal', function(){
         facilities_update_id = 0;
+        $('#modal_form_facilities')[0].reset();
     })
 
     return this_details;
