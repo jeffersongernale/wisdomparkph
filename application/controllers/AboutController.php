@@ -21,7 +21,7 @@ class AboutController extends CI_Controller {
 
     public function insert_details()
     {
-        $this->_verify();
+        
         $post = $this->input->post();
         $result = $this->Details->insert_details($post);
         $this->output->set_content_type('application/json')->set_output(json_encode($result));

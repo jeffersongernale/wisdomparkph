@@ -1,6 +1,6 @@
 
-    <h3>ABOUT</h3>
-    <p>All details regarding with the about section can be edited here. For more detailed illustration please view the attached guide.</p>
+    <h3>GALLERY</h3>
+    <p>All photos,videos, and songs are uploaded in this section.</p>
     <button class="btn btn-sm btn-primary float-right"><i class="fa fa-eye"></i>&nbsp;VIEW GUIDE</button>
     <br>
     <br>
