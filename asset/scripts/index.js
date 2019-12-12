@@ -44,29 +44,45 @@ const DETAILS = (()=>
                         //                     </div>
                         //                 </div>`;
 
-                        faqs_text+=`<button class="accordion font-weight-bold">  &bull; ${this.description}</button>
-                                    <div class="panel">
-                                      <p>${this.answer}</p>
-                                    </div>`;
-                                    ctr++;
+                        // faqs_text+=`<li><button class="accordion font-weight-bold">${this.description}</button>
+                        //             <div class="panel">
+                        //               <p>${this.answer}</p>
+                        //             </div></li>`;
+                        //             ctr++;
 
+                        faqs_text+=`
+                                    <div class="card">
+                                    <div class="card-header text-black text-uppercase" id="headingOne" data-toggle="collapse" data-target="#collapse${this.id}" aria-expanded="true" aria-controls="collapse${this.id}">
+                                    <h3 class="mb-0 h3">
+                                           ${ctr}. ${this.description}
+                                    
+                                    </h3>
+                                    </div>
+                        
+                                    <div id="collapse${this.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                    ${this.answer}
+                                    </div>
+                                    </div>
+                                </div>
+                        `;
+                        ctr+=1;
                     }
                 });
-
                 $('#mission_text').html(mission_text);
                 $('#vision_text').html(vision_text);
                 $('#ul_goals').html(goals);
                 $('.faqs_text').html(faqs_text);
 
-                    var acc = document.getElementsByClassName("accordion");
-                    var i;
+                    // var acc = document.getElementsByClassName("accordion");
+                    // var i;
 
-                    for (i = 0; i < acc.length; i++) {
-                        acc[i].onclick = function(){
-                            this.classList.toggle("active");
-                            this.nextElementSibling.classList.toggle("show");
-                      }
-                    }
+                    // for (i = 0; i < acc.length; i++) {
+                    //     acc[i].onclick = function(){
+                    //         this.classList.toggle("active");
+                    //         this.nextElementSibling.classList.toggle("show");
+                    //   }
+                    // }
             }
         });
     }

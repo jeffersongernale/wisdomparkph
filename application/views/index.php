@@ -167,11 +167,14 @@
       <div class="col-12 text-center" data-aos="fade">
         <h2 class="section-title">Frequently Asked Questions</h2>
       </div>
-      <div class="row  mt-5 faqs_text">
+        <!-- <div class="row  mt-5 faqs_text">
             
 
 
-        </div>
+        </div> -->
+        
+        <div class="accordion faqs_text" id="accordionExample">
+     
       </div>
       
     </div>
