@@ -1,5 +1,5 @@
 <?php 
-setcookie('cross-site-cookie', 'name', ['samesite' => 'None', 'secure' => true]);
+//setcookie('cross-site-cookie', 'name', ['samesite' => 'None', 'secure' => true]);
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -7,6 +7,7 @@ $(document).ready(()=>
 const EVENTS = (()=>
 {
     let this_events = {};
+    let events_update_id = 0;
 
     this_events.get_event = () =>
     {
@@ -224,8 +225,50 @@ const EVENTS = (()=>
 
     this_events.show_modal_events_change_pic = (id) =>
     {
-        
+        events_update_id = id;
         $('#modal_events_change_pic').modal('show');
     }
+
+
+    this_events.update_event_modals_submit = () =>
+    {
+        var form = new FormData($('#modal_form_events')[0]);
+        form.append('id',events_update_id);
+
+        $.ajax({
+            url        : 'update-events-pic',
+            type       : 'POST',
+            data       : form,
+            processData: false,
+            contentType: false,
+            cache      : false,
+            success: data => 
+            {
+                if(data == true)
+                {
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Record Updated Successfully!',
+                        position: 'center'
+                    });
+                    $('#modal_events_change_pic').modal('hide');
+
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: data.error,
+                        position: 'center'
+                    });
+                }
+                EVENTS.get_event();
+            }
+        });
+
+
+      
+    }
+
     return this_events;
 })();

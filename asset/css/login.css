@@ -93,10 +93,10 @@ body :-ms-input-placeholder {
     height: 400px;
     text-align: center;
 }
-.log_cont
+.log_cont11
 {
     padding-top: 30px;
-    height: 60vh;
+    height: 100%;
     background-color: rgba(255, 255, 255, 0.315);
     box-shadow: 0 0 10px rgb(17, 106, 240);
 }

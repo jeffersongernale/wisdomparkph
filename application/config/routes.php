@@ -87,7 +87,8 @@ $route['update-facilities']['POST']    = 'FacilitiesController/update_facilities
 $route['insert-gallery-photo']['POST'] = 'GalleryController/insert_gallery_photo';
 $route['delete-gallery-photo']['POST'] = 'GalleryController/delete_gallery_photo';
 $route['delete-gallery-video']['POST'] = 'GalleryController/delete_gallery_video';
-$route['update-facilities-pic']['POST']              = 'FacilitiesController/update_facilities_pic';
+$route['update-facilities-pic']['POST']  = 'FacilitiesController/update_facilities_pic';
+$route['update-events-pic']['POST']  = 'EventController/update_events_pic';
 
 
 /**

@@ -30,7 +30,11 @@ class LoginController extends CI_Controller {
             ]);
             
             return redirect(base_url('admin-details'));
-        }        
+        }
+        else
+        {
+            return redirect(base_url('login?error=true'));
+        }   
 
     }
     

@@ -56,7 +56,7 @@
 
     <div class="modal fade" id="modal_events_change_pic" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-            <form id="modal_form_facilities" enctype="multipart/form-data">
+            <form id="modal_form_events" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title"><i class="fa fa-image"></i>&nbsp;CHANGE PICTURE</h5>
@@ -66,10 +66,10 @@
                 </div>
                 <div class="modal-body">
                     <b>Select a picture to upload</b>
-                    <input type="file" class="form-control" id="file_events_image">
+                    <input type="file" class="form-control" id="file_events_image" name="file_events_image">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-save"></i>&nbsp;SAVE</button>
+                    <button type="button" class="btn btn-sm btn-primary" onclick="EVENTS.update_event_modals_submit()"><i class="fa fa-save"></i>&nbsp;SAVE</button>
                 </div>
             </div>
             </form>

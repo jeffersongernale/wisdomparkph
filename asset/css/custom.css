@@ -247,3 +247,14 @@ div.panel.show {
   {
     color: black !important;
   }
+
+
+  .faqs_header
+  {
+    background-color: white !important;
+  }
+  .faqs_card
+  {
+    border: none !important;
+  }
+

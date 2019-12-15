@@ -24,7 +24,8 @@
     <link rel="stylesheet" href="asset/css/aos.css">
 
     <link rel="stylesheet" href="asset/css/style.css">
-     <link rel="stylesheet" href="asset/css/custom.css">
+    <link rel="stylesheet" href="asset/css/custom.css">
+
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
   
@@ -164,7 +165,7 @@
 
   <section class="site-section" id="faq-section">
     <div class="container">
-      <div class="col-12 text-center" data-aos="fade">
+      <div class="col-12 text-center mb-5" data-aos="fade">
         <h2 class="section-title">Frequently Asked Questions</h2>
       </div>
         <!-- <div class="row  mt-5 faqs_text">

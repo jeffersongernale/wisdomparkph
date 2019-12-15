@@ -94,4 +94,47 @@ class EventController extends CI_Controller {
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
 
     }
+
+
+    public function update_events_pic()
+    {
+        $post = $this->input->post();
+
+        $config['upload_path']   = './asset/upload/event';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['max_width']     = '1024';
+        $config['max_height']    = '786';
+        $new_name                = time().$_FILES["file_events_image"]['name'];
+        $config['file_name']     = $new_name;
+
+        $this->load->library('upload',$config);
+
+
+        if( !$this->upload->do_upload('file_events_image'))
+        {
+            $result = ['error' => $this->upload->display_errors()];
+        }
+        else
+        {
+            
+            
+            $img_data = ['upload_data' => $this->upload->data()];
+
+            $get_file_name = $this->Events->get_events(['id' => $post['id']]);
+            $path = './asset/upload/event/'.$get_file_name['0']['image'];
+            if(file_exists($path))
+            {
+                unlink($path);
+            }
+
+            
+            $data = [
+                'image'           => $new_name
+            ];
+    
+
+            $result = $this->Events->update_event(['id' => $post['id']],$data);
+        }
+        $this->output->set_content_type('application/json')->set_output(json_encode($result));
+    }
 }

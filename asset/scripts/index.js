@@ -51,8 +51,8 @@ const DETAILS = (()=>
                         //             ctr++;
 
                         faqs_text+=`
-                                    <div class="card">
-                                    <div class="card-header text-black text-uppercase" id="headingOne" data-toggle="collapse" data-target="#collapse${this.id}" aria-expanded="true" aria-controls="collapse${this.id}">
+                                    <div class="card faqs_card">
+                                    <div class="card-header text-black text-uppercase faqs_header" id="headingOne" data-toggle="collapse" data-target="#collapse${this.id}" aria-expanded="true" aria-controls="collapse${this.id}">
                                     <h3 class="mb-0 h3">
                                            ${ctr}. ${this.description}
                                     

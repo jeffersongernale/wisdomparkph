@@ -8,6 +8,7 @@
     <title>Wisdom Park - Admin Panel</title>
     <link rel="stylesheet" href="<?php echo base_url('asset/css/login.css')?>">
     <link href="<?php echo base_url('asset/node_modules/@fortawesome/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('asset/node_modules/izitoast/dist/css/iziToast.min.css'); ?>" rel="stylesheet">
 </head>
 
 <body>
@@ -47,6 +48,8 @@
         </ul>
     </div>
 
+   
+
     <script>
         // $("#login-button").click(function(event) {
         //     event.preventDefault();
@@ -57,7 +60,19 @@
     </script>
     <script src="<?php echo base_url('asset/js/jquery-3.3.1.min.js'); ?>"></script>
     <script src="<?php echo base_url('asset/scripts/login.js'); ?>"></script>
-      
+    <script src="<?php echo base_url('asset/node_modules/izitoast/dist/js/iziToast.min.js') ;?>"></script>
+
+    <?php 
+        if(isset($_GET['error']))
+        {
+            echo '<script>iziToast.error({
+                title: "ERROR",
+                message: "Invalid Login Credentials. Please check your username or password",
+                position: "center"
+            });</script>';
+        }
+    ?>
+    
 </body>
 
 </html>
