@@ -25,6 +25,8 @@
 
     <link rel="stylesheet" href="asset/css/style.css">
     <link rel="stylesheet" href="asset/css/custom.css">
+    <!-- <script src="https://balkangraph.com/js/latest/OrgChart.js"></script> -->
+    <script src="<?php echo base_url('asset/node_modules/balkangraph/all.min.js') ?>"></script>
 
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -92,7 +94,20 @@
 
     
     
-    
+<section class="site-section testimonial-wrap bg-light" id="orgchart-section" data-aos="fade">
+         <div class="container">
+         <div class="row mb-5">
+            <div class="col-12 text-center" data-aos="fade">
+              <h2 class="section-title mb-3">ORGANIZATIONAL CHART</h2>
+            </div>
+          </div>
+        <div class="m-5" id="tree" ></div>
+         </div>
+       
+
+   
+  </section>
+
   
 
   <!-- <section class="site-section testimonial-wrap bg-light" id="testimonials-section" data-aos="fade">
@@ -165,18 +180,11 @@
 
   <section class="site-section" id="faq-section">
     <div class="container">
-      <div class="col-12 text-center mb-5" data-aos="fade">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-      </div>
-        <!-- <div class="row  mt-5 faqs_text">
-            
-
-
-        </div> -->
-        
+        <div class="col-12 text-center mb-5" data-aos="fade">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
         <div class="accordion faqs_text" id="accordionExample">
-     
-      </div>
+        </div>
       
     </div>
   </section>
@@ -397,7 +405,82 @@
   <script src="asset/js/main.js"></script>
   <script src="asset/scripts/index.js"></script>
 
-  
+  <script>
+  var chart = new OrgChart(document.getElementById("tree"), {
+            template: "diva",         
+            showYScroll: OrgChart.scroll.visible, 
+            mouseScrool: OrgChart.action.yScroll,
+            layout: OrgChart.normal,
+            // scaleInitial: OrgChart.match.width,
+            scaleInitial: OrgChart.match.boundary,
+            enableSearch: true,
+            nodeBinding: {
+                field_0: "name",
+                field_1: "position",
+                img_0: "img"
+            },
+            nodes: [
+                { id: 1, name: "Amber McKenzie", img: _BASE_URL+"asset/images/hero_1.jpg", position: "President"},
+                { id: 2, pid: 1, name: "Ava Field" },
+                { id: 3, pid: 1, name: "Peter Stevens" },
+                { id: 4, pid: 2, name: "Ava Field" },
+                { id: 5, pid: 2, name: "Peter Stevens" },
+                { id: 6, pid: 3, name: "Peter Stevens" },
+                { id: 7, pid: 3, name: "Peter Stevens" },
+                { id: 8, pid: 4, name: "Peter Stevens" }
+            ]
+        });
+
+  // OrgChart.MIXED_LAYOUT_ALL_NODES = false;
+  // var chart = new OrgChart(document.getElementById("tree"), {   
+  //           template: "rony",         
+  //           showYScroll: OrgChart.scroll.visible, 
+  //           mouseScrool: OrgChart.action.yScroll,
+  //           layout: OrgChart.normal,
+  //           // scaleInitial: OrgChart.match.width,
+  //           scaleInitial: OrgChart.match.width,
+  //           enableSearch: false,
+  //           nodes: [
+  //               { id: "1"  },
+  //               { id: "2" , pid: "1"},
+  //               { id: "3" , pid: "1"},
+  //               { id: "4" , pid: "1"},
+  //               { id: "5" , pid: "2"},
+  //               { id: "6" , pid: "2"},
+  //               { id: "7" , pid: "2"},
+  //               { id: "8" , pid: "2"},
+  //               { id: "9" , pid: "2"},
+  //               { id: "10", pid: "2" },
+  //               { id: "11", pid: "2" },
+  //               { id: "12", pid: "2" },
+  //               { id: "14", pid: "2" },
+  //               { id: "15", pid: "3" },
+  //               { id: "16", pid: "3" },
+  //               { id: "17", pid: "3" },
+  //               { id: "18", pid: "3" },
+  //               { id: "19", pid: "3" },
+  //               { id: "20", pid: "3" },
+  //               { id: "21", pid: "3" },
+  //               { id: "22", pid: "3" },
+  //               { id: "23", pid: "4" },
+  //               { id: "24", pid: "4" },
+  //               { id: "25", pid: "4" },
+  //               { id: "26", pid: "4" },
+  //               { id: "27", pid: "4" },
+  //               { id: "28", pid: "4" },
+  //               { id: "29", pid: "4" },
+  //               { id: "30", pid: "4" },
+  //               { id: "31", pid: "2" },
+  //               { id: "32", pid: "2" },
+  //               { id: "33", pid: "2" },
+  //               { id: "34", pid: "2" },
+  //               { id: "35", pid: "2" },
+  //               { id: "36", pid: "2" },
+  //               { id: "37", pid: "2" }
+  //           ]
+  //       });      
+
+  </script>
     
   </body>
 </html>

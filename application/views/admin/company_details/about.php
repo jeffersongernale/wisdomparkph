@@ -5,7 +5,7 @@
     <br>
     <br>
 
-    <div id="accordion">
+    <!-- <div id="accordion">
 
         <div class="card">
             <div class="card-header p-1 accordion_header" id="accordion_header" data-toggle="collapse" data-target="#collapse_header" aria-expanded="true" aria-controls="collapseOne">
@@ -16,7 +16,6 @@
             <div id="collapse_header" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
                     <div class="card">
-                        <!-- <img src="..." class="card-img-top" alt="..."> -->
                         <div class="card-body">
                             <h5 class="card-title">HEADER</h5>
                             <fieldset class="border pb-3 pr-3 pl-3 mb-4">
@@ -48,7 +47,6 @@
             <div id="collapse_details" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
                     <div class="card">
-                        <!-- <img src="..." class="card-img-top" alt="..."> -->
                         <div class="card-body">
                             <h5 class="card-title">DETAILS</h5>
                             <fieldset class="border pb-3 pr-3 pl-3 mb-4">
@@ -80,7 +78,6 @@
             <div id="collapse_subdetails" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                 <div class="card-body">
                     <div class="card">
-                        <!-- <img src="..." class="card-img-top" alt="..."> -->
                         <div class="card-body">
                             <h5 class="card-title">SUB-DETAILS</h5>
                             <fieldset class="border pb-3 pr-3 pl-3 mb-4">
@@ -128,5 +125,5 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
 </div>

@@ -26,7 +26,14 @@ class WebsiteDetailsController extends CI_Controller {
 
     public function get_events_details()
     {
-        $result = $this->Events->get_events();
+        $get = $this->input->get();
+        $condition = [];
+        if(!empty($get))
+        {
+            $condition = ['section' => $get['section']];
+         
+        }
+        $result = $this->Events->get_events($condition);
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
 
     }

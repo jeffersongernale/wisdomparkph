@@ -125,16 +125,17 @@
             foreach($songs as $songs_val)
             {
               echo "<div class='item songs col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4'>
-                      <a href='asset/upload/gallery/photo/{$songs_val['image_name']}' class='item-wrap fancybox' data-fancybox='gallery2'>
-                      <span class='icon-search2'></span>
-                      <img class='img-fluid' src='asset/upload/gallery/photo/{$songs_val['image_name']}'>
-                      </a>
+                      <div class='audio_cont p-3'>
+                      <audio controls>
+                        <source src='".base_url('asset/upload/gallery/songs/')."Kalimba.mp3' type='audio/mpeg'>
+                      </audio>
+                    </div>
                   </div>";
             }
           }
            ?>
         </div>
-
+     
       </div>
     </section>
 

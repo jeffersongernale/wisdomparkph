@@ -70,25 +70,26 @@ $route['admin-newsletter']       = 'Page/admin_newsletter';
 $route['admin-events']           = 'Page/admin_events';
 $route['select-events-section']  = 'EventController/get_section';
 
-$route['insert-details']['POST']       = 'AboutController/insert_details';
-$route['delete-details']['POST']       = 'AboutController/delete_details';
-$route['update-mission']['POST']       = 'AboutController/update_mission';
-$route['update-vision']['POST']        = 'AboutController/update_vision';
-$route['update-goals']['POST']         = 'AboutController/update_goals';
-$route['update-faqs']['POST']          = 'AboutController/update_faqs';
-$route['login-submit']['POST']         = 'LoginController/login_submit';
-$route['sign-out']['GET']              = 'LoginController/sign_out';
-$route['insert-event']['POST']         = 'EventController/insert_event';
-$route['delete-event']['POST']         = 'EventController/delete_event';
-$route['update-event']['POST']         = 'EventController/update_event';
-$route['insert-facilities']['POST']    = 'FacilitiesController/insert_facilities';
-$route['delete-facilities']['POST']    = 'FacilitiesController/delete_facilities';
-$route['update-facilities']['POST']    = 'FacilitiesController/update_facilities';
-$route['insert-gallery-photo']['POST'] = 'GalleryController/insert_gallery_photo';
-$route['delete-gallery-photo']['POST'] = 'GalleryController/delete_gallery_photo';
-$route['delete-gallery-video']['POST'] = 'GalleryController/delete_gallery_video';
-$route['update-facilities-pic']['POST']  = 'FacilitiesController/update_facilities_pic';
-$route['update-events-pic']['POST']  = 'EventController/update_events_pic';
+$route['insert-details']['POST']        = 'AboutController/insert_details';
+$route['delete-details']['POST']        = 'AboutController/delete_details';
+$route['update-mission']['POST']        = 'AboutController/update_mission';
+$route['update-vision']['POST']         = 'AboutController/update_vision';
+$route['update-goals']['POST']          = 'AboutController/update_goals';
+$route['update-faqs']['POST']           = 'AboutController/update_faqs';
+$route['login-submit']['POST']          = 'LoginController/login_submit';
+$route['sign-out']['GET']               = 'LoginController/sign_out';
+$route['insert-event']['POST']          = 'EventController/insert_event';
+$route['delete-event']['POST']          = 'EventController/delete_event';
+$route['update-event']['POST']          = 'EventController/update_event';
+$route['insert-facilities']['POST']     = 'FacilitiesController/insert_facilities';
+$route['delete-facilities']['POST']     = 'FacilitiesController/delete_facilities';
+$route['update-facilities']['POST']     = 'FacilitiesController/update_facilities';
+$route['insert-gallery-photo']['POST']  = 'GalleryController/insert_gallery_photo';
+$route['delete-gallery-photo']['POST']  = 'GalleryController/delete_gallery_photo';
+$route['delete-gallery-video']['POST']  = 'GalleryController/delete_gallery_video';
+$route['update-facilities-pic']['POST'] = 'FacilitiesController/update_facilities_pic';
+$route['update-events-pic']['POST']     = 'EventController/update_events_pic';
+$route['delete-newsletter']['POST']     = 'NewsletterController/delete_newsletter';
 
 
 /**
@@ -96,11 +97,12 @@ $route['update-events-pic']['POST']  = 'EventController/update_events_pic';
  * WEBSITE DETAILS
  * ---------------------------------------------------
   */
-  $route['get-details']                     = 'WebsiteDetailsController/get_details';
-  $route['get-facilities-details']          = 'WebsiteDetailsController/get_facilities_details';
-  $route['get-events']                      = 'WebsiteDetailsController/get_events_details';
-  $route['get-gallery']['GET']                     = 'GalleryController/get_gallery';
-  $route['sendmail']['GET']                     = 'NewsletterController/send_phpmailer';
+  $route['get-details']            = 'WebsiteDetailsController/get_details';
+  $route['get-facilities-details'] = 'WebsiteDetailsController/get_facilities_details';
+  $route['get-events']             = 'WebsiteDetailsController/get_events_details';
+  $route['get-gallery']['GET']     = 'GalleryController/get_gallery';
+  $route['sendmail']['GET']        = 'NewsletterController/send_phpmailer';
+  $route['get-newsletter']['GET']  = 'NewsletterController/get_newsletter';
   
 
 

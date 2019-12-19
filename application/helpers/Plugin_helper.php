@@ -29,7 +29,8 @@ function dependencies_script($plugin)
         'iziToast'        => '<script src="'.base_url('asset/node_modules/izitoast/dist/js/iziToast.min.js').'"></script>',
         'website_details' => '<script src="'.base_url('asset/scripts/website_details.js').'"></script>',
         'admin_gallery'   => '<script src="'.base_url('asset/scripts/admin_gallery.js').'"></script>',
-        'admin_events'    => '<script src="'.base_url('asset/scripts/admin_events.js').'"></script>'
+        'admin_events'    => '<script src="'.base_url('asset/scripts/admin_events.js').'"></script>',
+        'admin_newsletter'    => '<script src="'.base_url('asset/scripts/admin_newsletter.js').'"></script>'
       
     ];
 

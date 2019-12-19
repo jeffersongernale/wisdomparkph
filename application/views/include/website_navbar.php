@@ -18,7 +18,7 @@
                 <li><a href="<?php echo base_url('#about-section');?>" class="nav-link">Profile History</a></li>
                 <li><a href="<?php echo base_url('#mission_vision-section');?>" class="nav-link">Mission and Vision</a></li>
                 <li><a href="<?php echo base_url('#goal-section');?>" class="nav-link">Our Goals</a></li>
-                <li><a href="<?php echo base_url('#pricing-section');?>" class="nav-link">Organizational Chart</a></li>
+                <li><a href="<?php echo base_url('#orgchart-section');?>" class="nav-link">Organizational Chart</a></li>
                 <li><a href="<?php echo base_url('#faq-section');?>" class="nav-link">FAQ's</a></li>
                 </ul>
             </li>
@@ -26,9 +26,13 @@
             <li class="has-children">
                 <a href="#" class="nav-link">Events</a>
                 <ul class="dropdown">
-                <li><a href="<?php echo base_url('events?section=yoga') ?>" class="nav-link">Yoga Meditation</a></li>
-                <li><a href="<?php echo base_url('events?section=taichi') ?>" class="nav-link">Taichi</a></li>
-                <li><a href="<?php echo base_url('events?section=lectures') ?>" class="nav-link">Lectures</a></li>
+
+                <?php 
+                foreach($event_section as $data)
+                {
+                    echo "<li><a href='".base_url('events?section='.$data['section'])."' class='nav-link'>".$data['section']."</a></li>";
+                } 
+                ?>
                 </ul>
             </li>
             <li><a href="<?php echo base_url('gallery')?>" class="nav-link">Gallery</a></li>

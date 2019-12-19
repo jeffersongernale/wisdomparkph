@@ -14,3 +14,5 @@ CREATE TABLE `wisdom_park`.`gallery` ( `id` INT NOT NULL AUTO_INCREMENT , `image
 CREATE TABLE `wisdom_park`.`events` ( `id` INT NOT NULL AUTO_INCREMENT , `title` TEXT NOT NULL , `description` TEXT NOT NULL , `event_date` DATETIME NOT NULL , `image` VARCHAR(255) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 ALTER TABLE `events` ADD `section` TEXT NOT NULL AFTER `image`;
+
+CREATE TABLE `wisdom_park`.`newsletter` ( `id` INT NOT NULL AUTO_INCREMENT , `email` VARCHAR(255) NOT NULL , `created_at` DATE NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;

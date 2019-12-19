@@ -1,16 +1,22 @@
 $(document).ready(()=>{
+    EVENTS.httpGet();
     EVENTS.get_details();
 });
 
 const EVENTS = (()=>
 {
     let this_events = {};
+    let _section ='';
 
     this_events.get_details = () =>
     {
         $.ajax({
             url : 'get-events',
             type: 'GET',
+            data:
+            {
+                section: _section
+            },
             success:data =>
             {
                 console.log(data);
@@ -34,7 +40,15 @@ const EVENTS = (()=>
         });
 
     }
-
+    this_events.httpGet = () =>
+    {
+        var url_string = window.location.href; //window.location.href
+        var url = new URL(url_string);
+        var section = url.searchParams.get("section");
+        _section = section;
+        console.log(_section);
+    }
 
     return this_events; 
 })();
+

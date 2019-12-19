@@ -11,6 +11,7 @@ class Page extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('Plugin_helper');
 		$this->load->model('Gallery');
+		$this->load->model('Events');
 	}
 
 	public function _verify()
@@ -25,7 +26,9 @@ class Page extends CI_Controller {
 	
 	public function index()
 	{
-		$this->load->view('index');
+		$event_section['event_section'] = $this->Events->get_section();
+
+		$this->load->view('index',$event_section);
 	}
 
 	public function login()
@@ -35,7 +38,8 @@ class Page extends CI_Controller {
 
 	public function facilities()
 	{
-		$this->load->view('facilities');
+		$event_section['event_section'] = $this->Events->get_section();
+		$this->load->view('facilities',$event_section);
 	}
 
 	public function gallery()
@@ -44,13 +48,15 @@ class Page extends CI_Controller {
 		$result['photos'] = $this->Gallery->get_gallery(['section'=>'photos']);
         $result['videos'] = $this->Gallery->get_gallery(['section'=>'videos']);
 		$result['songs'] = $this->Gallery->get_gallery(['section'=>'songs']);
+		$result['event_section'] = $this->Events->get_section();
 		// $this->output->set_content_type('application/json')->set_output(json_encode($result));
 		$this->load->view('gallery',$result);
 	}
 
 	public function events()
 	{
-		$data = $this->input->get();
+		$data['event_section'] = $this->Events->get_section();
+		$data['data'] = $this->input->get();
 		$this->load->view('events',$data);
 	
 	}
@@ -96,9 +102,9 @@ class Page extends CI_Controller {
 		$page_data['navbar']= $this->load->view('template/navbar.php', null, TRUE);
 		$page_data['page_content']= $this->load->view('admin/newsletter.php', null, TRUE);
 		
-		$dependency_script = ['datatable','admin_gallery'];
+		$dependency_script = ['datatable','admin_newsletter','iziToast'];
 		$page_data['custom_script'] = dependencies_script($dependency_script);
-		$dependency_css = ['datatable'];
+		$dependency_css = ['datatable','iziToast'];
 		$page_data['custom_css'] = dependencies_css($dependency_css);
 		$this->load->view('template/app', $page_data);
 	}
