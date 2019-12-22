@@ -90,6 +90,8 @@ $route['delete-gallery-video']['POST']  = 'GalleryController/delete_gallery_vide
 $route['update-facilities-pic']['POST'] = 'FacilitiesController/update_facilities_pic';
 $route['update-events-pic']['POST']     = 'EventController/update_events_pic';
 $route['delete-newsletter']['POST']     = 'NewsletterController/delete_newsletter';
+$route['insert-about']['POST']          = 'AboutController/insert_about';
+$route['update-about']['POST']          = 'AboutController/update_about';
 
 
 /**

@@ -1,9 +1,9 @@
 <div id="about" class="container tab-pane active"><br>
     <h3>ABOUT</h3>
     <p>All details regarding with the about section can be edited here. For more detailed illustration please view the attached guide.</p>
-    <button class="btn btn-sm btn-primary float-right"><i class="fa fa-eye"></i>&nbsp;VIEW GUIDE</button>
+    <!-- <button class="btn btn-sm btn-primary float-right"><i class="fa fa-eye"></i>&nbsp;VIEW GUIDE</button>
     <br>
-    <br>
+    <br> -->
 
     <!-- <div id="accordion">
 
@@ -126,4 +126,49 @@
         </div>
 
     </div> -->
+
+    
+    <div class="card">
+        <div class="card-header p-1 accordion_header" id="accordion_header" aria-expanded="true" aria-controls="collapseOne">
+            <h6 class="mb-0 p-1">
+                <i class="fa fa-info-circle"></i>&nbsp;Information
+            </h6>
+        </div>
+        <div id="collapse_header" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <div class="card">
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                        <h5 class="card-title">About Timeline</h5>
+                        <fieldset class="border pb-3 pr-3 pl-3">
+                            <legend class="w-auto font-weight-bold pl-2 pr-2 fieldset_header"><i class="fa fa-edit"></i>&nbsp;NEW</legend>
+                            <b>TITLE:</b>
+                            <input type="text" class="form-control" placeholder="Input Text Here" id="txt_about_title">
+                            <b>SEQUENCE #:</b>
+                            <span class="ml-2" style="font-size:small; color: red;">
+                            (<i>The system will save this record on the last node of the timeline if the sequence number is not provided or if it already exists.</i>)
+                            </span>
+                            <input type="number" class="form-control" placeholder="Input Text Here" id="txt_sequence_number">
+                            
+                            <b>DESCRIPTION:</b>
+                            <textarea id="txt_about_desc" class="form-control" placeholder="Input Text Here" rows="5"></textarea>
+                            <button type="button" id="btn_header_submit" class="btn btn-sm btn-danger float-right mt-3"><i class="fa fa-times"></i>&nbsp;CANCEL</button>
+                        <button type="button" id="btn_header_submit" class="btn btn-sm btn-primary float-right mt-3 mr-2" onclick="DETAILS.insert_about()"><i class="fa fa-paper-plane"></i>&nbsp;SUBMIT</button>
+                        </fieldset>
+
+                        <fieldset class="border pb-3 pr-3 pl-3">
+                            <legend class="w-auto font-weight-bold pl-2 pr-2 fieldset_header"><i class="fa fa-edit"></i>&nbsp;TIMELINE</legend>
+                            <table id="tbl_admin_about" class="table table-sm text-center table-bordered">
+                                   
+                            </table>
+                           
+                        </fieldset>
+                      
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

@@ -16,3 +16,6 @@ CREATE TABLE `wisdom_park`.`events` ( `id` INT NOT NULL AUTO_INCREMENT , `title`
 ALTER TABLE `events` ADD `section` TEXT NOT NULL AFTER `image`;
 
 CREATE TABLE `wisdom_park`.`newsletter` ( `id` INT NOT NULL AUTO_INCREMENT , `email` VARCHAR(255) NOT NULL , `created_at` DATE NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+ALTER TABLE `details` ADD `sequence_number` INT NULL AFTER `answer`, ADD `title` VARCHAR(255) NULL AFTER `sequence_number`;

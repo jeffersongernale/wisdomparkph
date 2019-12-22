@@ -7,6 +7,7 @@ class AboutController extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Details');
+        $this->load->model('About');
         if (!isset($_SESSION['wp_username'])) 
         {
             redirect(base_url('login'));
@@ -81,4 +82,74 @@ class AboutController extends CI_Controller {
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }
 
+    public function insert_about()
+    {
+        $post = $this->input->post();
+
+        $seqeunce_number = $post['sequence_number'];
+
+        
+        if($post['sequence_number']== null || $post['sequence_number']== "" || $post['sequence_number']== 0)
+        {
+            $about_count = $this->About->get_about_count();
+            $seqeunce_number = $about_count + 1;
+        }
+        else
+        {
+            $result_bysequence = $this->About->get_bySequence($post['sequence_number']);
+            if($result_bysequence > 0)
+            {
+                $about_count = $this->About->get_about_count();
+                $seqeunce_number = $about_count + 1;
+            }
+
+        }
+        
+        $data = [
+            'title' => $post['title'],
+            'sequence_number' => $seqeunce_number,
+            'description' => $post['description'],
+            'section' => 'about'
+        ];
+
+        $result = $this->Details->insert_details($data);
+        
+        $this->output->set_content_type('application/json')->set_output(json_encode($result));
+    }
+
+
+    public function update_about()
+    {
+        $post = $this->input->post();
+
+        $seqeunce_number = $post['sequence_number'];
+
+        if($post['sequence_number']== null || $post['sequence_number']== "" || $post['sequence_number']== 0)
+        {
+            $about_count = $this->About->get_about_count();
+            $seqeunce_number = $about_count + 1;
+        }
+        else
+        {
+            $result_bysequence = $this->About->get_bySequence($post['sequence_number']);
+            if($result_bysequence > 0)
+            {
+                $about_count = $this->About->get_about_count();
+                $seqeunce_number = $about_count + 1;
+            }
+
+        }
+        
+        $data = [
+            'title' => $post['title'],
+            'sequence_number' => $seqeunce_number,
+            'description' => $post['description'],
+            'section' => 'about'
+        ];
+
+        $result = $this->Details->update_details(['id' => $post['id']],$data);
+
+        $this->output->set_content_type('application/json')->set_output(json_encode($result));
+
+    }
 }

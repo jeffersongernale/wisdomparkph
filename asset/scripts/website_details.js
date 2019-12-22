@@ -27,6 +27,12 @@ const DETAILS = (()=>
                 let vision_text = '';
                 let goals = '';
                 let faqs_text = '';
+                let about_text = ` <thead>
+                                    <th>TITLE</th>
+                                    <th>DESCRIPTION</th>
+                                    <th>SEQUENCE</th>
+                                    <th>CONTROLS</th>
+                                </thead><tbody>`;
                 $.each(data,function(){
                     if (this.section === 'mission')
                     {
@@ -67,12 +73,27 @@ const DETAILS = (()=>
                         </td>
                     </tr>`;
                     }
+
+                    if(this.section === 'about')
+                    {
+                        about_text+=`<tr>
+                                        <td><input type="text" class="form-control" value="${this.title}" id="txt_about_title_${this.id}"></td>
+                                        <td><textarea class="form-control" rows="5" id="txt_about_desc_${this.id}">${this.description}</textarea></td>
+                                        <td><input type="number" class="form-control" value="${this.sequence_number}" id="txt_about_seq_${this.id}"></td>
+                                        <td class="pt-4 text-nowrap"  style="width: 20px;">
+                                            <button type="button" class="btn btn-sm btn-secondary text-nowrap" onclick="DETAILS.update_about(${this.id})"><i class="fa fa-save"></i>&nbsp;SAVE</button>
+                                            <button type="button" class="btn btn-sm btn-danger" title="DELETE" onclick="DETAILS.delete_details(${this.id})"><i class="fa fa-trash"></i>&nbsp;DELETE</button>
+                                        </td>
+                                    </tr>` 
+                    }
                 });
+                about_text+='</tbody>';
 
                 $('#current_mission').html(mission_text);
                 $('#current_vision').html(vision_text);
                 $('#current_goals tbody').html(goals);
                 $('#current_faqs tbody').html(faqs_text);
+                $('#tbl_admin_about').html(about_text);
 
                
                 
@@ -88,6 +109,7 @@ const DETAILS = (()=>
                     $('#current_goals').dataTable().destroy();
                 }
                 $('#current_goals').dataTable();
+                $('#tbl_admin_about').dataTable();
             }
         });
     }
@@ -655,7 +677,105 @@ const DETAILS = (()=>
     $('#modal_facilities_change_pic').on('hidden.bs.modal', function(){
         facilities_update_id = 0;
         $('#modal_form_facilities')[0].reset();
-    })
+    });
+
+
+    this_details.insert_about = () =>
+    {
+        $.ajax({
+            url: 'insert-about',
+            type: 'POST',
+            data: 
+            {
+                title           : $('#txt_about_title').val(),
+                sequence_number : $('#txt_sequence_number').val(),
+                description     : $('#txt_about_desc').val(),
+            },
+            success: data =>
+            {
+                if(data == true)
+                {
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Record Inserted Successfully!',
+                        position: 'center'
+                    });
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: 'Opps Something went wrong. Please try again.',
+                        position: 'center'
+                    });
+                }
+                DETAILS.get_data();
+                 $('#txt_about_title').val('');
+                 $('#txt_sequence_number').val('');
+                 $('#txt_about_desc').val('');
+            }
+        });
+    }
+
+    this_details.update_about = (details_id) =>
+    {
+        iziToast.show({
+                theme: 'dark',
+                icon: 'icon-person',
+                title: 'Confirmation :',
+                message: 'Are you sure you want to update this?',
+                position: 'center', // bottomRight, bottomLeft, topRight, topLeft, center, bottomCenter
+                progressBarColor: 'rgb(0, 255, 184)',
+                titleSize: '20px',
+                messageSize: '20px',
+                transitionIn:'bounceInUp',
+                buttons: [
+                    [`<button>YES</button>`, function (instance, toast) {
+                       //ajax here
+                       $.ajax({
+                        url: 'update-about',
+                        type: 'post',
+                        data:
+                        {
+                            id: details_id, 
+                            title : $(`#txt_about_title_${details_id}`).val(),
+                            description     : $(`#txt_about_desc_${details_id}`).val(),
+                            sequence_number: $(`#txt_about_seq_${details_id}`).val()
+                        },
+                        success: data =>
+                        {
+                            if(data == true)
+                            {
+                                iziToast.success({
+                                    title: 'OK',
+                                    message: 'Record Updated Successfully!',
+                                    position: 'center'
+                                });
+                            }
+                            else
+                            {
+                                iziToast.error({
+                                    title: 'OK',
+                                    message: 'Opps Something went wrong. Please try again.',
+                                    position: 'center'
+                                });
+                            }
+            
+                            DETAILS.get_facilities();
+                        }
+                    });
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }, true], // true to focus
+                    ['<button>CLOSE</button>', function (instance, toast) {
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }]
+                ]
+        });
+    }
 
     return this_details;
 })();
