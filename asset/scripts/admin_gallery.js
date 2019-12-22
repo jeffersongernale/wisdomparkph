@@ -51,7 +51,7 @@ const GALLERY = (()=>
                                 </thead>`;
                 $.each(data['videos'],function(){
                     gallery_video += ` <tr class="text-center">
-                                            <td  style="width:20%">
+                                            <td  style="width:20%" class="text-nowrap text-center">
                                                 <button class="btn btn-primary btn-sm" onclick="window.open('https://www.youtube.com/watch?v=${this.image_name}')"><i class="fab fa-youtube"></i>&nbsp;PLAY IN YOUTUBE</button>
                                                 <button class="btn btn-danger btn-sm" onclick="GALLERY.delete_gallery_video(${this.id})"><i class="fa fa-trash"></i>&nbsp;DELETE</button>
                                             </td>
@@ -224,7 +224,76 @@ const GALLERY = (()=>
         });
     }
     
+    this_gallery.insert_gallery_songs = () =>
+    {
+        $.ajax({
+            url        : 'insert-gallery-songs',
+            type       : 'POST',
+            data       : new FormData($('#gallery_songs')[0]),
+            processData: false,
+            contentType: false,
+            cache      : false,
+            success: data => 
+            {
+                if(data == true)
+                {   
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Record Inserted Successfully!',
+                        position: 'center'
+                    }); 
 
+                    GALLERY.load_gallery();
+                    $('#gallery_songs')[0].reset();
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: data.error,
+                        position: 'center'
+                    });
+                }
+             
+            }
+        });
+    }
+
+    this_gallery.insert_gallery_video = () =>
+    {
+        $.ajax({
+            url        : 'insert-gallery-video',
+            type       : 'POST',
+            data       : {
+                image_name: $('#txt_video_yt').val(),
+                description: $('#txt_video_desc').val()
+            },
+            cache      : false,
+            success: data => 
+            {
+                if(data == true)
+                {   
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Record Inserted Successfully!',
+                        position: 'center'
+                    }); 
+
+                    GALLERY.load_gallery();
+                    $('#gallery_upload')[0].reset();
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: data.error,
+                        position: 'center'
+                    });
+                }
+             
+            }
+        });
+    }
 
     return this_gallery;
 })();

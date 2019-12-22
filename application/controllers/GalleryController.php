@@ -86,4 +86,46 @@ class GalleryController extends CI_Controller {
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }
 
+    public function insert_gallery_songs()
+    {
+        $this->_verify();
+        $post = $this->input->post();
+        $config['upload_path']   = './asset/upload/gallery/songs';
+        $config['allowed_types'] = 'mp3|mp4|ogg';
+        $new_name                = time().$_FILES["gallery_file_songs"]['name'];
+        $config['file_name']     = $new_name;
+        $this->load->library('upload',$config);
+       
+
+        if( !$this->upload->do_upload('gallery_file_songs'))
+        {
+            $result = ['error' => $this->upload->display_errors()];
+        }
+        else
+        {
+            $img_data = ['upload_data' => $this->upload->data()];
+            $data = [
+                'section'     =>'songs',
+                'image_name'  => $new_name
+            ];
+    
+            $result = $this->Gallery->insert_gallery($data);
+        }
+        $this->output->set_content_type('application/json')->set_output(json_encode($result));
+        
+    }
+
+    public function insert_gallery_video()
+    {
+        $this->_verify();
+        $post = $this->input->post();
+        $data = [
+            'section'     =>'videos',
+            'image_name'  => $post['image_name'],
+            'description' => $post['description']
+        ];
+        $result = $this->Gallery->insert_gallery($data);
+        $this->output->set_content_type('application/json')->set_output(json_encode($result));
+    }
+
 }

@@ -30,7 +30,7 @@
                                     <div class="w-100 mb-1"></div>
                                     <div class="col-lg-12">
                                     <button type="button" id="btn_header_submit" class="btn btn-sm btn-danger float-right mt-3"><i class="fa fa-times"></i>&nbsp;CANCEL</button>
-                            <button type="button" id="btn_header_submit" class="btn btn-sm btn-primary float-right mt-3 mr-2"><i class="fa fa-paper-plane"></i>&nbsp;SUBMIT</button>
+                                    <button type="button" id="btn_header_submit" class="btn btn-sm btn-primary float-right mt-3 mr-2"><i class="fa fa-paper-plane"></i>&nbsp;SUBMIT</button>
                                     </div>
                                 </div>
                             </fieldset>
@@ -131,35 +131,51 @@
                 </h6>
             </div>
             <div id="collapse_subdetails" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                <div class="card-body">
+                <div class="card-body"> 
                     <div class="card">
                         <!-- <img src="..." class="card-img-top" alt="..."> -->
                         <div class="card-body">
-                            <h5 class="card-title">SUB-DETAILS</h5>
+                            <h5 class="card-title">GALLERY PHOTOS</h5>
+                            <fieldset class="border pb-3 pr-3 pl-3">
+                                <div class="row mt-3">
+                                    <div class="col-lg-2 font-weight-bold">
+                                        IMAGE:
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <input type="file" name="file_image" id="file_image" class="form-control">
+                                    </div>
+                                    <div class="w-100 mb-1"></div>
+                                    <div class="col-lg-12">
+                                    <button type="button" id="btn_header_submit" class="btn btn-sm btn-danger float-right mt-3"><i class="fa fa-times"></i>&nbsp;CANCEL</button>
+                                    <button type="button" id="btn_header_submit" class="btn btn-sm btn-primary float-right mt-3 mr-2"><i class="fa fa-paper-plane"></i>&nbsp;SUBMIT</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+
                             <fieldset class="border pb-3 pr-3 pl-3 mb-4">
                                 <legend class="w-auto font-weight-bold pl-2 pr-2"><i class="fa fa-database"></i>&nbsp;Current</legend>
-                                <p class="card-text">
-                                    <i class="fa fa-check"></i>&nbsp;The mainstream activities in this Center comprise of lectures on Buddhism, Science, Philosophy, Psychology, Health, and the Environment.
-                                    <br>
-                                    <i class="fa fa-check"></i>&nbsp;The Center is equipped with multi-media facilitation rooms designed to continuously conduct programs, lectures, and dialogues relevant to the abovementioned goal.
-                                    <br>
-                                    <i class="fa fa-check"></i>&nbsp;Licensed counselors for troubled individuals and community service activities are also available.
-                                </p>
+                                <table class="table table-bordered table-striped">
+                                <thead>
+                                    <th class="text-nowrap text-center" style="width:20vw;">CONTROLS</th>
+                                    <th>IMAGE</th>
+                                </thead>
+                                <tbody class="text-center">
+                                    <tr>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>&nbsp;EDIT</button>
+                                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>&nbsp;DELETE</button>
+                                        </td>
+                                        <td>
+                                            <img src="asset/images/website/img6.jpg" style="width:20vw">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                             </fieldset>
 
-                            <fieldset class="border pb-3 pr-3 pl-3">
-                                <legend class="w-auto font-weight-bold pl-2 pr-2 fieldset_header"><i class="fa fa-edit"></i>&nbsp;New</legend>
-                                <button class="btn btn-sm btn-danger float-right" style="color:white"><i class="fa fa-minus"></i></button>
-                                <button class="btn btn-sm btn-success float-right mr-2 ml-2 mb-2"><i class="fa fa-plus"></i></button>
-                                <span class="float-right">Field Controls</span>
+                          
 
-                                <input type="text" class="form-control m-2" placeholder="Input Text Here">
-                                <input type="text" class="form-control m-2" placeholder="Input Text Here">
-                            </fieldset>
-
-                            <button type="button" id="btn_header_submit" class="btn btn-sm btn-danger float-right mt-3"><i class="fa fa-times"></i>&nbsp;CANCEL</button>
-                            <button type="button" id="btn_header_submit" class="btn btn-sm btn-primary float-right mt-3 mr-2"><i class="fa fa-paper-plane"></i>&nbsp;SUBMIT</button>
-
+                           
 
                         </div>
                     </div>

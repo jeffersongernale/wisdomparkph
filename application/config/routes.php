@@ -92,6 +92,8 @@ $route['update-events-pic']['POST']     = 'EventController/update_events_pic';
 $route['delete-newsletter']['POST']     = 'NewsletterController/delete_newsletter';
 $route['insert-about']['POST']          = 'AboutController/insert_about';
 $route['update-about']['POST']          = 'AboutController/update_about';
+$route['insert-gallery-songs']['POST']  = 'GalleryController/insert_gallery_songs';
+$route['insert-gallery-video']['POST']  = 'GalleryController/insert_gallery_video';
 
 
 /**
