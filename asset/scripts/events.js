@@ -24,15 +24,16 @@ const EVENTS = (()=>
                 let events_detail = '';
                 $.each(data,function(){
                     events_detail += `<div class="col-md-12 col-lg-12 mb-12 mb-lg-12 mb-5 mt-5" data-aos="fade-up">
-                    <div class="unit-4">
-                    <img class="image-size" src="${_BASE_URL}asset/upload/event/${this.image}">
-                    <div class="mt-5">
-                        <h3>${this.title}</h3>
-                        <p><b>EVENT DATE:</b> ${this.event_date}</p>
-                        <p>${this.description}</p>
-                    </div>
-                    </div>
-                </div>`;
+                                            <div class="unit-4">
+                                            <img class="image-size" src="${_BASE_URL}asset/upload/event/${this.image}">
+                                            <div class="mt-5">
+                                                <h3>${this.title}</h3>
+                                                <p><b>EVENT DATE:</b> ${this.event_date}</p>
+                                                <p>${this.description}</p>
+                                            </div>
+                                            </div>
+                                            <button class="btn btn-xs btn-success" onclick="EVENTS.openModal()">CONFIRM ATTENDANCE</button>
+                                        </div>`;
                 });
 
                 $('#facilities_data').html(events_detail);
@@ -47,6 +48,11 @@ const EVENTS = (()=>
         var section = url.searchParams.get("section");
         _section = section;
         console.log(_section);
+    }
+
+    this_events.openModal = () =>
+    {
+        $('#modal_event_confirm').modal('show');
     }
 
     return this_events; 

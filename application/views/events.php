@@ -82,6 +82,31 @@
         </div>
     </section>
 
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal_event_confirm">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Event Attendance</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>To attend in this event, please state your name and email.</p>
+            <b>Complete Name:</b>
+            <input type="text" id="txt_name" class="form-control mb-2">
+            <b>Email Address:</b>
+            <input type="text" id="txt_email" class="form-control mb-2">
+            <b>Number of attendees:</b>
+            <input type="number" id="txt_attendees" class="form-control" value="1">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     
     <?php include 'include/footer.php'; ?>
 
