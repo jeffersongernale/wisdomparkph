@@ -94,13 +94,14 @@ $route['insert-about']['POST']          = 'AboutController/insert_about';
 $route['update-about']['POST']          = 'AboutController/update_about';
 $route['insert-gallery-songs']['POST']  = 'GalleryController/insert_gallery_songs';
 $route['insert-gallery-video']['POST']  = 'GalleryController/insert_gallery_video';
+$route['delete-gallery-songs']['POST']  = 'GalleryController/delete_gallery_songs';
 
 
 /**
  * ---------------------------------------------------
  * WEBSITE DETAILS
  * ---------------------------------------------------
-  */
+ */
   $route['get-details']            = 'WebsiteDetailsController/get_details';
   $route['get-facilities-details'] = 'WebsiteDetailsController/get_facilities_details';
   $route['get-events']             = 'WebsiteDetailsController/get_events_details';

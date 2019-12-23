@@ -92,7 +92,8 @@ class GalleryController extends CI_Controller {
         $post = $this->input->post();
         $config['upload_path']   = './asset/upload/gallery/songs';
         $config['allowed_types'] = 'mp3|mp4|ogg';
-        $new_name                = time().$_FILES["gallery_file_songs"]['name'];
+        $config['max_size'] = '20000000';
+        $new_name                = time().'wisdompark.mp3';
         $config['file_name']     = $new_name;
         $this->load->library('upload',$config);
        
@@ -125,6 +126,20 @@ class GalleryController extends CI_Controller {
             'description' => $post['description']
         ];
         $result = $this->Gallery->insert_gallery($data);
+        $this->output->set_content_type('application/json')->set_output(json_encode($result));
+    }
+
+    public function delete_gallery_songs()
+    {
+        $this->_verify();
+        $post = $this->input->post();
+        $get_file_name = $this->Gallery->get_gallery(['id' => $post['id']]);
+        $path = './asset/upload/gallery/songs/'.$get_file_name['0']['image_name'];
+        if(file_exists($path))
+        {
+            $result = unlink($path);
+        }
+        $result = $this->Gallery->delete_gallery(['id' => $post['id']]);
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }
 

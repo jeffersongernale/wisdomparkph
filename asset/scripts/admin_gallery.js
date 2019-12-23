@@ -70,6 +70,35 @@ const GALLERY = (()=>
                 $('#tbl_video_admin').DataTable({
                     pageLength: 2
                 });
+
+                let gallery_songs = '';
+                gallery_songs =`<thead>
+                                    <th class="text-nowrap text-center">CONTROLS</th>
+                                    <th class="text-nowrap text-center">AUDIO</th>
+                                    <th class="text-nowrap text-center" >FILE NAME</th>
+                                </thead>`;
+                $.each(data['songs'],function(){
+                    gallery_songs += ` <tr class="text-center">
+                                            <td  style="width:20%" class="text-nowrap text-center">
+                                                <button class="btn btn-danger btn-sm" onclick="GALLERY.delete_gallery_songs(${this.id})"><i class="fa fa-trash"></i>&nbsp;DELETE</button>
+                                            </td>
+                                            <td  style="width: 30%">
+                                            <audio controls>
+                                                <source src='${_BASE_URL}asset/upload/gallery/songs/${this.image_name}' type='audio/mpeg'>
+                                            </audio>
+                                            </td>
+                                            <td  style="width: 50%">
+                                                <p>${this.image_name}</p>
+                                            </td>
+                                        </tr>`;
+                });
+                $('#tbl_songs_admin').html(gallery_songs);
+                $('#tbl_songs_admin').DataTable().destroy();
+                $('#tbl_songs_admin').DataTable({
+                    pageLength: 2
+                });
+
+
             }
         });
 
@@ -280,7 +309,8 @@ const GALLERY = (()=>
                     }); 
 
                     GALLERY.load_gallery();
-                    $('#gallery_upload')[0].reset();
+                    $('#txt_video_yt').val('');
+                    $('#txt_video_desc').val('');
                 }
                 else
                 {
@@ -292,6 +322,63 @@ const GALLERY = (()=>
                 }
              
             }
+        });
+    }
+
+    this_gallery.delete_gallery_songs = (id) =>
+    {
+        iziToast.show({
+                theme: 'dark',
+                icon: 'icon-person',
+                title: 'Confirmation :',
+                message: 'Are you sure you want to delete this?',
+                position: 'center', // bottomRight, bottomLeft, topRight, topLeft, center, bottomCenter
+                progressBarColor: 'rgb(0, 255, 184)',
+                titleSize: '20px',
+                messageSize: '20px',
+                transitionIn:'bounceInUp',
+                buttons: [
+                    [`<button>YES</button>`, function (instance, toast) {
+                       //ajax here
+                        $.ajax({
+                            url:'delete-gallery-songs',
+                            type:'post',
+                            data:{
+                                'id': id
+                            },
+                            success: data =>
+                            {
+                                console.log(data);
+                                if(data == true)
+                                {
+                                    iziToast.success({
+                                        title: 'OK',
+                                        message: 'Record Deleted Successfully!',
+                                        position: 'center'
+                                    });
+                                }
+                                else
+                                {
+                                    iziToast.error({
+                                        title: 'OK',
+                                        message: 'Opps Something went wrong. Please try again.',
+                                        position: 'center'
+                                    });
+                                }
+                
+                                GALLERY.load_gallery();
+                            }
+                        });
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }, true], // true to focus
+                    ['<button>CLOSE</button>', function (instance, toast) {
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }]
+                ]
         });
     }
 

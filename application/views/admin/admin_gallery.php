@@ -134,9 +134,8 @@
 
                                 <fieldset class="border pb-3 pr-3 pl-3 mb-4">
                                     <legend class="w-auto font-weight-bold pl-2 pr-2"><i class="fa fa-database"></i>&nbsp;Current</legend>
-                                    <table class="table table-bordered table-striped" id="tbl_photo_admin">
-                                    
-                                </table>
+                                    <table class="table table-bordered table-striped" id="tbl_songs_admin">
+                                    </table>
                                 </fieldset>
 
                             
