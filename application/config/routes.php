@@ -95,6 +95,7 @@ $route['update-about']['POST']          = 'AboutController/update_about';
 $route['insert-gallery-songs']['POST']  = 'GalleryController/insert_gallery_songs';
 $route['insert-gallery-video']['POST']  = 'GalleryController/insert_gallery_video';
 $route['delete-gallery-songs']['POST']  = 'GalleryController/delete_gallery_songs';
+$route['insert-event-attendance']['POST']  = 'EventController/insert_event_attendance';
 
 
 /**

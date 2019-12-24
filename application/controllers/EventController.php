@@ -7,6 +7,7 @@ class EventController extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Events');
+        $this->load->model('EventAttendance');
     }
 
     public function _verify()
@@ -136,5 +137,20 @@ class EventController extends CI_Controller {
             $result = $this->Events->update_event(['id' => $post['id']],$data);
         }
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
+    }
+
+    public function insert_event_attendance()
+    {
+        $post = $this->input->post();
+        $data = [
+            'event_id' => $post['event_id'],  
+            'name' => $post['name'],  
+            'email' => $post['email'],  
+            'head_count' => $post['head_count'],  
+            'created_at' => date('Y-m-d'),  
+        ];
+        $result = $this->EventAttendance->insert_event_attendance($data);
+        $this->output->set_content_type('application/json')->set_output(json_encode($result));
+
     }
 }

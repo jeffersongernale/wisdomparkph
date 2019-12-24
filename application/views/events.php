@@ -26,7 +26,7 @@
 
     <link rel="stylesheet" href="asset/css/style.css">
     <link rel="stylesheet" href="asset/css/custom.css">
-    
+    <link href="<?php echo base_url('asset/node_modules/izitoast/dist/css/iziToast.min.css'); ?>" rel="stylesheet">
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
   
@@ -82,7 +82,7 @@
         </div>
     </section>
 
-    <div class="modal fade" tabindex="-1" role="dialog" id="modal_event_confirm">
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal_event_confirm" data-id=0>
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -101,7 +101,7 @@
             <input type="number" id="txt_attendees" class="form-control" value="1">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-primary" onclick="EVENTS.save_attendance();">Save changes</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
@@ -123,7 +123,7 @@
   <script src="asset/js/jquery.fancybox.min.js"></script>
   <script src="asset/js/jquery.sticky.js"></script>
   <script src="asset/js/isotope.pkgd.min.js"></script>
-
+  <script src="<?php echo base_url('asset/node_modules/izitoast/dist/js/iziToast.min.js'); ?>"></script>
   
   <script src="asset/js/main.js"></script>
   <script src="asset/scripts/events.js"></script>

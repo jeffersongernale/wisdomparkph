@@ -19,3 +19,7 @@ CREATE TABLE `wisdom_park`.`newsletter` ( `id` INT NOT NULL AUTO_INCREMENT , `em
 
 
 ALTER TABLE `details` ADD `sequence_number` INT NULL AFTER `answer`, ADD `title` VARCHAR(255) NULL AFTER `sequence_number`;
+
+CREATE TABLE `wisdom_park`.`event_attendance` ( `id` INT NOT NULL AUTO_INCREMENT , `event_id` INT NOT NULL , `name` VARCHAR(255) NOT NULL , `email` VARCHAR(255) NOT NULL , `created_at` DATE NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ALTER TABLE `event_attendance` ADD `head_count` INT NOT NULL AFTER `created_at`;

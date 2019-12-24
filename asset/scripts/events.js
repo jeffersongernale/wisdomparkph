@@ -32,7 +32,7 @@ const EVENTS = (()=>
                                                 <p>${this.description}</p>
                                             </div>
                                             </div>
-                                            <button class="btn btn-xs btn-success" onclick="EVENTS.openModal()">CONFIRM ATTENDANCE</button>
+                                            <button class="btn btn-xs btn-success" onclick="EVENTS.openModal(${this.id})">CONFIRM ATTENDANCE</button>
                                         </div>`;
                 });
 
@@ -50,10 +50,78 @@ const EVENTS = (()=>
         console.log(_section);
     }
 
-    this_events.openModal = () =>
+    this_events.openModal = (id) =>
     {
         $('#modal_event_confirm').modal('show');
+        $('#modal_event_confirm').attr('data-id',id);
     }
+
+    this_events.save_attendance = () =>
+    {
+        
+
+
+        iziToast.show({
+                theme: 'dark',
+                icon: 'icon-person',
+                title: 'Confirmation :',
+                message: 'Are you sure you want to submit this information?',
+                position: 'center', // bottomRight, bottomLeft, topRight, topLeft, center, bottomCenter
+                progressBarColor: 'rgb(0, 255, 184)',
+                titleSize: '20px',
+                messageSize: '20px',
+                transitionIn:'bounceInUp',
+                buttons: [
+                    [`<button>YES</button>`, function (instance, toast) {
+                       //ajax here
+                       $.ajax({
+                        url: 'insert-event-attendance',
+                        type: 'POST',
+                        data:
+                        {
+                            event_id : $('#modal_event_confirm').attr('data-id'),
+                            name : $('#txt_name').val(),
+                            email : $('#txt_email').val(),
+                            head_count : $('#txt_attendees').val()
+                        },
+                        success: data => 
+                        {
+                            console.log(data);
+                            $('#modal_event_confirm').modal('hide');
+                            if(data == true)
+                            {
+                                iziToast.success({
+                                    title: 'OK',
+                                    message: 'Attendance Submitted!',
+                                    position: 'center'
+                                });
+                            }
+                            else
+                            {
+                                iziToast.error({
+                                    title: 'OK',
+                                    message: 'Opps Something went wrong. Please try again.',
+                                    position: 'center'
+                                });
+                            }
+                        }
+                    });
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }, true], // true to focus
+                    ['<button>CLOSE</button>', function (instance, toast) {
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }]
+                ]
+        });
+    }
+    
+    $('#modal_event_confirm').on('hidden.bs.modal', function (e) {
+        $('#modal_event_confirm').attr('data-id',0);
+    });
 
     return this_events; 
 })();
