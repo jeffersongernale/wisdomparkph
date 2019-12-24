@@ -68,6 +68,7 @@ $route['admin-details']          = 'Page/admin_details';
 $route['admin-gallery']          = 'Page/admin_gallery';
 $route['admin-newsletter']       = 'Page/admin_newsletter';
 $route['admin-events']           = 'Page/admin_events';
+$route['admin-events-attendance']           = 'Page/admin_events_attendacnce';
 $route['select-events-section']  = 'EventController/get_section';
 
 $route['insert-details']['POST']        = 'AboutController/insert_details';

@@ -125,4 +125,20 @@ class Page extends CI_Controller {
 		$this->load->view('template/app', $page_data);
 	}
 
+	public function admin_events_attendacnce()
+	{
+		$this->_verify();
+		$page_data = $this->page_data;
+		$page_data['sidebar']= $this->load->view('template/sidebar.php', null, TRUE);
+		$page_data['navbar']= $this->load->view('template/navbar.php', null, TRUE);
+		$page_data['page_content']= $this->load->view('admin/events_attendance.php', null, TRUE);
+
+		$dependency_script = ['datatable','admin_events_attendance','iziToast'];
+		$page_data['custom_script'] = dependencies_script($dependency_script);
+		$dependency_css = ['datatable','iziToast'];
+		$page_data['custom_css'] = dependencies_css($dependency_css);
+
+		$this->load->view('template/app', $page_data);
+	}
+
 }

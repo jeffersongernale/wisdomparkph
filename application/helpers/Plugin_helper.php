@@ -24,13 +24,14 @@ function dependencies_script($plugin)
     $data = [];
     $dependency = [
         // assets/js - folder
-        'datatable'       => '<script src="'.base_url('asset/node_modules/datatables.net/js/jquery.datatables.js').'"></script>
-                              <script src="'.base_url('asset/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js').'"></script>',
-        'iziToast'        => '<script src="'.base_url('asset/node_modules/izitoast/dist/js/iziToast.min.js').'"></script>',
-        'website_details' => '<script src="'.base_url('asset/scripts/website_details.js').'"></script>',
-        'admin_gallery'   => '<script src="'.base_url('asset/scripts/admin_gallery.js').'"></script>',
-        'admin_events'    => '<script src="'.base_url('asset/scripts/admin_events.js').'"></script>',
-        'admin_newsletter'    => '<script src="'.base_url('asset/scripts/admin_newsletter.js').'"></script>'
+        'datatable'               => '<script src="'.base_url('asset/node_modules/datatables.net/js/jquery.datatables.js').'"></script>
+                                    <script src="'.base_url('asset/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js').'"></script>',
+        'iziToast'                => '<script src="'.base_url('asset/node_modules/izitoast/dist/js/iziToast.min.js').'"></script>',
+        'website_details'         => '<script src="'.base_url('asset/scripts/website_details.js').'"></script>',
+        'admin_gallery'           => '<script src="'.base_url('asset/scripts/admin_gallery.js').'"></script>',
+        'admin_events'            => '<script src="'.base_url('asset/scripts/admin_events.js').'"></script>',
+        'admin_events_attendance' => '<script src="'.base_url('asset/scripts/admin_events_attendance.js').'"></script>',
+        'admin_newsletter'        => '<script src="'.base_url('asset/scripts/admin_newsletter.js').'"></script>'
       
     ];
 
