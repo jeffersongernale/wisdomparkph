@@ -127,7 +127,7 @@
               echo "<div class='item songs col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4'>
                       <div class='audio_cont p-3'>
                       <audio controls>
-                        <source src='".base_url('asset/upload/gallery/songs/')."Kalimba.mp3' type='audio/mpeg'>
+                        <source src='".base_url('asset/upload/gallery/songs/')."{$songs_val['image_name']}' type='audio/mpeg'>
                       </audio>
                     </div>
                   </div>";

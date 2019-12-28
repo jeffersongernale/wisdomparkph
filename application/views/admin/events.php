@@ -1,4 +1,13 @@
 
+<ul class="nav nav-pills border p-2 m-2" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" href="<?php echo base_url('admin-events') ?>">Event Management</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="<?php echo base_url('admin-events-attendance') ?>">Event Attendance</a>
+    </li>
+</ul>
+
     <h3>EVENTS</h3>
     <p>Display all the saved events in our website.</p>
     <br>
