@@ -90,11 +90,11 @@
    
 
   
-
+ 
 
     
     
-<section class="site-section testimonial-wrap bg-light" id="orgchart-section" data-aos="fade">
+<!-- <section class="site-section testimonial-wrap bg-light" id="orgchart-section" data-aos="fade">
          <div class="container">
          <div class="row mb-5">
             <div class="col-12 text-center" data-aos="fade">
@@ -106,8 +106,11 @@
        
 
    
-  </section>
+</section> -->
 
+
+<!-- ORG CHART -->
+<?php include 'website/org_chart.php'; ?>
   
 
   <!-- <section class="site-section testimonial-wrap bg-light" id="testimonials-section" data-aos="fade">

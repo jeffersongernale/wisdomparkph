@@ -9,6 +9,7 @@ class WebsiteDetailsController extends CI_Controller {
         $this->load->model('Details');
         $this->load->model('Facilities');
         $this->load->model('Events');
+        $this->load->model('OrgChart');
     }
 
     public function get_details()
@@ -36,6 +37,12 @@ class WebsiteDetailsController extends CI_Controller {
         $result = $this->Events->get_events($condition);
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
 
+    }
+
+    public function get_orgchart()
+    {
+        $result = $this->OrgChart->get_orgchart();
+        $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }
   
 	

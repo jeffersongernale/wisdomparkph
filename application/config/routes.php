@@ -111,7 +111,7 @@ $route['insert-event-attendance']['POST']  = 'EventController/insert_event_atten
   $route['sendmail']['GET']        = 'NewsletterController/send_phpmailer';
   $route['get-newsletter']['GET']  = 'NewsletterController/get_newsletter';
   $route['get-event-attendance']['GET']  = 'EventAttendanceController/get_event_attendance';
-  
+  $route['get-orgchart']             = 'WebsiteDetailsController/get_orgchart';
 
 
 
