@@ -19,7 +19,9 @@ const DETAILS = (()=>
                 let vision_text = '';
                 let goals = '';
                 let faqs_text = '';
+                let ul_timeline = '';
                 let ctr =1;
+                let timeline_position = 'left';
                 $.each(data,function(){
                     if (this.section === 'mission')
                     {
@@ -37,18 +39,6 @@ const DETAILS = (()=>
 
                     if (this.section === 'faqs')
                     {
-                        // faqs_text += `<div class="col-lg-6">
-                        //                     <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                        //                     <h3 class="text-black h5 mb-4">${this.description}</h3>
-                        //                     <p>${this.answer}</p>
-                        //                     </div>
-                        //                 </div>`;
-
-                        // faqs_text+=`<li><button class="accordion font-weight-bold">${this.description}</button>
-                        //             <div class="panel">
-                        //               <p>${this.answer}</p>
-                        //             </div></li>`;
-                        //             ctr++;
 
                         faqs_text+=`
                                     <div class="card faqs_card">
@@ -68,21 +58,40 @@ const DETAILS = (()=>
                         `;
                         ctr+=1;
                     }
+
+                    if(this.section === 'about')
+                    {
+
+                        if(timeline_position === 'left')
+                        {
+                            ul_timeline += '<li><div class="timeline-badge"><i class="glyphicon glyphicon-credit-card"></i></div>';
+                            timeline_position = 'right';
+                        }
+                        else
+                        {
+                            ul_timeline += '<li class="timeline-inverted"><div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>';
+                            timeline_position = 'left';
+                        }
+                        ul_timeline += `
+                            
+                            <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="timeline-title">${this.title}</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p>${this.description}</p>
+                            </div>
+                            </div>
+                        </li>`;
+                    }
                 });
                 $('#mission_text').html(mission_text);
                 $('#vision_text').html(vision_text);
                 $('#ul_goals').html(goals);
                 $('.faqs_text').html(faqs_text);
+                $('#ul_timeline').html(ul_timeline);
 
-                    // var acc = document.getElementsByClassName("accordion");
-                    // var i;
-
-                    // for (i = 0; i < acc.length; i++) {
-                    //     acc[i].onclick = function(){
-                    //         this.classList.toggle("active");
-                    //         this.nextElementSibling.classList.toggle("show");
-                    //   }
-                    // }
+                   
             }
         });
     }

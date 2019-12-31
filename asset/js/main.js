@@ -30,6 +30,11 @@ jQuery(document).ready(function($) {
         $this.find('.arrow-collapse').attr({
           'data-toggle' : 'collapse',
           'data-target' : '#collapseItem' + counter,
+				});
+				
+				$this.find('.arrow-collapse-nav').attr({
+          'data-toggle' : 'collapse',
+          'data-target' : '#collapseItem' + counter,
         });
 
         $this.find('> ul').attr({

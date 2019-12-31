@@ -14,6 +14,7 @@ class Details extends CI_Model {
         $this->db->where($condition);
         $this->db->select('*');
         $this->db->from('details');
+        $this->db->order_by('sequence_number','ASC');
         return $this->db->get()->result_array();
     }
 

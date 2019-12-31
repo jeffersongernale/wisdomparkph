@@ -13,7 +13,7 @@
             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
             <li><a href="<?php echo base_url('#home-section');?>" class="nav-link">Home</a></li>
             <li class="has-children">
-                <a href="#" class="nav-link">About Us</a>
+                <a href="#" class="nav-link arrow-collapse-nav">About Us</a>
                 <ul class="dropdown">
                 <li><a href="<?php echo base_url('#about-section');?>" class="nav-link">Profile History</a></li>
                 <li><a href="<?php echo base_url('#mission_vision-section');?>" class="nav-link">Mission and Vision</a></li>
@@ -24,7 +24,7 @@
             </li>
             <li><a href="facilities" class="nav-link">Facilities</a></li>
             <li class="has-children">
-                <a href="#" class="nav-link">Events</a>
+                <a href="#" class="nav-link arrow-collapse-nav">Events</a>
                 <ul class="dropdown">
 
                 <?php 
