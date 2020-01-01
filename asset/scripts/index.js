@@ -123,7 +123,7 @@ const DETAILS = (()=>
                     <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="">
                         <div class="team-member">
                         <figure>
-                            <img src="${_BASE_URL}asset/upload/org_chart/${this.image_name}" alt="Image" class="img-fluid">
+                            <img src="${_BASE_URL}asset/upload/org_chart/${this.image_name}" alt="Image" class="img-fluid" style="width: 300px;">
                         </figure>
                         <div class="p-3">
                             <h3>${this.name}</h3>
