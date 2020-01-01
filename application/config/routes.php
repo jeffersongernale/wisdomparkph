@@ -97,6 +97,10 @@ $route['insert-gallery-songs']['POST']  = 'GalleryController/insert_gallery_song
 $route['insert-gallery-video']['POST']  = 'GalleryController/insert_gallery_video';
 $route['delete-gallery-songs']['POST']  = 'GalleryController/delete_gallery_songs';
 $route['insert-event-attendance']['POST']  = 'EventController/insert_event_attendance';
+$route['insert-org-chart']['POST']  = 'OrgChartController/insert_org_chart';
+$route['update-org-chart']['POST']  = 'OrgChartController/update_org_chart';
+$route['delete-org-chart']['POST']  = 'OrgChartController/delete_org_chart';
+$route['update-org-chart-pic']['POST']  = 'OrgChartController/update_org_chart_pic';
 
 
 /**

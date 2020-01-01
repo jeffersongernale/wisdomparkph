@@ -2,7 +2,7 @@
 $(document).ready(()=>{
     DETAILS.get_data();
     DETAILS.get_facilities();
-
+    DETAILS.get_orgchart();
    
 });
 
@@ -13,6 +13,7 @@ const DETAILS = (()=>
 
     let this_details = {};
     let facilities_update_id = 0;
+    let org_chart_update_id = 0;
 
 
     this_details.get_data = () =>
@@ -777,6 +778,251 @@ const DETAILS = (()=>
         });
     }
 
+    this_details.insert_org_chart = () =>
+    {
+        $.ajax({
+            url        : 'insert-org-chart',
+            type       : 'POST',
+            data       : new FormData($('#form_org_chart')[0]),
+            processData: false,
+            contentType: false,
+            cache      : false,
+            success: data => 
+            {
+                if(data == true)
+                {   
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Record Inserted Successfully!',
+                        position: 'center'
+                    }); 
+
+                    DETAILS.get_orgchart();
+                    $('#form_org_chart')[0].reset();
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: data.error,
+                        position: 'center'
+                    });
+                }
+             
+            }
+        });
+    }
+
+    this_details.get_orgchart = () =>
+    {
+        $.ajax({
+            url: 'get-orgchart',
+            type: 'GET',
+            success: data =>
+            {
+                console.log(data);
+                let orgchart_details = '';
+                $.each(data,function(){
+
+                    orgchart_details += `
+                        <tr>
+                            
+                            <td class="text-nowrap">
+                            <a href="#" class="btn btn-primary btn-sm"  onclick="window.open('${_BASE_URL}asset/upload/org_chart/${this.image_name}')" title="View Picture"><i class="fa fa-eye"></i></a>
+                            <button type="button"  class="btn btn-primary btn-sm"  onclick="DETAILS.show_modal_org_chart_change_pic(${this.id})" title="Change Picture"><i class="fa fa-camera"></i></button>
+                            <button type="button" class="btn btn-success btn-sm" onclick="DETAILS.update_orgchart(${this.id})"  title="Save Updated Details"><i class="fa fa-save"></i></button>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="DETAILS.delete_orgchart(${this.id})" title="Delete"><i class="fa fa-trash"></i></button>
+                            </td>
+                            <td class="text-nowrap">
+                                <input type="text" class="form-control" id="txt_org_name_${this.id}" value="${this.name}">
+                            </td>
+                            <td class="text-nowrap">
+                                <input type="text" class="form-control" id="txt_org_position_${this.id}" value="${this.position}">
+                            </td>
+                        </tr>
+                    `;
+                });
+
+                $('#tbl_org_chart tbody').html(orgchart_details);
+                $('#tbl_org_chart').DataTable();
+                
+            }
+        });
+    }
+
+    this_details.update_orgchart = (id) =>
+    {
+
+        iziToast.show({
+                theme: 'dark',
+                icon: 'icon-person',
+                title: 'Confirmation :',
+                message: 'Are you sure you want to update this?',
+                position: 'center', // bottomRight, bottomLeft, topRight, topLeft, center, bottomCenter
+                progressBarColor: 'rgb(0, 255, 184)',
+                titleSize: '20px',
+                messageSize: '20px',
+                transitionIn:'bounceInUp',
+                buttons: [
+                    [`<button>YES</button>`, function (instance, toast) {
+                       //ajax here
+                       $.ajax({
+                        url: 'update-org-chart',
+                        type: 'post',
+                        data:
+                        {
+                            'id'         : id, 
+                            name         : $(`#txt_org_name_${id}`).val(),
+                            position     : $(`#txt_org_position_${id}`).val()
+                        },
+                        success: data =>
+                        {
+                            if(data == true)
+                            {
+                                iziToast.success({
+                                    title: 'OK',
+                                    message: 'Record Updated Successfully!',
+                                    position: 'center'
+                                });
+                            }
+                            else
+                            {
+                                iziToast.error({
+                                    title: 'OK',
+                                    message: 'Opps Something went wrong. Please try again.',
+                                    position: 'center'
+                                });
+                            }
+            
+                            DETAILS.get_orgchart();
+                        }
+                    });
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }, true], // true to focus
+                    ['<button>CLOSE</button>', function (instance, toast) {
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }]
+                ]
+        });
+
+      
+    }
+
+
+    this_details.delete_orgchart = (id) => 
+    {
+        iziToast.show({
+                theme: 'dark',
+                icon: 'icon-person',
+                title: 'Confirmation :',
+                message: 'Are you sure you want to delete this?',
+                position: 'center', // bottomRight, bottomLeft, topRight, topLeft, center, bottomCenter
+                progressBarColor: 'rgb(0, 255, 184)',
+                titleSize: '20px',
+                messageSize: '20px',
+                transitionIn:'bounceInUp',
+                buttons: [
+                    [`<button>YES</button>`, function (instance, toast) {
+                       //ajax here
+                        $.ajax({
+                            url:'delete-org-chart',
+                            type:'post',
+                            data:{
+                                'id': id
+                            },
+                            success: data =>
+                            {
+                                console.log(data);
+                                if(data == true)
+                                {
+                                    iziToast.success({
+                                        title: 'OK',
+                                        message: 'Record Deleted Successfully!',
+                                        position: 'center'
+                                    });
+                                }
+                                else
+                                {
+                                    iziToast.error({
+                                        title: 'OK',
+                                        message: 'Opps Something went wrong. Please try again.',
+                                        position: 'center'
+                                    });
+                                }
+                
+                                DETAILS.get_orgchart();
+                            }
+                        });
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }, true], // true to focus
+                    ['<button>CLOSE</button>', function (instance, toast) {
+                        instance.hide({
+                            transitionOut: 'fadeOutUp'
+                        }, toast, 'buttonName');
+                    }]
+                ]
+            });
+
+        
+    }
+
+    this_details.show_modal_org_chart_change_pic = (id) =>
+    {
+        org_chart_update_id = id;
+        $('#modal_org_chart_change_pic').modal('show');
+    }
+
+    $('#modal_org_chart_change_pic').on('hidden.bs.modal', function(){
+        org_chart_update_id = 0;
+        $('#modal_form_org_chart')[0].reset();
+    });
+
+    this_details.update_org_chart_modals_submit = () =>
+    {
+        var form = new FormData($('#modal_form_org_chart')[0]);
+        form.append('id',org_chart_update_id);
+
+        $.ajax({
+            url        : 'update-org-chart-pic',
+            type       : 'POST',
+            data       : form,
+            processData: false,
+            contentType: false,
+            cache      : false,
+            success: data => 
+            {
+                if(data == true)
+                {
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Record Deleted Successfully!',
+                        position: 'center'
+                    });
+                    $('#modal_org_chart_change_pic').modal('hide');
+
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: data.error,
+                        position: 'center'
+                    });
+                }
+                DETAILS.get_orgchart();
+            }
+        });
+
+
+      
+    }
+    
     return this_details;
 })();
 

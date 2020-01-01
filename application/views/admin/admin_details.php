@@ -23,7 +23,7 @@
       <a class="nav-link" data-toggle="pill" href="#goal">Goals</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="pill" href="#about">Organizational Chart</a>
+      <a class="nav-link" data-toggle="pill" href="#org_chart">Organizational Chart</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="pill" href="#menu1">FAQ's</a>
@@ -45,6 +45,9 @@
     <?php include 'company_details/goal.php'; ?>
 
     <?php include 'company_details/faqs.php'; ?>
+
+    <?php include 'company_details/org_chart.php'; ?>
+
     <?php include 'company_details/facilities.php'; ?>
 
 
