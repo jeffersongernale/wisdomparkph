@@ -58,6 +58,7 @@ $route['facilities'] = 'Page/facilities';
 $route['gallery'] = 'Page/gallery';
 $route['events'] = 'Page/events';
 $route['wp'] = 'Page/index';
+$route['mail'] = 'Page/mail';
 
 /**
  * ------------------------------------------------

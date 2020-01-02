@@ -141,4 +141,9 @@ class Page extends CI_Controller {
 		$this->load->view('template/app', $page_data);
 	}
 
+	public function mail()
+	{
+		$this->load->view('mail');
+	}
+
 }

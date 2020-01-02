@@ -10,4 +10,6 @@ class Mailer extends PHPMailer
     {
         parent::__construct();
     }
+
+   
 }

@@ -6,74 +6,67 @@ class NewsletterController extends CI_Controller {
 
 
     public $page_data = [];
-
+    public $mail;
     public function __construct()
     {
         parent::__construct();
         $this->load->model('Newsletter');
         $this->load->library('Mailer');
+        $this->load->helper('Mail_config');
+        $this->mail = mail_config();
     }
     
     
     public function send_phpmailer()
     {
         
+        $body = '
+        <div style="font-family:Calibri">
+        <br>
+        <br>
+        Greetings!
+        <br>
+        <br>
+        We have new upcoming events posted in our website. Come and visit the link below to check the complete details of our events. 
+        <br><br>
+        <div style=" text-align: center;">
+        <a href="#" style="background-color: #532782;color: white !important; padding: 10px;font-weight: bold; border-radius: 5px;margin: 0 auto;text-decoration: none;">VISIT US!</a>
+        </div>
+        
+        <br>
+        If the above link don\'t work, please click this link to redirect you to our website<br>
+        <a href="#">Widom park link</a>
+        <br><br>
+        See you!
+        <br>
+        
+        "The Gift of Dharma excels all other gifts." - DHAMMAPADA 354
+        <br><br>
+        Regards, <br>
+        <b>Wisdom Park Philippines</b><br>
+        <i>"Promoting Human Values through Education"</i>
+        <br><br>
+        <div style="border: 1px solid gray; padding: 10px; font-size: 12px">
+        Why receiving this email? You subscribed to our website to see the latest updates and information about wisdom park.<br>
+        Click this <a href="#">Unsubscribed</a> link to stop receiving email from our website.
+        </div>
+        </div>
+        
+        ';
 
-        $mail = new PHPMailer();
+            // $mail->AddAddress('jefferson.gernale@ph.fujitsu.com');
+            $this->mail->AddAddress('jepgernale@gmail.com');
 
+            $this->mail->Subject  = "Wisdom Park News";
+            $this->mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";
+            $this->mail->WordWrap   = 80;
 
-        // $mail->IsSMTP();
-        // $mail->SMTPDebug   = 0;
-        // $mail->Debugoutput = 'html';
-        // $mail->Mailer      = "smtp";
-        // $mail->SMTPAuth   = false;  
-        // $mail->Port       = 25;       
-        // $mail->Host       = "10.165.35.105";
+            $this->mail->MsgHTML($body);
 
-        $mail->IsSMTP();
-
-        $mail->SMTPOptions = array(
-            'ssl' => array(
-                'verify_peer' => false,
-                'verify_peer_name' => false,
-                'allow_self_signed' => true
-            )
-        );
-
-        $mail->SMTPDebug   = 4;
-        $mail->Debugoutput = 'html';
-        $mail->Mailer      = "smtp";
-        $mail->SMTPAuth   = true;  
-        $mail->Username   = 'wisdompark.web@gmail.com';  
-        $mail->Password   = 'wisdompark00123';  
-        $mail->Port       = 587;       
-        $mail->Host       = "smtp.gmail.com";
-        $mail->SMTPSecure = 'tls';
+            $this->mail->IsHTML(true);
 
         
-
-        // $mail->AddReplyTo("johnpaulo.bonagua@ph.fujitsu.com","PAU");
-        $mail->From       = 'wisdompark.web@gmail.com';
-        $mail->FromName   = 'WisdomPark';
-
-
-        $body = 'testing';
-
-        // $mail->AddAddress('jefferson.gernale@ph.fujitsu.com');
-        $mail->AddAddress('jepgernale@gmail.com');
-
-
-
-            $mail->Subject  = "wew";
-            $mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";
-            $mail->WordWrap   = 80;
-
-            $mail->MsgHTML($body);
-
-            $mail->IsHTML(true);
-
-        
-        $this->output->set_content_type('application/json')->set_output(json_encode($mail->Send()));
+        $this->output->set_content_type('application/json')->set_output(json_encode($this->mail->Send()));
         
     }
 
