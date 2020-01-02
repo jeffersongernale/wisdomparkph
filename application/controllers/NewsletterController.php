@@ -11,9 +11,6 @@ class NewsletterController extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Newsletter');
-        $this->load->library('Mailer');
-        $this->load->helper('Mail_config');
-        $this->mail = mail_config();
     }
     
     
@@ -82,6 +79,19 @@ class NewsletterController extends CI_Controller {
     {
         $post = $this->input->post();
         $result = $this->Newsletter->delete_newsletter(['id' => $post['id']]);
+        $this->output->set_content_type('application/json')->set_output(json_encode($result));
+    }
+
+    public function insert_newsletter()
+    {
+        $post = $this->input->post();
+
+        $data = [
+            'email' => $post['email'],
+            'created_at' => date('Y-m-d')
+        ];
+
+        $result = $this->Newsletter->insert_newsletter($data);
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }
 

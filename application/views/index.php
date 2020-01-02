@@ -26,8 +26,8 @@
     <link rel="stylesheet" href="asset/css/style.css">
     <link rel="stylesheet" href="asset/css/custom.css">
     <!-- <script src="https://balkangraph.com/js/latest/OrgChart.js"></script> -->
-    <script src="<?php echo base_url('asset/node_modules/balkangraph/all.min.js') ?>"></script>
-
+    <!-- <script src="<?php //echo base_url('asset/node_modules/balkangraph/all.min.js') ?>"></script> -->
+    <link href="<?php echo base_url('asset/node_modules/izitoast/dist/css/iziToast.min.css'); ?>" rel="stylesheet">
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
   
@@ -314,7 +314,7 @@
           <div class="col-md-4 text-center">
             <p class="mb-4">
               <span class="icon-room d-block h4 text-primary"></span>
-              <span>203 Fake St. Mountain View, San Francisco, California, USA</span>
+              <span>#14, Broadway Ave, cor. 3<sup>rd</sup> St.,New Manila, Quezon City, Metro Manila, Philippines</span>
             </p>
           </div>
           <div class="col-md-4 text-center">
@@ -342,11 +342,11 @@
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="text-black" for="fname">First Name</label>
-                  <input type="text" id="fname" class="form-control">
+                  <input type="text" id="txt_firstname" class="form-control">
                 </div>
                 <div class="col-md-6">
                   <label class="text-black" for="lname">Last Name</label>
-                  <input type="text" id="lname" class="form-control">
+                  <input type="text" id="txt_lastname" class="form-control">
                 </div>
               </div>
 
@@ -354,7 +354,7 @@
                 
                 <div class="col-md-12">
                   <label class="text-black" for="email">Email</label> 
-                  <input type="email" id="email" class="form-control">
+                  <input type="email" id="txt_email" class="form-control">
                 </div>
               </div>
 
@@ -362,20 +362,21 @@
                 
                 <div class="col-md-12">
                   <label class="text-black" for="subject">Subject</label> 
-                  <input type="subject" id="subject" class="form-control">
+                  <input type="subject" id="txt_subject" class="form-control">
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="message">Message</label> 
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
+                  <textarea name="message" id="txt_message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <input type="submit" value="Send Message" class="btn btn-primary btn-md text-white">
+                  <!-- <input type="submit" value="Send Message" class="btn btn-primary btn-md text-white"> -->
+                  <button id="btn_message_submit" type="button" class="btn btn-primary btn-md text-white" onclick="DETAILS.send_mail()">Send Message</button>
                 </div>
               </div>
 
@@ -405,85 +406,11 @@
   <script src="asset/js/isotope.pkgd.min.js"></script>
 
   
+  <script src="<?php echo base_url('asset/node_modules/izitoast/dist/js/iziToast.min.js'); ?>"></script>
   <script src="asset/js/main.js"></script>
   <script src="asset/scripts/index.js"></script>
 
-  <script>
-  var chart = new OrgChart(document.getElementById("tree"), {
-            template: "diva",         
-            showYScroll: OrgChart.scroll.visible, 
-            mouseScrool: OrgChart.action.yScroll,
-            layout: OrgChart.normal,
-            // scaleInitial: OrgChart.match.width,
-            scaleInitial: OrgChart.match.boundary,
-            enableSearch: true,
-            nodeBinding: {
-                field_0: "name",
-                field_1: "position",
-                img_0: "img"
-            },
-            nodes: [
-                { id: 1, name: "Amber McKenzie", img: _BASE_URL+"asset/images/hero_1.jpg", position: "President"},
-                { id: 2, pid: 1, name: "Ava Field" },
-                { id: 3, pid: 1, name: "Peter Stevens" },
-                { id: 4, pid: 2, name: "Ava Field" },
-                { id: 5, pid: 2, name: "Peter Stevens" },
-                { id: 6, pid: 3, name: "Peter Stevens" },
-                { id: 7, pid: 3, name: "Peter Stevens" },
-                { id: 8, pid: 4, name: "Peter Stevens" }
-            ]
-        });
-
-  // OrgChart.MIXED_LAYOUT_ALL_NODES = false;
-  // var chart = new OrgChart(document.getElementById("tree"), {   
-  //           template: "rony",         
-  //           showYScroll: OrgChart.scroll.visible, 
-  //           mouseScrool: OrgChart.action.yScroll,
-  //           layout: OrgChart.normal,
-  //           // scaleInitial: OrgChart.match.width,
-  //           scaleInitial: OrgChart.match.width,
-  //           enableSearch: false,
-  //           nodes: [
-  //               { id: "1"  },
-  //               { id: "2" , pid: "1"},
-  //               { id: "3" , pid: "1"},
-  //               { id: "4" , pid: "1"},
-  //               { id: "5" , pid: "2"},
-  //               { id: "6" , pid: "2"},
-  //               { id: "7" , pid: "2"},
-  //               { id: "8" , pid: "2"},
-  //               { id: "9" , pid: "2"},
-  //               { id: "10", pid: "2" },
-  //               { id: "11", pid: "2" },
-  //               { id: "12", pid: "2" },
-  //               { id: "14", pid: "2" },
-  //               { id: "15", pid: "3" },
-  //               { id: "16", pid: "3" },
-  //               { id: "17", pid: "3" },
-  //               { id: "18", pid: "3" },
-  //               { id: "19", pid: "3" },
-  //               { id: "20", pid: "3" },
-  //               { id: "21", pid: "3" },
-  //               { id: "22", pid: "3" },
-  //               { id: "23", pid: "4" },
-  //               { id: "24", pid: "4" },
-  //               { id: "25", pid: "4" },
-  //               { id: "26", pid: "4" },
-  //               { id: "27", pid: "4" },
-  //               { id: "28", pid: "4" },
-  //               { id: "29", pid: "4" },
-  //               { id: "30", pid: "4" },
-  //               { id: "31", pid: "2" },
-  //               { id: "32", pid: "2" },
-  //               { id: "33", pid: "2" },
-  //               { id: "34", pid: "2" },
-  //               { id: "35", pid: "2" },
-  //               { id: "36", pid: "2" },
-  //               { id: "37", pid: "2" }
-  //           ]
-  //       });      
-
-  </script>
+ 
     
   </body>
 </html>

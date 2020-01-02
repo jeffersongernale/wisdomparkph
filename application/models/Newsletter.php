@@ -24,6 +24,11 @@ class Newsletter extends CI_Model {
         return $this->db->delete('newsletter');
     }
 
+    public function insert_newsletter($data)
+    {
+        return $this->db->insert('newsletter',$data);
+    }
+
  
    
    

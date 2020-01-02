@@ -140,6 +140,97 @@ const DETAILS = (()=>
         });
     }
 
+    this_details.insert_newsletter = () =>
+    {
+
+        $.ajax({
+            url: 'insert-newsletter',
+            type: 'POST',
+            data: {
+                email : $('#txt_newsletter').val()
+            },
+            success: data =>
+            {
+                console.log(data);
+                if(data == true)
+                {
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Thankyou for subscribing!',
+                        position: 'center'
+                    });
+                    $('#txt_newsletter').val('');
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: 'Opps Something went wrong. Please try again.',
+                        position: 'center'
+                    });
+                }
+            }
+        });
+
+
+    }
+
+    this_details.send_mail = () =>
+    {
+        $('#btn_message_submit').attr('disabled',true);
+        $.ajax({
+            url: 'contact-mail',
+            type: 'POST',
+            data:
+            {
+                firstname: $('#txt_firstname').val(),
+                lastname: $('#txt_lastname').val(),
+                email: $('#txt_email').val(),
+                subject: $('#txt_subject').val(),
+                message: $('#txt_message').val(),
+            },
+            success: data =>
+            {
+                console.log(data);
+                if(data == true)
+                {
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Message sent! Thank you',
+                        position: 'center'
+                    });
+                    $('#txt_firstname').val('');
+                    $('#txt_lastname').val('');
+                    $('#txt_email').val('');
+                    $('#txt_subject').val('');
+                    $('#txt_message').val('');
+                    $('#btn_message_submit').attr('disabled',false);
+                }
+                else
+                {
+                    iziToast.error({
+                        title: 'OK',
+                        message: 'Opps Something went wrong. Please try again.',
+                        position: 'center'
+                    });
+                    $('#btn_message_submit').attr('disabled',false);
+                }
+            },
+            error: data => {
+                // console.log(data);
+                iziToast.error({
+                    title: 'OK',
+                    message: 'Opps Something went wrong. Please try again.',
+                    position: 'center'
+                });
+                $('#btn_message_submit').attr('disabled',false);
+            }
+        });
+
+    }
+
+
+
 
     return this_details;
 })();

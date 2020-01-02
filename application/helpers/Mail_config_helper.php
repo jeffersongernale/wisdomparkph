@@ -23,7 +23,7 @@ function mail_config()
             )
         );
 
-        $mail->SMTPDebug   = 4;
+        $mail->SMTPDebug   = 0;
         $mail->Debugoutput = 'html';
         $mail->Mailer      = "smtp";
         $mail->SMTPAuth   = true;  

@@ -102,6 +102,8 @@ $route['insert-org-chart']['POST']  = 'OrgChartController/insert_org_chart';
 $route['update-org-chart']['POST']  = 'OrgChartController/update_org_chart';
 $route['delete-org-chart']['POST']  = 'OrgChartController/delete_org_chart';
 $route['update-org-chart-pic']['POST']  = 'OrgChartController/update_org_chart_pic';
+$route['insert-newsletter']['POST']  = 'NewsletterController/insert_newsletter';
+$route['contact-mail']['POST']  = 'WebsiteDetailsController/send_mail';
 
 
 /**

@@ -1,3 +1,5 @@
+
+
 <footer class="site-footer">
       <div class="container">
         <div class="row">
@@ -5,14 +7,15 @@
             <div class="row">
               <div class="col-md-5">
                 <h2 class="footer-heading mb-4">About Us</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
+                <p>In 1989, a group of people, propelled by the goal to continuously enhance and inculcate human values in the hearts and minds of every individual, joined resources and came up with a Buddhist Resource Center. As a result, WP was born, designed to be a home for Buddhist-inspired activities promoting human values in Education. </p>
               </div>
               <div class="col-md-3 ml-auto">
                 <h2 class="footer-heading mb-4">Quick Links</h2>
                 <ul class="list-unstyled">
-                  <li><a href="#about-section" class="smoothscroll">About Us</a></li>
-                  <li><a href="#services-section" class="smoothscroll">Services</a></li>
-                  <li><a href="#testimonials-section" class="smoothscroll">Testimonials</a></li>
+                  <li><a href="#about-section" class="smoothscroll">Company Profile</a></li>
+                  <li><a href="#mission_vision-section" class="smoothscroll">Mission & Vision</a></li>
+                  <li><a href="#orgchart-section" class="smoothscroll">Organizational Chart</a></li>
+                  <li><a href="#faq-section" class="smoothscroll">FAQ'S</a></li>
                   <li><a href="#contact-section" class="smoothscroll">Contact Us</a></li>
                 </ul>
               </div>
@@ -29,9 +32,9 @@
             <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
             <form action="#" method="post" class="footer-subscribe">
               <div class="input-group mb-3">
-                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                <input id="txt_newsletter" type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
                 <div class="input-group-append">
-                  <button class="btn btn-primary text-black" type="button" id="button-addon2">Send</button>
+                  <button class="btn btn-primary text-black" type="button" id="button-addon2" onclick="DETAILS.insert_newsletter()">Send</button>
                 </div>
               </div>
             </form>
