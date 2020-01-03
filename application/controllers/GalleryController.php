@@ -107,7 +107,8 @@ class GalleryController extends CI_Controller {
             $img_data = ['upload_data' => $this->upload->data()];
             $data = [
                 'section'     =>'songs',
-                'image_name'  => $new_name
+                'image_name'  => $new_name,
+                'description' => $_FILES["gallery_file_songs"]['name']
             ];
     
             $result = $this->Gallery->insert_gallery($data);

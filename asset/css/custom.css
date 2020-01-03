@@ -300,7 +300,7 @@ audio {
 .audio_cont
 {
   /* border: solid black; */
-  height: 200px;
+  height: 230px;
   box-shadow: 1px 1px 5px rgba(0,0, 0, 0.4);
   background-image: url('../images/website/music1.png');
   background-repeat: no-repeat;
