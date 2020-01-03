@@ -183,7 +183,7 @@ div.panel.show {
     top: 16px;
     left: 50%;
     margin-left: -25px;
-    background-color: #999999;
+    background-color: #532782;
     z-index: 100;
     border-top-right-radius: 50%;
     border-top-left-radius: 50%;
@@ -218,7 +218,8 @@ div.panel.show {
   }
   
   .timeline-badge.warning {
-    background-color: #f0ad4e !important;
+    /* background-color: #f0ad4e !important; */
+    background-color: #a377d2 !important;
   }
   
   .timeline-badge.danger {
