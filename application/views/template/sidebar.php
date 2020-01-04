@@ -10,7 +10,7 @@
       <a href="admin-gallery" class="list-group-item list-group-item-action bg-light"><i class="fa fa-photo-video"></i> &nbsp;Gallery</a>
       <a href="admin-events" class="list-group-item list-group-item-action bg-light"><i class="fa fa-calendar-check"></i> &nbsp;Events</a>
       <a href="admin-newsletter" class="list-group-item list-group-item-action bg-light"><i class="fa fa-envelope"></i> &nbsp;Newsletter Subsriber</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fa fa-user"></i> &nbsp;User Management</a>
+      <a href="admin-user-management" class="list-group-item list-group-item-action bg-light"><i class="fa fa-user"></i> &nbsp;User Management</a>
 
     </div>
   </div>

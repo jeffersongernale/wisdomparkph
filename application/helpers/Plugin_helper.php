@@ -31,7 +31,8 @@ function dependencies_script($plugin)
         'admin_gallery'           => '<script src="'.base_url('asset/scripts/admin_gallery.js').'"></script>',
         'admin_events'            => '<script src="'.base_url('asset/scripts/admin_events.js').'"></script>',
         'admin_events_attendance' => '<script src="'.base_url('asset/scripts/admin_events_attendance.js').'"></script>',
-        'admin_newsletter'        => '<script src="'.base_url('asset/scripts/admin_newsletter.js').'"></script>'
+        'admin_newsletter'        => '<script src="'.base_url('asset/scripts/admin_newsletter.js').'"></script>',
+        'admin_user_mgmt'        => '<script src="'.base_url('asset/scripts/admin_user_mgmt.js').'"></script>',
       
     ];
 

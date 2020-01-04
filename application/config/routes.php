@@ -71,6 +71,7 @@ $route['admin-newsletter']       = 'Page/admin_newsletter';
 $route['admin-events']           = 'Page/admin_events';
 $route['admin-events-attendance']           = 'Page/admin_events_attendacnce';
 $route['select-events-section']  = 'EventController/get_section';
+$route['admin-user-management']  = 'Page/admin_user_mgmt';
 
 $route['insert-details']['POST']        = 'AboutController/insert_details';
 $route['delete-details']['POST']        = 'AboutController/delete_details';
@@ -104,6 +105,10 @@ $route['delete-org-chart']['POST']  = 'OrgChartController/delete_org_chart';
 $route['update-org-chart-pic']['POST']  = 'OrgChartController/update_org_chart_pic';
 $route['insert-newsletter']['POST']  = 'NewsletterController/insert_newsletter';
 $route['contact-mail']['POST']  = 'WebsiteDetailsController/send_mail';
+$route['insert-users']['POST']  = 'UserManagementController/insert_user';
+$route['delete-users']['POST']  = 'UserManagementController/delete_user';
+$route['update-users']['POST']  = 'UserManagementController/update_user';
+$route['get-users-data']['GET']  = 'UserManagementController/get_users_data';
 
 
 /**
@@ -119,6 +124,7 @@ $route['contact-mail']['POST']  = 'WebsiteDetailsController/send_mail';
   $route['get-newsletter']['GET']  = 'NewsletterController/get_newsletter';
   $route['get-event-attendance']['GET']  = 'EventAttendanceController/get_event_attendance';
   $route['get-orgchart']             = 'WebsiteDetailsController/get_orgchart';
+  $route['get-users']['GET']       = 'UserManagementController/get_users';
 
 
 

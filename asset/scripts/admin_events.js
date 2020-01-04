@@ -229,6 +229,10 @@ const EVENTS = (()=>
         $('#modal_events_change_pic').modal('show');
     }
 
+    $('#modal_events_change_pic').on('hidden.bs.modal', function(){
+        events_update_id = 0;
+        $('#modal_form_events')[0].reset();
+    });
 
     this_events.update_event_modals_submit = () =>
     {

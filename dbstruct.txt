@@ -25,3 +25,5 @@ CREATE TABLE `wisdom_park`.`event_attendance` ( `id` INT NOT NULL AUTO_INCREMENT
 ALTER TABLE `event_attendance` ADD `head_count` INT NOT NULL AFTER `created_at`;
 
 CREATE TABLE `wisdom_park`.`organizational_chart` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NOT NULL , `position` VARCHAR(255) NOT NULL , `image_name` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ALTER TABLE `users` ADD `created_at` DATE NOT NULL AFTER `password`;
