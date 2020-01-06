@@ -41,7 +41,7 @@ const DETAILS = (()=>
                     {
 
                         faqs_text+=`
-                                    <div class="card faqs_card">
+                                    <div class="card faqs_card" style="cursor: pointer">
                                     <div class="card-header text-black text-uppercase faqs_header" id="headingOne" data-toggle="collapse" data-target="#collapse${this.id}" aria-expanded="true" aria-controls="collapse${this.id}">
                                     <h3 class="mb-0 h3">
                                            ${ctr}. ${this.description}
@@ -123,7 +123,7 @@ const DETAILS = (()=>
                     <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="">
                         <div class="team-member">
                         <figure>
-                            <img src="${_BASE_URL}asset/upload/org_chart/${this.image_name}" alt="Image" class="img-fluid" style="width: 300px;">
+                            <img src="${_BASE_URL}asset/upload/org_chart/${this.image_name}" alt="Image" class="img-fluid" style="width: 300px; height: 190px">
                         </figure>
                         <div class="p-3">
                             <h3>${this.name}</h3>

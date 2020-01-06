@@ -22,9 +22,10 @@ const EVENTS = (()=>
                 $.each(data,function(){
                     events_detail += `<tr>
                                         <td class="text-nowrap">
-                                            <button title="SAVE CHANGES" type="button" class="btn btn-sm btn-primary" onclick="EVENTS.update_event(${this.id})"><i class="fa fa-save"></i></button>
+
                                             <a href="#" onclick="window.open('${_BASE_URL}asset/upload/event/${this.image}')" title="VIEW PICTURE" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
-                                            <button onclick="EVENTS.show_modal_events_change_pic(${this.id})" title="CHANGE PICTURE" class="btn btn-sm btn-success"><i class="fa fa-image"></i></button>
+                                            <button onclick="EVENTS.show_modal_events_change_pic(${this.id})" title="CHANGE PICTURE" class="btn btn-sm btn-primary"><i class="fa fa-camera"></i></button>
+                                            <button title="SAVE CHANGES" type="button" class="btn btn-sm btn-success" onclick="EVENTS.update_event(${this.id})"><i class="fa fa-save"></i></button>
                                             <button title="DELETE" class="btn btn-sm btn-danger" onclick="EVENTS.delete_event(${this.id})"><i class="fa fa-trash"></i></button>
                                         </td>
                                         <td>
@@ -34,7 +35,7 @@ const EVENTS = (()=>
                                             <textarea class="form-control" rows="5" id="txt_description_${this.id}">${this.description}</textarea>
                                         </td>
                                         <td class="text-nowrap">
-                                            <input type="date" class="form-control" id="txt_event_date_${this.id}" value="${this.event_date}">
+                                            <input type="datetime-local" class="form-control" id="txt_event_date_${this.id}" value="${this.event_date}">
                                         </td>
                                         <td class="text-nowrap">
                                             <input type="text" class="form-control" id="slc_section_${this.id}" value="${this.section}">
