@@ -64,12 +64,12 @@ const DETAILS = (()=>
 
                         if(timeline_position === 'left')
                         {
-                            ul_timeline += '<li><div class="timeline-badge"><i class="glyphicon glyphicon-credit-card"></i></div>';
+                            ul_timeline += '<li><div class="timeline-badge">WP</div>';
                             timeline_position = 'right';
                         }
                         else
                         {
-                            ul_timeline += '<li class="timeline-inverted"><div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>';
+                            ul_timeline += '<li class="timeline-inverted"><div class="timeline-badge warning">WP</div>';
                             timeline_position = 'left';
                         }
                         ul_timeline += `

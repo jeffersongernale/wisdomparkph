@@ -308,9 +308,6 @@
           </div>
         </div>
         <div class="row mb-5">
-          
-
-
           <div class="col-md-4 text-center">
             <p class="mb-4">
               <span class="icon-room d-block h4 text-primary"></span>
@@ -329,7 +326,28 @@
               <a href="#">youremail@domain.com</a>
             </p>
           </div>
+          <div class="col-md-4 text-center">
+            <p class="mb-4">
+              <span class="icon-facebook d-block h4 text-primary"></span>
+              <span>#14, Broadway Ave, cor. 3<sup>rd</sup> St.,New Manila, Quezon City, Metro Manila, Philippines</span>
+            </p>
+          </div>
+          <div class="col-md-4 text-center">
+            <p class="mb-4">
+              <span class="icon-twitter d-block h4 text-primary"></span>
+              <span>#14, Broadway Ave, cor. 3<sup>rd</sup> St.,New Manila, Quezon City, Metro Manila, Philippines</span>
+            </p>
+          </div>
+          <div class="col-md-4 text-center">
+            <p class="mb-4">
+              <span class="icon-youtube d-block h4 text-primary"></span>
+              <span>#14, Broadway Ave, cor. 3<sup>rd</sup> St.,New Manila, Quezon City, Metro Manila, Philippines</span>
+            </p>
+          </div>
         </div>
+
+      
+          
         <div class="row">
           <div class="col-md-12 mb-5">
 
