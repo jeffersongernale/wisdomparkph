@@ -57,7 +57,7 @@ const GALLERY = (()=>
                                             </td>
                                             <td  style="width: 30%">
                                                 <iframe width='420' height='315'
-                                                src='https://www.youtube.com/embed/${this.image_name}?playlist=tgbNymZ7vqY&loop=1'>
+                                                src='https://www.youtube.com/embed/${this.image_name}'>
                                                 </iframe>
                                             </td>
                                             <td  style="width: 50%">
@@ -88,7 +88,7 @@ const GALLERY = (()=>
                                             </audio>
                                             </td>
                                             <td  style="width: 50%">
-                                                <p>${this.image_name}</p>
+                                                <p>${this.description}</p>
                                             </td>
                                         </tr>`;
                 });
@@ -290,39 +290,50 @@ const GALLERY = (()=>
 
     this_gallery.insert_gallery_video = () =>
     {
-        $.ajax({
-            url        : 'insert-gallery-video',
-            type       : 'POST',
-            data       : {
-                image_name: $('#txt_video_yt').val(),
-                description: $('#txt_video_desc').val()
-            },
-            cache      : false,
-            success: data => 
-            {
-                if(data == true)
-                {   
-                    iziToast.success({
-                        title: 'OK',
-                        message: 'Record Inserted Successfully!',
-                        position: 'center'
-                    }); 
-
-                    GALLERY.load_gallery();
-                    $('#txt_video_yt').val('');
-                    $('#txt_video_desc').val('');
-                }
-                else
+        if($('#txt_video_yt').val() == '' || $('#txt_video_desc').val() == '')
+        {
+            iziToast.error({
+                title: 'OK',
+                message: 'Please Complete all fields',
+                position: 'center'
+            });
+        }
+        else
+        {
+            $.ajax({
+                url        : 'insert-gallery-video',
+                type       : 'POST',
+                data       : {
+                    image_name: $('#txt_video_yt').val(),
+                    description: $('#txt_video_desc').val()
+                },
+                cache      : false,
+                success: data => 
                 {
-                    iziToast.error({
-                        title: 'OK',
-                        message: data.error,
-                        position: 'center'
-                    });
+                    if(data == true)
+                    {   
+                        iziToast.success({
+                            title: 'OK',
+                            message: 'Record Inserted Successfully!',
+                            position: 'center'
+                        }); 
+
+                        GALLERY.load_gallery();
+                        $('#txt_video_yt').val('');
+                        $('#txt_video_desc').val('');
+                    }
+                    else
+                    {
+                        iziToast.error({
+                            title: 'OK',
+                            message: data.error,
+                            position: 'center'
+                        });
+                    }
+                
                 }
-             
-            }
-        });
+            });
+        }
     }
 
     this_gallery.delete_gallery_songs = (id) =>

@@ -121,12 +121,19 @@ class GalleryController extends CI_Controller {
     {
         $this->_verify();
         $post = $this->input->post();
-        $data = [
-            'section'     =>'videos',
-            'image_name'  => $post['image_name'],
-            'description' => $post['description']
-        ];
-        $result = $this->Gallery->insert_gallery($data);
+        if($post['description'] == '')
+        {
+            $result = false;
+        }
+        else
+        {
+            $data = [
+                'section'     =>'videos',
+                'image_name'  => $post['image_name'],
+                'description' => $post['description']
+            ];
+            $result = $this->Gallery->insert_gallery($data);
+        }
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }
 
