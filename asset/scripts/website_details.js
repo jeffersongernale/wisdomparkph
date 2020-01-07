@@ -208,95 +208,121 @@ const DETAILS = (()=>
 
     this_details.update_goals = (id) =>
     {
-        iziToast.show({
-                theme: 'dark',
-                icon: 'icon-person',
-                title: 'Confirmation :',
-                message: 'Are you sure you want to update this?',
-                position: 'center', // bottomRight, bottomLeft, topRight, topLeft, center, bottomCenter
-                progressBarColor: 'rgb(0, 255, 184)',
-                titleSize: '20px',
-                messageSize: '20px',
-                transitionIn:'bounceInUp',
-                buttons: [
-                    [`<button>YES</button>`, function (instance, toast) {
-                       //ajax here
-                       $.ajax({
-                        url:'update-goals',
-                        type:'post',
-                        data:{
-                            'description' : $(`#txt_description_${id}`).val(),
-                            'id'          : id
-                        },
-                        success: data =>
-                        {
-                            console.log(data);
-                            if(data == true)
-                            {
-                                iziToast.success({
-                                    title: 'OK',
-                                    message: 'Record Updated Successfully!',
-                                    position: 'center'
-                                });
-                            }
-                            else
-                            {
-                                iziToast.error({
-                                    title: 'OK',
-                                    message: 'Opps Something went wrong. Please try again.',
-                                    position: 'center'
-                                });
-                            }
-                            DETAILS.get_data();
-                        }
-                    });
-                        instance.hide({
-                            transitionOut: 'fadeOutUp'
-                        }, toast, 'buttonName');
-                    }, true], // true to focus
-                    ['<button>CLOSE</button>', function (instance, toast) {
-                        instance.hide({
-                            transitionOut: 'fadeOutUp'
-                        }, toast, 'buttonName');
-                    }]
-                ]
-            });
 
+        if($(`#txt_description_${id}`).val() == '')
+        {
+            iziToast.error({
+                title: 'OK',
+                message: 'Please Complete all fields',
+                position: 'center'
+            });
+        }
+        else
+        {
+
+            iziToast.show({
+                    theme: 'dark',
+                    icon: 'icon-person',
+                    title: 'Confirmation :',
+                    message: 'Are you sure you want to update this?',
+                    position: 'center', // bottomRight, bottomLeft, topRight, topLeft, center, bottomCenter
+                    progressBarColor: 'rgb(0, 255, 184)',
+                    titleSize: '20px',
+                    messageSize: '20px',
+                    transitionIn:'bounceInUp',
+                    buttons: [
+                        [`<button>YES</button>`, function (instance, toast) {
+                        //ajax here
+                        $.ajax({
+                            url:'update-goals',
+                            type:'post',
+                            data:{
+                                'description' : $(`#txt_description_${id}`).val(),
+                                'id'          : id
+                            },
+                            success: data =>
+                            {
+                                console.log(data);
+                                if(data == true)
+                                {
+                                    iziToast.success({
+                                        title: 'OK',
+                                        message: 'Record Updated Successfully!',
+                                        position: 'center'
+                                    });
+                                }
+                                else
+                                {
+                                    iziToast.error({
+                                        title: 'OK',
+                                        message: 'Opps Something went wrong. Please try again.',
+                                        position: 'center'
+                                    });
+                                }
+                                DETAILS.get_data();
+                            }
+                        });
+                            instance.hide({
+                                transitionOut: 'fadeOutUp'
+                            }, toast, 'buttonName');
+                        }, true], // true to focus
+                        ['<button>CLOSE</button>', function (instance, toast) {
+                            instance.hide({
+                                transitionOut: 'fadeOutUp'
+                            }, toast, 'buttonName');
+                        }]
+                    ]
+                });
+        }
         
     }
 
     this_details.insert_goals = () =>
     {
-        $.ajax({
-            url:'insert-details',
-            type:'post',
-            data:{
-                'section'     : 'goals',
-                'description' : $(`#txt_goals`).val()
-            },
-            success: data =>
-            {
-                console.log(data);
-                if(data == true)
+
+        if($('#txt_goals').val() == '')
+        {
+            iziToast.error({
+                title: 'OK',
+                message: 'Please Complete all fields',
+                position: 'center'
+            });
+        }
+        else
+        {
+
+            $.ajax({
+                url:'insert-details',
+                type:'post',
+                data:{
+                    'section'     : 'goals',
+                    'description' : $(`#txt_goals`).val()
+                },
+                success: data =>
                 {
-                    iziToast.success({
-                        title: 'OK',
-                        message: 'Record Inserted Successfully!',
-                        position: 'center'
-                    });
+                    console.log(data);
+                    if(data == true)
+                    {
+                        iziToast.success({
+                            title: 'OK',
+                            message: 'Record Inserted Successfully!',
+                            position: 'center'
+                        });
+                    }
+                    else
+                    {
+                        iziToast.error({
+                            title: 'OK',
+                            message: 'Opps Something went wrong. Please try again.',
+                            position: 'center'
+                        });
+                    }
+                    DETAILS.get_data();
+                    $(`#txt_goals`).val('');
                 }
-                else
-                {
-                    iziToast.error({
-                        title: 'OK',
-                        message: 'Opps Something went wrong. Please try again.',
-                        position: 'center'
-                    });
-                }
-                DETAILS.get_data();
-                $(`#txt_goals`).val('');
-            }
-        });
+            });
+
+        }
     }
     
     this_details.delete_details = (id) =>
@@ -361,133 +387,168 @@ const DETAILS = (()=>
     this_details.update_faqs = (id) =>
     {
 
-        iziToast.show({
-                theme: 'dark',
-                icon: 'icon-person',
-                title: 'Confirmation :',
-                message: 'Are you sure you want to update this?',
-                position: 'center', // bottomRight, bottomLeft, topRight, topLeft, center, bottomCenter
-                progressBarColor: 'rgb(0, 255, 184)',
-                titleSize: '20px',
-                messageSize: '20px',
-                transitionIn:'bounceInUp',
-                buttons: [
-                    [`<button>YES</button>`, function (instance, toast) {
-                       //ajax here
-                       $.ajax({
-                        url:'update-faqs',
-                        type:'post',
-                        data:{
-                            'description' : $(`#txt_description_${id}`).val(),
-                            'answer'      : $(`#txt_answer_${id}`).val(),
-                            'id'          : id
-                        },
-                        success: data =>
-                        {
-                            console.log(data);
-                            if(data == true)
-                            {
-                                iziToast.success({
-                                    title: 'OK',
-                                    message: 'Record Updated Successfully!',
-                                    position: 'center'
-                                });
-                            }
-                            else
-                            {
-                                iziToast.error({
-                                    title: 'OK',
-                                    message: 'Opps Something went wrong. Please try again.',
-                                    position: 'center'
-                                });
-                            }
-                        }
-                    });
-                        instance.hide({
-                            transitionOut: 'fadeOutUp'
-                        }, toast, 'buttonName');
-                    }, true], // true to focus
-                    ['<button>CLOSE</button>', function (instance, toast) {
-                        instance.hide({
-                            transitionOut: 'fadeOutUp'
-                        }, toast, 'buttonName');
-                    }]
-                ]
+        if($(`#txt_description_${id}`).val() == '' || $(`#txt_answer_${id}`).val() == '')
+        {
+            iziToast.error({
+                title: 'OK',
+                message: 'Please Complete all fields',
+                position: 'center'
             });
+        }
+        else
+        {
 
+            iziToast.show({
+                    theme: 'dark',
+                    icon: 'icon-person',
+                    title: 'Confirmation :',
+                    message: 'Are you sure you want to update this?',
+                    position: 'center', // bottomRight, bottomLeft, topRight, topLeft, center, bottomCenter
+                    progressBarColor: 'rgb(0, 255, 184)',
+                    titleSize: '20px',
+                    messageSize: '20px',
+                    transitionIn:'bounceInUp',
+                    buttons: [
+                        [`<button>YES</button>`, function (instance, toast) {
+                        //ajax here
+                        $.ajax({
+                            url:'update-faqs',
+                            type:'post',
+                            data:{
+                                'description' : $(`#txt_description_${id}`).val(),
+                                'answer'      : $(`#txt_answer_${id}`).val(),
+                                'id'          : id
+                            },
+                            success: data =>
+                            {
+                                console.log(data);
+                                if(data == true)
+                                {
+                                    iziToast.success({
+                                        title: 'OK',
+                                        message: 'Record Updated Successfully!',
+                                        position: 'center'
+                                    });
+                                }
+                                else
+                                {
+                                    iziToast.error({
+                                        title: 'OK',
+                                        message: 'Opps Something went wrong. Please try again.',
+                                        position: 'center'
+                                    });
+                                }
+                            }
+                        });
+                            instance.hide({
+                                transitionOut: 'fadeOutUp'
+                            }, toast, 'buttonName');
+                        }, true], // true to focus
+                        ['<button>CLOSE</button>', function (instance, toast) {
+                            instance.hide({
+                                transitionOut: 'fadeOutUp'
+                            }, toast, 'buttonName');
+                        }]
+                    ]
+                });
+        }
       
     }
 
     this_details.insert_faqs = () =>
     {
-        $.ajax({
-            url:'insert-details',
-            type:'post',
-            data:{
-                'section'     : 'faqs',
-                'description' : $(`#txt_question`).val(),
-                'answer'      : $(`#txt_answer`).val()
-            },
-            success: data =>
-            {
-                console.log(data);
-                if(data == true)
+        if($('#txt_question').val() == '' || $('#txt_answer').val() == '')
+        {
+            iziToast.error({
+                title: 'OK',
+                message: 'Please Complete all fields',
+                position: 'center'
+            });
+        }
+        else
+        {
+            $.ajax({
+                url:'insert-details',
+                type:'post',
+                data:{
+                    'section'     : 'faqs',
+                    'description' : $(`#txt_question`).val(),
+                    'answer'      : $(`#txt_answer`).val()
+                },
+                success: data =>
                 {
-                    iziToast.success({
-                        title: 'OK',
-                        message: 'Record Inserted Successfully!',
-                        position: 'center'
-                    }); 
-                    
-                    $(`#txt_question`).val('');
-                    $(`#txt_answer`).val('');
+                    console.log(data);
+                    if(data == true)
+                    {
+                        iziToast.success({
+                            title: 'OK',
+                            message: 'Record Inserted Successfully!',
+                            position: 'center'
+                        }); 
+                        
+                        $(`#txt_question`).val('');
+                        $(`#txt_answer`).val('');
+                    }
+                    else
+                    {
+                        iziToast.error({
+                            title: 'OK',
+                            message: 'Opps Something went wrong. Please try again.',
+                            position: 'center'
+                        });
+                    }
+                    DETAILS.get_data();
                 }
-                else
-                {
-                    iziToast.error({
-                        title: 'OK',
-                        message: 'Opps Something went wrong. Please try again.',
-                        position: 'center'
-                    });
-                }
-                DETAILS.get_data();
-            }
-        });
+            });
+
+        }
     }
 
     this_details.insert_facilities = () =>
     {
-        $.ajax({
-            url        : 'insert-facilities',
-            type       : 'POST',
-            data       : new FormData($('#form_facilities')[0]),
-            processData: false,
-            contentType: false,
-            cache      : false,
-            success: data => 
-            {
-                if(data == true)
-                {   
-                    iziToast.success({
-                        title: 'OK',
-                        message: 'Record Inserted Successfully!',
-                        position: 'center'
-                    }); 
-
-                    DETAILS.get_facilities();
-                    $('#form_facilities')[0].reset();
-                }
-                else
+        
+        if($('#txt_title').val() == '' || $('#txt_description').val() == '')
+        {
+            iziToast.error({
+                title: 'OK',
+                message: 'Please Complete all fields',
+                position: 'center'
+            });
+        }
+        else
+        {
+            $.ajax({
+                url        : 'insert-facilities',
+                type       : 'POST',
+                data       : new FormData($('#form_facilities')[0]),
+                processData: false,
+                contentType: false,
+                cache      : false,
+                success: data => 
                 {
-                    iziToast.error({
-                        title: 'OK',
-                        message: data.error,
-                        position: 'center'
-                    });
+                    if(data == true)
+                    {   
+                        iziToast.success({
+                            title: 'OK',
+                            message: 'Record Inserted Successfully!',
+                            position: 'center'
+                        }); 
+
+                        DETAILS.get_facilities();
+                        $('#form_facilities')[0].reset();
+                    }
+                    else
+                    {
+                        iziToast.error({
+                            title: 'OK',
+                            message: data.error,
+                            position: 'center'
+                        });
+                    }
+                
                 }
-             
-            }
-        });
+            });
+        }
     }
 
     this_details.get_facilities = () => 
@@ -595,62 +656,73 @@ const DETAILS = (()=>
     this_details.update_facilities = (id) =>
     {
 
-        iziToast.show({
-                theme: 'dark',
-                icon: 'icon-person',
-                title: 'Confirmation :',
-                message: 'Are you sure you want to update this?',
-                position: 'center', // bottomRight, bottomLeft, topRight, topLeft, center, bottomCenter
-                progressBarColor: 'rgb(0, 255, 184)',
-                titleSize: '20px',
-                messageSize: '20px',
-                transitionIn:'bounceInUp',
-                buttons: [
-                    [`<button>YES</button>`, function (instance, toast) {
-                       //ajax here
-                       $.ajax({
-                        url: 'update-facilities',
-                        type: 'post',
-                        data:
-                        {
-                            'id': id, 
-                            facilities_name : $(`#txt_facilities_name_${id}`).val(),
-                            description     : $(`#txt_facilities_desc_${id}`).val()
-                        },
-                        success: data =>
-                        {
-                            if(data == true)
-                            {
-                                iziToast.success({
-                                    title: 'OK',
-                                    message: 'Record Updated Successfully!',
-                                    position: 'center'
-                                });
-                            }
-                            else
-                            {
-                                iziToast.error({
-                                    title: 'OK',
-                                    message: 'Opps Something went wrong. Please try again.',
-                                    position: 'center'
-                                });
-                            }
-            
-                            DETAILS.get_facilities();
-                        }
-                    });
-                        instance.hide({
-                            transitionOut: 'fadeOutUp'
-                        }, toast, 'buttonName');
-                    }, true], // true to focus
-                    ['<button>CLOSE</button>', function (instance, toast) {
-                        instance.hide({
-                            transitionOut: 'fadeOutUp'
-                        }, toast, 'buttonName');
-                    }]
-                ]
-        });
+        if($(`#txt_facilities_name_${id}`).val() == '' || $(`#txt_facilities_desc_${id}`).val() == '')
+        {
+            iziToast.error({
+                title: 'OK',
+                message: 'Please Complete all fields',
+                position: 'center'
+            });
+        }
+        else
+        {
 
+            iziToast.show({
+                    theme: 'dark',
+                    icon: 'icon-person',
+                    title: 'Confirmation :',
+                    message: 'Are you sure you want to update this?',
+                    position: 'center', // bottomRight, bottomLeft, topRight, topLeft, center, bottomCenter
+                    progressBarColor: 'rgb(0, 255, 184)',
+                    titleSize: '20px',
+                    messageSize: '20px',
+                    transitionIn:'bounceInUp',
+                    buttons: [
+                        [`<button>YES</button>`, function (instance, toast) {
+                        //ajax here
+                        $.ajax({
+                            url: 'update-facilities',
+                            type: 'post',
+                            data:
+                            {
+                                'id': id, 
+                                facilities_name : $(`#txt_facilities_name_${id}`).val(),
+                                description     : $(`#txt_facilities_desc_${id}`).val()
+                            },
+                            success: data =>
+                            {
+                                if(data == true)
+                                {
+                                    iziToast.success({
+                                        title: 'OK',
+                                        message: 'Record Updated Successfully!',
+                                        position: 'center'
+                                    });
+                                }
+                                else
+                                {
+                                    iziToast.error({
+                                        title: 'OK',
+                                        message: 'Opps Something went wrong. Please try again.',
+                                        position: 'center'
+                                    });
+                                }
+                
+                                DETAILS.get_facilities();
+                            }
+                        });
+                            instance.hide({
+                                transitionOut: 'fadeOutUp'
+                            }, toast, 'buttonName');
+                        }, true], // true to focus
+                        ['<button>CLOSE</button>', function (instance, toast) {
+                            instance.hide({
+                                transitionOut: 'fadeOutUp'
+                            }, toast, 'buttonName');
+                        }]
+                    ]
+            });
+        }
       
     }
 
@@ -852,9 +924,10 @@ const DETAILS = (()=>
                 }
                 else
                 {
+                    console.log('asdads');
                     iziToast.error({
                         title: 'OK',
-                        message: data.error,
+                        message: 'Opps Something went wrong. Please try again.',
                         position: 'center'
                     });
                 }

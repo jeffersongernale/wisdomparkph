@@ -16,31 +16,55 @@ class OrgChartController extends CI_Controller {
     {
         $post = $this->input->post();
 
-        $config['upload_path']   = './asset/upload/org_chart';
-        $config['allowed_types'] = 'jpg|png|jpeg';
-        $config['max_width']     = '1024';
-        $config['max_height']    = '786';
-        $new_name                = time().$_FILES["file_org_image"]['name'];
-        $config['file_name']     = $new_name;
-
-        $this->load->library('upload',$config);
-
-
-        if( !$this->upload->do_upload('file_org_image'))
+        if($post['txt_org_name'] == '' || $post['txt_org_position'] == '' )
         {
-            $result = ['error' => $this->upload->display_errors()];
+            $result = false;
         }
         else
         {
-            $img_data = ['upload_data' => $this->upload->data()];
-            $data = [
-                'name' => $post['txt_org_name'], 
-                'position' => $post['txt_org_position'],
-                'image_name' => $new_name
-            ];
-    
-            $result = $this->OrgChart->insert_org_chart($data);
+
+            if ($_FILES['file_org_image']['size'] == 0 && $_FILES['file_org_image']['error'] == 4)
+            {
+                // file_org_image is empty (and not an error)
+                $data = [
+                    'name' => $post['txt_org_name'], 
+                    'position' => $post['txt_org_position'],
+                    'image_name' => 'noimage.jpg'
+                ];
+
+                $result = $this->OrgChart->insert_org_chart($data);
+            }
+            else
+            {
+                $config['upload_path']   = './asset/upload/org_chart';
+                $config['allowed_types'] = 'jpg|png|jpeg';
+                $config['max_width']     = '1024';
+                $config['max_height']    = '786';
+                $new_name                = time().$_FILES["file_org_image"]['name'];
+                $config['file_name']     = $new_name;
+
+                $this->load->library('upload',$config);
+
+
+                if( !$this->upload->do_upload('file_org_image'))
+                {
+                    $result = ['error' => $this->upload->display_errors()];
+                }
+                else
+                {
+                    $img_data = ['upload_data' => $this->upload->data()];
+                    $data = [
+                        'name' => $post['txt_org_name'], 
+                        'position' => $post['txt_org_position'],
+                        'image_name' => $new_name
+                    ];
+            
+                    $result = $this->OrgChart->insert_org_chart($data);
+                }
+            }
+
         }
+       
 
        
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
@@ -71,8 +95,9 @@ class OrgChartController extends CI_Controller {
         if(file_exists($path))
         {
             unlink($path);
+            // $result = $get_file_name['0']['image_name'];
         }
-
+        
         $result = $this->OrgChart->delete_org_chart(['id' => $post['id']]);
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
 

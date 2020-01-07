@@ -24,7 +24,14 @@ class AboutController extends CI_Controller {
     {
         
         $post = $this->input->post();
-        $result = $this->Details->insert_details($post);
+        if($post['description'] == '')
+        {
+            $result = false;
+        }
+        else
+        {
+            $result = $this->Details->insert_details($post);
+        }
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }
 
@@ -75,9 +82,16 @@ class AboutController extends CI_Controller {
     public function update_goals()
     {
         $post = $this->input->post();
-        $conditions = ['id' => $post['id']];
-        $data = ['description' => $post['description']];
-        $result = $this->Details->update_details($conditions,$data);
+        if($post['description'] == '')
+        {
+            $result = false;
+        }
+        else
+        {
+            $conditions = ['id' => $post['id']];
+            $data = ['description' => $post['description']];
+            $result = $this->Details->update_details($conditions,$data);
+        }
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }
   
