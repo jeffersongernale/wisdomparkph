@@ -59,7 +59,7 @@ class EventController extends CI_Controller {
             $data = [
                 'title'         => $post['txt_title'],
                 'description'   => $post['txt_description'],
-                'event_date'    => $post['txt_date_event'],
+                'event_date'    => $post['txt_date_event']." ".$post['txt_time_event'],
                 'image'         => $new_name,
                 'section'       => $post['slc_section'],
             ];
@@ -95,7 +95,7 @@ class EventController extends CI_Controller {
         $data = [
             'title' => $post['title'],
             'description' => $post['description'],
-            'event_date' => $post['event_date'],
+            'event_date' => $post['event_date']." ".$post['event_time'],
             'section' => $post['section']
         ];
         $result  = $this->Events->update_event($condition,$data);

@@ -20,6 +20,9 @@ const EVENTS = (()=>
 
                 let events_detail = '';
                 $.each(data,function(){
+
+                    let event_date = this.event_date.substring(0,10);
+                    let event_time = this.event_date.substring(11);
                     events_detail += `<tr>
                                         <td class="text-nowrap">
 
@@ -35,7 +38,10 @@ const EVENTS = (()=>
                                             <textarea class="form-control" rows="5" id="txt_description_${this.id}">${this.description}</textarea>
                                         </td>
                                         <td class="text-nowrap">
-                                            <input type="datetime-local" class="form-control" id="txt_event_date_${this.id}" value="${this.event_date}">
+                                            <input type="date" class="form-control" id="txt_event_date_${this.id}" value="${event_date}">
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <input type="time" class="form-control" id="txt_event_time_${this.id}" value="${event_time}">
                                         </td>
                                         <td class="text-nowrap">
                                             <input type="text" class="form-control" id="slc_section_${this.id}" value="${this.section}">
@@ -185,6 +191,7 @@ const EVENTS = (()=>
                                 event_date: $(`#txt_event_date_${id}`).val(),
                                 description: $(`#txt_description_${id}`).val(),
                                 section: $(`#slc_section_${id}`).val(),
+                                event_time : $(`#txt_event_time_${id}`).val(),
                                 'id':id
                             },
                             success: data =>

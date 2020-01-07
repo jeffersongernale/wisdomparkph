@@ -34,6 +34,8 @@
                 <datalist for="slc_section" id="datalist_section"></datalist>
                 <b>DATE</b>
                 <input type="date" id="txt_date_event" name="txt_date_event" class="form-control">
+                <b>TIME</b>
+                <input type="time" id="txt_date_event" name="txt_time_event" class="form-control">
                 <b>DESCRIPTION</b>
                 <textarea id="txt_description" name="txt_description" class="form-control" rows="5" placeholder="Input text"></textarea>
                 <button type="button" class="btn btn-sm btn-danger mt-4 float-right"><i class="fa fa-times"></i>&nbsp;CANCEL</button>
@@ -50,6 +52,7 @@
                         <th style="width: 20vw">TITLE</th>
                         <th style="width: 50vw">DESCRIPTION</th>
                         <th style="width: 20vw">DATE</th>
+                        <th style="width: 20vw">TIME</th>
                         <th style="width: 20vw">SECTION</th>
                     </thead>
                     <tbody></tbody>
