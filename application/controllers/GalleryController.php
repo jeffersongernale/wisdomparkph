@@ -94,6 +94,8 @@ class GalleryController extends CI_Controller {
         $config['upload_path']   = './asset/upload/gallery/songs';
         $config['allowed_types'] = 'mp3|mp4|ogg';
         $config['max_size'] = '20000000';
+        // php_value upload_max_filesize 20000000M  
+        // php_value post_max_size 20000000M
         $new_name                = time().'wisdompark.mp3';
         $config['file_name']     = $new_name;
         $this->load->library('upload',$config);
