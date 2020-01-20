@@ -40,6 +40,7 @@ class LoginController extends CI_Controller {
     
     public function sign_out()
     {
+        $array_items = ['wp_username'];
         $this->session->unset_userdata($array_items);
         $this->session->sess_destroy();
         redirect(base_url('login'));
