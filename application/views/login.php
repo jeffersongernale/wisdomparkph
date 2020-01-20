@@ -59,7 +59,7 @@
         // });
     </script>
     <script src="<?php echo base_url('asset/js/jquery-3.3.1.min.js'); ?>"></script>
-    <script src="<?php echo base_url('asset/scripts/login.js'); ?>"></script>
+    <!-- <script src="<?php echo base_url('asset/scripts/login.js'); ?>"></script> -->
     <script src="<?php echo base_url('asset/node_modules/izitoast/dist/js/iziToast.min.js') ;?>"></script>
 
     <?php 

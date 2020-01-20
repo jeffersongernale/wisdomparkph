@@ -119,13 +119,22 @@ const DETAILS = (()=>
                 let orgchart_details = '';
                 $.each(data,function(){
 
+                    let image_display = '';
+                    if(this.image_name === "noimage.jpg")
+                    {
+                        image_display = `<img src="${_BASE_URL}asset/images/website/noimage.png" alt="Image" class="img-fluid" style="width: 300px; height: 190px">`;
+                    }
+                    else
+                    {
+                        image_display = `<img src="${_BASE_URL}asset/upload/org_chart/${this.image_name}" alt="Image" class="img-fluid" style="width: 300px; height: 190px">`;
+                    }
                     orgchart_details += `
                     <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="">
                         <div class="team-member">
                         <figure>
-                            <img src="${_BASE_URL}asset/upload/org_chart/${this.image_name}" alt="Image" class="img-fluid" style="width: 300px; height: 190px">
+                            ${image_display}
                         </figure>
-                        <div class="p-3">
+                        <div class="p-3 text-center">
                             <h3>${this.name}</h3>
                             <span class="position">${this.position}</span>
                         </div>
