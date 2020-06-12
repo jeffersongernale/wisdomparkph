@@ -18,17 +18,17 @@
                             <div class="row text-right">
                                 <div class="col-lg-2 font-weight-bold">IMAGE:</div>
                                 <div class="col-lg-10">
-                                    <input type="file" name="file_image" id="file_image" class="form-control">
+                                    <input type="file" name="file_image" id="file_image" class="form-control" required>
                                 </div>
                                 <div class="w-100 mb-2"></div>
                                 <div class="col-lg-2 font-weight-bold">TITLE:</div>
                                 <div class="col-lg-10">
-                                    <input type="text" name="txt_title" id="txt_title" class="form-control" placeholder="Input Text Here">
+                                    <input type="text" name="txt_title" id="txt_title" class="form-control" placeholder="Input Text Here" required>
                                 </div>
                                 <div class="w-100 mb-2"></div>
                                 <div class="col-lg-2 font-weight-bold">DESCRIPTION:</div>
                                 <div class="col-lg-10">
-                                <textarea id="txt_description" name="txt_description" class="form-control" placeholder="Input Text Here" rows="5"></textarea>
+                                <textarea id="txt_description" name="txt_description" class="form-control" placeholder="Input Text Here" rows="5" required></textarea>
                                 </div>
                                 <div class="w-100 mb-2"></div>
                                 <div class="col-12">

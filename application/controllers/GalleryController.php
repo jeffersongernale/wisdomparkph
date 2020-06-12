@@ -44,7 +44,7 @@ class GalleryController extends CI_Controller {
         $new_name                = time().$_FILES["gallery_file_image"]['name'];
         $config['file_name']     = $new_name;
         $this->load->library('upload',$config);
-       
+        $this->upload->initialize($config);
 
         if( !$this->upload->do_upload('gallery_file_image'))
         {
@@ -90,13 +90,16 @@ class GalleryController extends CI_Controller {
     {
         $this->_verify();
         $post = $this->input->post();
+        // $file_names =$_FILES["gallery_file_songs"]['name'];
         $config['upload_path']   = './asset/upload/gallery/songs';
         $config['allowed_types'] = 'mp3|mp4|ogg';
         $config['max_size'] = '20000000';
+        // php_value upload_max_filesize 20000000M  
+        // php_value post_max_size 20000000M
         $new_name                = time().'wisdompark.mp3';
         $config['file_name']     = $new_name;
         $this->load->library('upload',$config);
-       
+        $this->upload->initialize($config);
 
         if( !$this->upload->do_upload('gallery_file_songs'))
         {
@@ -121,12 +124,19 @@ class GalleryController extends CI_Controller {
     {
         $this->_verify();
         $post = $this->input->post();
-        $data = [
-            'section'     =>'videos',
-            'image_name'  => $post['image_name'],
-            'description' => $post['description']
-        ];
-        $result = $this->Gallery->insert_gallery($data);
+        if($post['description'] == '')
+        {
+            $result = false;
+        }
+        else
+        {
+            $data = [
+                'section'     =>'videos',
+                'image_name'  => $post['image_name'],
+                'description' => $post['description']
+            ];
+            $result = $this->Gallery->insert_gallery($data);
+        }
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }
 

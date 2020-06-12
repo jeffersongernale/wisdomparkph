@@ -41,7 +41,7 @@ const DETAILS = (()=>
                     {
 
                         faqs_text+=`
-                                    <div class="card faqs_card">
+                                    <div class="card faqs_card" style="cursor: pointer">
                                     <div class="card-header text-black text-uppercase faqs_header" id="headingOne" data-toggle="collapse" data-target="#collapse${this.id}" aria-expanded="true" aria-controls="collapse${this.id}">
                                     <h3 class="mb-0 h3">
                                            ${ctr}. ${this.description}
@@ -64,12 +64,12 @@ const DETAILS = (()=>
 
                         if(timeline_position === 'left')
                         {
-                            ul_timeline += '<li><div class="timeline-badge"><i class="glyphicon glyphicon-credit-card"></i></div>';
+                            ul_timeline += '<li><div class="timeline-badge">WP</div>';
                             timeline_position = 'right';
                         }
                         else
                         {
-                            ul_timeline += '<li class="timeline-inverted"><div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>';
+                            ul_timeline += '<li class="timeline-inverted"><div class="timeline-badge warning">WP</div>';
                             timeline_position = 'left';
                         }
                         ul_timeline += `
@@ -119,13 +119,22 @@ const DETAILS = (()=>
                 let orgchart_details = '';
                 $.each(data,function(){
 
+                    let image_display = '';
+                    if(this.image_name === "noimage.jpg")
+                    {
+                        image_display = `<img src="${_BASE_URL}asset/images/website/noimage.png" alt="Image" class="img-fluid" style="width: 300px; height: 190px">`;
+                    }
+                    else
+                    {
+                        image_display = `<img src="${_BASE_URL}asset/upload/org_chart/${this.image_name}" alt="Image" class="img-fluid" style="width: 300px; height: 190px">`;
+                    }
                     orgchart_details += `
                     <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="">
                         <div class="team-member">
                         <figure>
-                            <img src="${_BASE_URL}asset/upload/org_chart/${this.image_name}" alt="Image" class="img-fluid" style="width: 300px;">
+                            ${image_display}
                         </figure>
-                        <div class="p-3">
+                        <div class="p-3 text-center">
                             <h3>${this.name}</h3>
                             <span class="position">${this.position}</span>
                         </div>

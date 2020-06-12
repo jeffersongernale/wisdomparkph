@@ -299,8 +299,25 @@
       </div>
   </section>
 
+  <section class="site-section bg-light" id="blog-section">
+      <div class="container">
+          <div class="row mb-2">
+            <div class="col-12 text-center" data-aos="fade">
+              <h2 class="section-title mb-3">Subscribe to Wisdom Park News</h2>
+            </div>
+          </div>
+        <p class="text-center mb-5">Get the latest Wisdom Park News and events straight to your inbox.</p>
+        <div class="text-center">
+          <input id="txt_newsletter" type="text" class="form-control border-secondary text-black bg-transparent" placeholder="Enter Your Email Address Here" aria-label="Enter Email" aria-describedby="button-addon2">
+        
+            <button class="btn btn-primary text-black text-center mt-2" type="button" id="button-addon2" onclick="DETAILS.insert_newsletter()"><i class="fa fa-envelope-open-text"></i>Send</button>
+        
+        </div>
+        
+      </div>
+  </section>
 
-  <section class="site-section bg-light" id="contact-section" data-aos="fade">
+  <section class="site-section " id="contact-section" data-aos="fade">
       <div class="container">
         <div class="row mb-5">
           <div class="col-12 text-center">
@@ -308,9 +325,6 @@
           </div>
         </div>
         <div class="row mb-5">
-          
-
-
           <div class="col-md-4 text-center">
             <p class="mb-4">
               <span class="icon-room d-block h4 text-primary"></span>
@@ -329,7 +343,28 @@
               <a href="#">youremail@domain.com</a>
             </p>
           </div>
+          <div class="col-md-4 text-center">
+            <p class="mb-4">
+              <span class="icon-facebook d-block h4 text-primary"></span>
+              <span>#14, Broadway Ave, cor. 3<sup>rd</sup> St.,New Manila, Quezon City, Metro Manila, Philippines</span>
+            </p>
+          </div>
+          <div class="col-md-4 text-center">
+            <p class="mb-4">
+              <span class="icon-twitter d-block h4 text-primary"></span>
+              <span>#14, Broadway Ave, cor. 3<sup>rd</sup> St.,New Manila, Quezon City, Metro Manila, Philippines</span>
+            </p>
+          </div>
+          <div class="col-md-4 text-center">
+            <p class="mb-4">
+              <span class="icon-youtube d-block h4 text-primary"></span>
+              <span>#14, Broadway Ave, cor. 3<sup>rd</sup> St.,New Manila, Quezon City, Metro Manila, Philippines</span>
+            </p>
+          </div>
         </div>
+
+      
+          
         <div class="row">
           <div class="col-md-12 mb-5">
 
@@ -387,6 +422,8 @@
         </div>
       </div>
   </section>
+
+
 
   <br>
   <?php include 'include/footer.php'; ?>

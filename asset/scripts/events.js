@@ -23,6 +23,7 @@ const EVENTS = (()=>
 
                 let events_detail = '';
                 $.each(data,function(){
+                    console.log(this.event_date)
                     events_detail += `<div class="col-md-12 col-lg-12 mb-12 mb-lg-12 mb-5 mt-5" data-aos="fade-up">
                                             <div class="unit-4">
                                             <img class="image-size" src="${_BASE_URL}asset/upload/event/${this.image}">
