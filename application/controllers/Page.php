@@ -9,7 +9,7 @@ class Page extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('Plugin_helper');
+		$this->load->helper('Plugin');
 		$this->load->model('Gallery');
 		$this->load->model('Events');
 	}
