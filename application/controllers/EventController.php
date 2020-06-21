@@ -179,12 +179,12 @@ class EventController extends CI_Controller {
         We have new upcoming events posted in our website. Come and visit the link below to check the complete details of our events. 
         <br><br>
         <div style=" text-align: center;">
-        <a href="#" style="background-color: #532782;color: white !important; padding: 10px;font-weight: bold; border-radius: 5px;margin: 0 auto;text-decoration: none;">VISIT US!</a>
+        <a href="https://wisdomparkph.com/" style="background-color: #532782;color: white !important; padding: 10px;font-weight: bold; border-radius: 5px;margin: 0 auto;text-decoration: none;">VISIT US!</a>
         </div>
         
         <br>
         If the above link don\'t work, please click this link to redirect you to our website<br>
-        <a href="#">Widom park link</a>
+        <a href="https://wisdomparkph.com/">Widom park link</a>
         <br><br>
         See you!
         <br>
