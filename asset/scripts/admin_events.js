@@ -94,6 +94,7 @@ const EVENTS = (()=>
                         message: 'Record Inserted Successfully!',
                         position: 'center'
                     });
+                    $('#form_event')[0].reset();
                 }
                 else
                 {
