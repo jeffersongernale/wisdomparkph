@@ -29,7 +29,7 @@ class LoginController extends CI_Controller {
                 'wp_username' => $result['0']['username'],
             ]);
             
-            return redirect('https://wisdomparkph.com/admin-details'));
+            return redirect('https://wisdomparkph.com/admin-details');
         }
         else
         {
