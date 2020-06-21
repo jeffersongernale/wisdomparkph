@@ -12,7 +12,7 @@ class EventController extends CI_Controller {
         $this->load->model('EventAttendance');
         $this->load->model('Newsletter');
         $this->load->library('Mailer');
-        $this->load->helper('Mail_config');
+        $this->load->helper('mail_config');
         $this->mail = mail_config();
     }
 

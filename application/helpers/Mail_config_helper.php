@@ -29,9 +29,9 @@ function mail_config()
         $mail->SMTPAuth   = true;  
         $mail->Username   = 'wisdompark.web@gmail.com';  
         $mail->Password   = 'wisdompark00123';  
-        $mail->Port       = 587;       
+        $mail->Port       = 465;       
         $mail->Host       = "smtp.gmail.com";
-        $mail->SMTPSecure = 'tls';
+        $mail->SMTPSecure = 'ssl';
 
         $mail->From       = 'wisdompark.web@gmail.com';
         $mail->FromName   = 'WisdomPark';
