@@ -116,7 +116,7 @@ const EVENTS = (()=>
                 theme: 'dark',
                 icon: 'icon-person',
                 title: 'Confirmation :',
-                message: 'Are you sure you want to delete this?',
+                message: 'Are you sure you want to delete this? Deleting this data will delete all confirmed attendees in this event.',
                 position: 'center', // bottomRight, bottomLeft, topRight, topLeft, center, bottomCenter
                 progressBarColor: 'rgb(0, 255, 184)',
                 titleSize: '20px',

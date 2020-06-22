@@ -50,4 +50,12 @@ class EventAttendanceController extends CI_Controller {
         
     }
 
+    public function delete_event_attendance($condition)
+    {
+      
+        $this->db->where($condition);
+        return $this->db->delete('event_attendance');
+     
+    }
+
 }

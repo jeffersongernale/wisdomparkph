@@ -82,6 +82,8 @@ class EventController extends CI_Controller {
             unlink($path);
         }
 
+        $this->EventAttendance->delete_event_attendance(['id' => $post['id']]);
+
         $result  = $this->Events->delete_event($post);
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }
