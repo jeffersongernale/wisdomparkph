@@ -47,7 +47,7 @@ const EVENT_ATTENDANCE = (()=>
     this_event_attendance.show_modal = (email) =>
     {
         $('#modal_attendance_mail').modal('show');
-        $('#event_attendance_send_mail').attr('recipient',email);
+        $('#event_attendance_send_mail').attr('recipient')= email;
     }
 
     this_event_attendance.send_mail = () =>
