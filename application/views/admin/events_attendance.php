@@ -66,7 +66,7 @@
                 <textarea class="form-control mb-5" placeholder="Input Text Here" id="txt_message" rows="5"></textarea>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-paper-plane"></i>&nbsp;SEND</button>
+                <button id="event_attendance_send_mail" type="button" class="btn btn-sm btn-primary" onclick="EVENT_ATTENDANCE.send_mail()"><i class="fa fa-paper-plane"></i>&nbsp;SEND</button>
             </div>
         </div>
     </div>

@@ -109,6 +109,7 @@ $route['insert-users']['POST']  = 'UserManagementController/insert_user';
 $route['delete-users']['POST']  = 'UserManagementController/delete_user';
 $route['update-users']['POST']  = 'UserManagementController/update_user';
 $route['get-users-data']['GET']  = 'UserManagementController/get_users_data';
+$route['send-announcement']['POST']        = 'EventAttendanceController/send_announcement';
 
 
 /**
