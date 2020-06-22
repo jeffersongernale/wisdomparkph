@@ -60,7 +60,7 @@ const EVENT_ATTENDANCE = (()=>
             {
                 subject: $('#txt_subject').val(),
                 message: $('#txt_message').val(),
-                recipient:  $('#event_attendance_send_mail').attr('recipient');
+                recipient:  $('#event_attendance_send_mail').attr('recipient')
             },
             success: data =>
             {
