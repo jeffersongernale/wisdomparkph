@@ -24,8 +24,8 @@ function dependencies_script($plugin)
     $data = [];
     $dependency = [
         // assets/js - folder
-        'datatable'               => '<script src="'.base_url('asset/node_modules/datatables.net/js/jquery.datatables.js').'"></script>
-                                    <script src="'.base_url('asset/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js').'"></script>',
+        'datatable'               => '<script src="'.base_url('asset/node_modules/dataTables.net/js/jquery.datatables.js').'"></script>
+                                    <script src="'.base_url('asset/node_modules/dataTables.net-bs4/js/dataTables.bootstrap4.min.js').'"></script>',
         'iziToast'                => '<script src="'.base_url('asset/node_modules/izitoast/dist/js/iziToast.min.js').'"></script>',
         'website_details'         => '<script src="'.base_url('asset/scripts/website_details.js').'"></script>',
         'admin_gallery'           => '<script src="'.base_url('asset/scripts/admin_gallery.js').'"></script>',
