@@ -29,3 +29,5 @@ CREATE TABLE `wisdom_park`.`organizational_chart` ( `id` INT NOT NULL AUTO_INCRE
 ALTER TABLE `users` ADD `created_at` DATE NOT NULL AFTER `password`;
 
 ALTER TABLE `organizational_chart` CHANGE `image_name` `image_name` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL;
+
+https://accounts.google.com/b/0/DisplayUnlockCaptcha
