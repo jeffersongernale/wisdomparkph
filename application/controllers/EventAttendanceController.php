@@ -34,7 +34,7 @@ class EventAttendanceController extends CI_Controller {
             // $mail->AddAddress('jefferson.gernale@ph.fujitsu.com');
             $this->mail->AddAddress($post['recipient']);
 
-            $this->mail->Subject  = "Wisdom Park News - "+ $post['subject'];
+            $this->mail->Subject  = "Wisdom Park News - ".$post['subject'];
             $this->mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";
             $this->mail->WordWrap   = 80;
 
