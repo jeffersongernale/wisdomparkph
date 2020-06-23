@@ -1,7 +1,7 @@
 
     <h3>GALLERY</h3>
     <p>All photos,videos, and songs are uploaded in this section.</p>
-    <button class="btn btn-sm btn-primary float-right"><i class="fa fa-eye"></i>&nbsp;VIEW GUIDE</button>
+    <!-- <button class="btn btn-sm btn-primary float-right"><i class="fa fa-eye"></i>&nbsp;VIEW GUIDE</button> -->
     <br>
     <br>
 
