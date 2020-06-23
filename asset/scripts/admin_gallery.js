@@ -255,6 +255,7 @@ const GALLERY = (()=>
     
     this_gallery.insert_gallery_songs = () =>
     {
+        $('#btn_song_submit').attr('disabled',true);
         $.ajax({
             url        : 'insert-gallery-songs',
             type       : 'POST',
@@ -264,6 +265,8 @@ const GALLERY = (()=>
             cache      : false,
             success: data => 
             {
+                 $('#btn_song_submit').attr('disabled',false);
+
                 if(data == true)
                 {   
                     iziToast.success({

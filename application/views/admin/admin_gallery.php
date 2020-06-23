@@ -124,8 +124,8 @@
                                         </div>
                                         <div class="w-100 mb-1"></div>
                                         <div class="col-lg-12">
-                                        <button type="button" id="btn_header_submit" class="btn btn-sm btn-danger float-right mt-3"><i class="fa fa-times"></i>&nbsp;CANCEL</button>
-                                        <button type="button" id="btn_header_submit" class="btn btn-sm btn-primary float-right mt-3 mr-2" onclick="GALLERY.insert_gallery_songs()"><i class="fa fa-paper-plane"></i>&nbsp;SUBMIT</button>
+                                        <button type="button" id="btn_header_close" class="btn btn-sm btn-danger float-right mt-3"><i class="fa fa-times"></i>&nbsp;CANCEL</button>
+                                        <button type="button" id="btn_song_submit" class="btn btn-sm btn-primary float-right mt-3 mr-2" onclick="GALLERY.insert_gallery_songs()"><i class="fa fa-paper-plane"></i>&nbsp;SUBMIT</button>
                                         </div>
                                     
                                     </div>
