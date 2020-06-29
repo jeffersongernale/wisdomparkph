@@ -334,31 +334,31 @@
           <div class="col-md-4 text-center">
             <p class="mb-4">
               <span class="icon-phone d-block h4 text-primary"></span>
-              <a href="#">+1 232 3235 324</a>
+              <a href="#">721-0510 / 0939-374-3614</a>
             </p>
           </div>
           <div class="col-md-4 text-center">
             <p class="mb-0">
               <span class="icon-mail_outline d-block h4 text-primary"></span>
-              <a href="#">youremail@domain.com</a>
+              <a href="wisdomparkph@gmail.com">wisdomparkph@gmail.com</a>
             </p>
           </div>
           <div class="col-md-4 text-center">
             <p class="mb-4">
               <span class="icon-facebook d-block h4 text-primary"></span>
-              <span>#14, Broadway Ave, cor. 3<sup>rd</sup> St.,New Manila, Quezon City, Metro Manila, Philippines</span>
+              <span><a href="https://www.facebook.com/wisdomparkphilippines">wisdomparkphilippines</a></span>
             </p>
           </div>
-          <div class="col-md-4 text-center">
+          <!-- <div class="col-md-4 text-center">
             <p class="mb-4">
               <span class="icon-twitter d-block h4 text-primary"></span>
               <span>#14, Broadway Ave, cor. 3<sup>rd</sup> St.,New Manila, Quezon City, Metro Manila, Philippines</span>
             </p>
-          </div>
+          </div> -->
           <div class="col-md-4 text-center">
             <p class="mb-4">
               <span class="icon-youtube d-block h4 text-primary"></span>
-              <span>#14, Broadway Ave, cor. 3<sup>rd</sup> St.,New Manila, Quezon City, Metro Manila, Philippines</span>
+              <span><a href="https://www.youtube.com/channel/UC2jUjrw8JydeqRJIKd6U-wA">Wisdom Park</a></span>
             </p>
           </div>
         </div>
