@@ -7,7 +7,9 @@
             <div class="row">
               <div class="col-md-5">
                 <h2 class="footer-heading mb-4">About Us</h2>
-                <p>In 1989, a group of people, propelled by the goal to continuously enhance and inculcate human values in the hearts and minds of every individual, joined resources and came up with a Buddhist Resource Center. As a result, WP was born, designed to be a home for Buddhist-inspired activities promoting human values in Education. </p>
+                <a href="<?php echo base_url('#location-section');?>">
+                  <p>In 1989, a group of people, propelled by the goal to continuously enhance and inculcate human values in the hearts and minds of every individual, joined resources and came up with a Buddhist Resource Center. As a result, WP was born, designed to be a home for Buddhist-inspired activities promoting human values in Education. </p>
+                </a>
               </div>
               <div class="col-md-3 ml-auto">
                 <h2 class="footer-heading mb-4">Quick Links</h2>
@@ -32,7 +34,7 @@
             <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
             <form action="#" method="post" class="footer-subscribe">
               <div class="input-group mb-3">
-                <input id="txt_newsletter" type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                <input id="txt_newsletter2" type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
                 <div class="input-group-append">
                   <button class="btn btn-primary text-black" type="button" id="button-addon2" onclick="DETAILS.insert_newsletter()">Send</button>
                 </div>

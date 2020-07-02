@@ -82,7 +82,7 @@ class WebsiteDetailsController extends CI_Controller {
             
 
             // $mail->AddAddress('jefferson.gernale@ph.fujitsu.com');
-            $this->mail->AddAddress('wisdompark.web@gmail.com');
+            $this->mail->AddAddress('wisdompark@gmail.com');
 
             $this->mail->Subject  = "Wisdom Park - Client Message";
             $this->mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";

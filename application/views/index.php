@@ -283,7 +283,7 @@
       </div>
   </section> -->
 
-  <section class="site-section" id="blog-section">
+  <section class="site-section" id="location-section">
       <div class="container">
           <div class="row mb-5">
             <div class="col-12 text-center" data-aos="fade">
@@ -349,12 +349,12 @@
               <span><a href="https://www.facebook.com/wisdomparkphilippines">wisdomparkphilippines</a></span>
             </p>
           </div>
-          <!-- <div class="col-md-4 text-center">
+          <div class="col-md-4 text-center">
             <p class="mb-4">
               <span class="icon-twitter d-block h4 text-primary"></span>
-              <span>#14, Broadway Ave, cor. 3<sup>rd</sup> St.,New Manila, Quezon City, Metro Manila, Philippines</span>
+              <span><a href="https://twitter.com/WisdomParkph">@WisdomParkph</a></span>
             </p>
-          </div> -->
+          </div>
           <div class="col-md-4 text-center">
             <p class="mb-4">
               <span class="icon-youtube d-block h4 text-primary"></span>

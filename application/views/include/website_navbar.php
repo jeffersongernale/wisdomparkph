@@ -20,6 +20,7 @@
                 <li><a href="<?php echo base_url('#goal-section');?>" class="nav-link">Our Goals</a></li>
                 <li><a href="<?php echo base_url('#orgchart-section');?>" class="nav-link">Organizational Chart</a></li>
                 <li><a href="<?php echo base_url('#faq-section');?>" class="nav-link">FAQ's</a></li>
+                <li><a href="<?php echo base_url('#location-section');?>" class="nav-link">Our Location</a></li>
                 </ul>
             </li>
             <li><a href="facilities" class="nav-link">Facilities</a></li>

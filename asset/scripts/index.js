@@ -151,12 +151,20 @@ const DETAILS = (()=>
 
     this_details.insert_newsletter = () =>
     {
-
+        let news_email = '';
+        if($('#txt_newsletter').val()!='')
+        {
+            news_email =$('#txt_newsletter').val();
+        }
+        else if($('#txt_newsletter2').val()!= '')
+        {
+            news_email =$('#txt_newsletter2').val();
+        }
         $.ajax({
             url: 'insert-newsletter',
             type: 'POST',
             data: {
-                email : $('#txt_newsletter').val()
+                email : news_email
             },
             success: data =>
             {
