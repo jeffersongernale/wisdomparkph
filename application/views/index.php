@@ -328,7 +328,9 @@
           <div class="col-md-4 text-center">
             <p class="mb-4">
               <span class="icon-room d-block h4 text-primary"></span>
+              <a href="<?php echo base_url('#location-section'); ?>">
               <span>#14, Broadway Ave, cor. 3<sup>rd</sup> St.,New Manila, Quezon City, Metro Manila, Philippines</span>
+              </a>
             </p>
           </div>
           <div class="col-md-4 text-center">
