@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="asset/fonts/icomoon/style.css">
 
     <link rel="stylesheet" href="asset/css/aos.css">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="asset/css/style.css">
     <link rel="stylesheet" href="asset/css/custom.css">
     
@@ -143,8 +143,8 @@
                         {$songs_val['description']}
                         </div>
                         <audio id='song{$songs_val['id']}' src='".base_url('asset/upload/gallery/songs/')."{$songs_val['image_name']}' type='audio/mpeg'></audio>".
-                        '<button class="audio_controls btn btn-sm btn-primary" onclick="document.getElementById('."'song{$songs_val['id']}'".').play()"  style="left:10%"><i class="fa fa-play"></i> PLAY</button>
-                        <button class="audio_controls btn btn-sm btn-primary" onclick="document.getElementById('."'song{$songs_val['id']}'".').pause()" style="right:10%"><i class="fa fa-pause"></i> PAUSE</button>
+                        '<button class="audio_controls btn" onclick="document.getElementById('."'song{$songs_val['id']}'".').play()"  style="left:10%"><i class="fa fa-play"></i> PLAY</button>
+                        <button class="audio_controls btn" onclick="document.getElementById('."'song{$songs_val['id']}'".').pause()" style="right:10%"><i class="fa fa-pause"></i> PAUSE</button>
                       </div>
                     </div>';
             }
