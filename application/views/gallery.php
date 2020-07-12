@@ -139,13 +139,14 @@
               //     </div>";
               echo "<div class='item songs col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4'>
                       <div class='audio_cont pl-3 pb-5 pr-3 pt-2'>
-                      <div class='text-center font-weight-bold text-uppercase' style='background-color:#532782; color: white; border: solid 3px #d4bdfc; border-radius: 30px; font-size : font-size: 0.8em;'>
-                      {$songs_val['description']}
+                        <div class='text-center font-weight-bold text-uppercase' style='background-color:#532782; color: white; border: solid 3px #d4bdfc; border-radius: 30px; font-size : font-size: 0.8em;'>
+                        {$songs_val['description']}
+                        </div>
+                        <audio id='song{$songs_val['id']}' src='".base_url('asset/upload/gallery/songs/')."{$songs_val['image_name']}' type='audio/mpeg'></audio>".
+                        '<button onclick="document.getElementById('."'song{$songs_val['id']}'".').play()">PLAY</button>
+                        <button onclick="document.getElementById('."'song{$songs_val['id']}'".').pause()">PAUSE</button>
                       </div>
-                      <audio src='".base_url('asset/upload/gallery/songs/')."{$songs_val['image_name']}' type='audio/mpeg'></audio>
-                      <button onclick='document.getElementById(\'player\').play()'>PLAY</button>
-                    </div>
-                  </div>";
+                    </div>';
             }
           }
            ?>
