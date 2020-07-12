@@ -428,6 +428,31 @@
 
 
   <br>
+  <div class="modal fade" tabindex="-1" role="dialog" id="modal_flash">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">What's New? </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Welcome! We updated our informations. Don't forget to visit the link(s) below.</p>
+            <b>Complete Name:</b>
+            <input type="text" id="txt_name" class="form-control mb-2">
+            <b>Email Address:</b>
+            <input type="text" id="txt_email" class="form-control mb-2">
+            <b>Number of attendees:</b>
+            <input type="number" id="txt_attendees" class="form-control" value="1">
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-primary" onclick="EVENTS.save_attendance();">Save changes</button> -->
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   <?php include 'include/footer.php'; ?>
 
   </div> <!-- .site-wrap -->

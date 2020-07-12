@@ -1,6 +1,7 @@
 $(document).ready(()=>{
     DETAILS.get_data();
     DETAILS.get_orgchart();
+    DETAILS.show_modal_flash();
 });
 
 const DETAILS = (()=>
@@ -246,6 +247,10 @@ const DETAILS = (()=>
 
     }
 
+    this_details.show_modal_flash = () =>
+    {
+        $('#modal_flash').modal('show');
+    }
 
 
 
