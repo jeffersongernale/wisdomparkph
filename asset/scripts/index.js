@@ -1,7 +1,7 @@
 $(document).ready(()=>{
     DETAILS.get_data();
     DETAILS.get_orgchart();
-    DETAILS.show_modal_flash();
+    DETAILS.get_flash();
 });
 
 const DETAILS = (()=>
@@ -247,11 +247,26 @@ const DETAILS = (()=>
 
     }
 
-    this_details.show_modal_flash = () =>
+    this_details.get_flash = () =>
     {
-        $('#modal_flash').modal('show');
-    }
+        $.ajax({
+            url:'get-flash',
+            type: 'GET',
+            success: data =>
+            {
+               if(data.length > 0)
+               {
+                $('#modal_flash').modal('show');
 
+                flash_content = '';
+                $.each(data, function(){
+                    flash_content += `<li><a href="${this.flash_link}"><h6>${this.flash_title} - ${this.type} <span class="badge badge-danger">New</span></h6></a></li>`;
+                }); 
+                $('#modal_flash_ul').html(flash_content);
+               } 
+            }
+        });
+    }
 
 
     return this_details;

@@ -439,8 +439,8 @@
           </div>
           <div class="modal-body">
             <p>Welcome! We updated our informations. Don't forget to visit the link(s) below.</p>
-            <ul>
-              <li><h6>Example heading <span class="badge badge-secondary">New</span></h6></li>
+            <ul class="modal_flash_ul">
+              
             </ul>
            
           </div>
