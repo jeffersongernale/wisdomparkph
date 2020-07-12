@@ -439,7 +439,7 @@
           </div>
           <div class="modal-body">
             <p>Welcome! We updated our informations. Don't forget to visit the link(s) below.</p>
-            <ul class="modal_flash_ul">
+            <ul id="modal_flash_ul">
               
             </ul>
            

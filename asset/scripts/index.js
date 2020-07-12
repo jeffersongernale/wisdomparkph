@@ -260,7 +260,7 @@ const DETAILS = (()=>
 
                 flash_content = '';
                 $.each(data, function(){
-                    flash_content += `<li><a href="${this.flash_link}"><h6>${this.flash_title} - ${this.type} <span class="badge badge-danger">New</span></h6></a></li>`;
+                    flash_content += `<li><a href="${this.flash_link}" target="_blank"><h6>${this.flash_title} - ${this.type} <span class="badge badge-danger">New</span></h6></a></li>`;
                 }); 
                 $('#modal_flash_ul').html(flash_content);
                } 
