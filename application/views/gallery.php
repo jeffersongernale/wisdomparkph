@@ -143,8 +143,8 @@
                         {$songs_val['description']}
                         </div>
                         <audio id='song{$songs_val['id']}' src='".base_url('asset/upload/gallery/songs/')."{$songs_val['image_name']}' type='audio/mpeg'></audio>".
-                        '<button onclick="document.getElementById('."'song{$songs_val['id']}'".').play()">PLAY</button>
-                        <button onclick="document.getElementById('."'song{$songs_val['id']}'".').pause()">PAUSE</button>
+                        '<button class="audio_controls btn btn-sm btn-primary" onclick="document.getElementById('."'song{$songs_val['id']}'".').play()"  style="left:10%">PLAY</button>
+                        <button class="audio_controls btn btn-sm btn-primary" onclick="document.getElementById('."'song{$songs_val['id']}'".').pause()">PAUSE</button>
                       </div>
                     </div>';
             }

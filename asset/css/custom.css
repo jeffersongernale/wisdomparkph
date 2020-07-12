@@ -308,3 +308,10 @@ audio {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+
+.audio_controls
+{
+  position: absolute;
+  bottom: 10%;
+}
+
