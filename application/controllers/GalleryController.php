@@ -40,7 +40,7 @@ class GalleryController extends CI_Controller {
         $config['upload_path']   = './asset/upload/gallery/photo';
         $config['allowed_types'] = 'jpg|png|jpeg';
         $config['max_width']     = '1024';
-        $config['max_height']    = '786';
+        $config['max_height']    = '1024';
         $new_name                = time().$_FILES["gallery_file_image"]['name'];
         $config['file_name']     = $new_name;
         $this->load->library('upload',$config);
