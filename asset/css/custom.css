@@ -302,8 +302,9 @@ audio {
 {
   /* border: solid black; */
   height: 230px;
+  width: 100% !important;
   box-shadow: 1px 1px 5px rgba(0,0, 0, 0.4);
-  background-image: url('../images/website/music1.png');
+  background-image: url('../images/website/songbg.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
