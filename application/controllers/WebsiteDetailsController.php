@@ -12,6 +12,7 @@ class WebsiteDetailsController extends CI_Controller {
         $this->load->model('Facilities');
         $this->load->model('Events');
         $this->load->model('OrgChart');
+        $this->load->model('Flash');
         $this->load->library('Mailer');
         $this->load->helper('Mail_config');
         $this->mail = mail_config();
@@ -94,6 +95,12 @@ class WebsiteDetailsController extends CI_Controller {
 
         
         $this->output->set_content_type('application/json')->set_output(json_encode($this->mail->Send()));
+    }
+
+    public function get_flash()
+    {
+        $result = $this->Flash->get_flash();
+        $this->output->set_content_type('application/json')->set_output(json_encode($result));
     }
   
 	

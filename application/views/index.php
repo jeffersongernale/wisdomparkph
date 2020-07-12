@@ -439,12 +439,10 @@
           </div>
           <div class="modal-body">
             <p>Welcome! We updated our informations. Don't forget to visit the link(s) below.</p>
-            <b>Complete Name:</b>
-            <input type="text" id="txt_name" class="form-control mb-2">
-            <b>Email Address:</b>
-            <input type="text" id="txt_email" class="form-control mb-2">
-            <b>Number of attendees:</b>
-            <input type="number" id="txt_attendees" class="form-control" value="1">
+            <ul>
+              <li><h6>Example heading <span class="badge badge-secondary">New</span></h6></li>
+            </ul>
+           
           </div>
           <div class="modal-footer">
             <!-- <button type="button" class="btn btn-primary" onclick="EVENTS.save_attendance();">Save changes</button> -->
