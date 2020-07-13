@@ -1,4 +1,4 @@
-<section class="site-section cta-big-image" id="about-section"  style="background-image: url('../asset/images/website/bodhi-right.png'); background-size: cover;">
+<section class="site-section cta-big-image" id="about-section"  style="background-image: url('../asset/images/website/tong4130150700150.jpg'); background-size: 50% 100%;background-repeat: no-repeat;background-position: right; ">
       <!-- <div class="container">
         <div class="row mb-5">
           <div class="col-12 text-center" data-aos="fade">
