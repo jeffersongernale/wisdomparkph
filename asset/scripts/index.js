@@ -75,7 +75,7 @@ const DETAILS = (()=>
                         }
                         ul_timeline += `
                             
-                            <div class="timeline-panel" style="background-image: url('../images/website/bodhi-right.png');">
+                            <div class="timeline-panel" style="background-color: white">
                             <div class="timeline-heading">
                                 <h4 class="timeline-title">${this.title}</h4>
                             </div>
