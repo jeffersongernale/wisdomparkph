@@ -63,19 +63,19 @@ const DETAILS = (()=>
                     if(this.section === 'about')
                     {
 
-                        if(timeline_position === 'left')
-                        {
-                            ul_timeline += '<li><div class="timeline-badge">WP</div>';
-                            timeline_position = 'right';
-                        }
-                        else
-                        {
-                            ul_timeline += '<li class="timeline-inverted"><div class="timeline-badge warning">WP</div>';
-                            timeline_position = 'left';
-                        }
+                        // if(timeline_position === 'left')
+                        // {
+                        //     ul_timeline += '<li><div class="timeline-badge">WP</div>';
+                        //     timeline_position = 'right';
+                        // }
+                        // else
+                        // {
+                        //     ul_timeline += '<li class="timeline-inverted"><div class="timeline-badge warning">WP</div>';
+                        //     timeline_position = 'left';
+                        // }
                         ul_timeline += `
                             
-                            <div class="timeline-panel" style="background-color: white">
+                            <div class="timeline-panel" style="background-color: white !important">
                             <div class="timeline-heading">
                                 <h4 class="timeline-title">${this.title}</h4>
                             </div>
