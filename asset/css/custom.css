@@ -146,7 +146,7 @@ div.panel.show {
     position: relative;
     -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-    background-color: white !important;
+    background-color: white;
   }
   
   .timeline > li > .timeline-panel:before {
@@ -159,8 +159,6 @@ div.panel.show {
     border-right: 0 solid #ccc;
     border-bottom: 15px solid transparent;
     content: " ";
-    background-color: white !important;
-
   }
   
   .timeline > li > .timeline-panel:after {
@@ -173,8 +171,6 @@ div.panel.show {
     border-right: 0 solid #fff;
     border-bottom: 14px solid transparent;
     content: " ";
-    background-color: white !important;
-
   }
   
   .timeline > li > .timeline-badge {

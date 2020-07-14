@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    // GALLERY.get_data();
+    GALLERY.check_url();
 });
 
 
@@ -64,6 +64,17 @@ const GALLERY = (()=>
 
             }
         });
+    }
+
+    this_gallery.check_url = () =>
+    {
+        let curr_url = window.location.href;
+
+        if(curr_url.substring(0,5) =='http')
+        {
+            path = 'https' + curr_url.substring('5');
+            window.location.href = path;
+        }
     }
 
   

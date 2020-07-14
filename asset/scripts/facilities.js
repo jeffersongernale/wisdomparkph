@@ -1,5 +1,6 @@
 $(document).ready(()=>{
     FACILITIES.get_details();
+    FACILITIES.check_url();
 });
 
 const FACILITIES = (()=>
@@ -34,6 +35,16 @@ const FACILITIES = (()=>
 
     }
 
+    this_facilities.check_url = () =>
+    {
+        let curr_url = window.location.href;
+
+        if(curr_url.substring(0,5) =='http')
+        {
+            path = 'https' + curr_url.substring('5');
+            window.location.href = path;
+        }
+    }
 
     return this_facilities; 
 })();

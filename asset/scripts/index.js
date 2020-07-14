@@ -2,6 +2,7 @@ $(document).ready(()=>{
     DETAILS.get_data();
     DETAILS.get_orgchart();
     DETAILS.get_flash();
+    DETAILS.check_url();
 });
 
 const DETAILS = (()=>
@@ -15,7 +16,7 @@ const DETAILS = (()=>
             type: 'GET',
             success:data =>
             {
-                console.log(data);
+                // console.log(data);
                 let mission_text = '';
                 let vision_text = '';
                 let goals = '';
@@ -62,17 +63,17 @@ const DETAILS = (()=>
 
                     if(this.section === 'about')
                     {
-
-                        // if(timeline_position === 'left')
-                        // {
-                        //     ul_timeline += '<li><div class="timeline-badge">WP</div>';
-                        //     timeline_position = 'right';
-                        // }
-                        // else
-                        // {
-                        //     ul_timeline += '<li class="timeline-inverted"><div class="timeline-badge warning">WP</div>';
-                        //     timeline_position = 'left';
-                        // }
+                        
+                        if(timeline_position === 'left')
+                        {
+                            ul_timeline += '<li><div class="timeline-badge">WP</div>';
+                            timeline_position = 'right';
+                        }
+                        else
+                        {
+                            ul_timeline += '<li class="timeline-inverted"><div class="timeline-badge warning">WP</div>';
+                            timeline_position = 'left';
+                        }
                         ul_timeline += `
                             
                             <div class="timeline-panel" style="background-color: white !important">
@@ -104,7 +105,7 @@ const DETAILS = (()=>
             type: 'GET',
             success: data =>
             {
-                console.log(data);
+                // console.log(data);
             }
         });
     }
@@ -116,7 +117,7 @@ const DETAILS = (()=>
             type: 'GET',
             success: data =>
             {
-                console.log(data);
+                // console.log(data);
                 let orgchart_details = '';
                 $.each(data,function(){
 
@@ -169,7 +170,7 @@ const DETAILS = (()=>
             },
             success: data =>
             {
-                console.log(data);
+                // console.log(data);
                 if(data == true)
                 {
                     iziToast.success({
@@ -209,7 +210,7 @@ const DETAILS = (()=>
             },
             success: data =>
             {
-                console.log(data);
+                // console.log(data);
                 if(data == true)
                 {
                     iziToast.success({
@@ -266,6 +267,17 @@ const DETAILS = (()=>
                } 
             }
         });
+    }
+
+    this_details.check_url = () =>
+    {
+        let curr_url = window.location.href;
+
+        if(curr_url.substring(0,5) =='http')
+        {
+            path = 'https' + curr_url.substring('5');
+            window.location.href = path;
+        }
     }
 
 

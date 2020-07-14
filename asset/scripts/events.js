@@ -1,6 +1,7 @@
 $(document).ready(()=>{
     EVENTS.httpGet();
     EVENTS.get_details();
+    EVENTS.check_url();
 });
 
 const EVENTS = (()=>
@@ -119,7 +120,17 @@ const EVENTS = (()=>
                 ]
         });
     }
-    
+    this_events.check_url = () =>
+    {
+        let curr_url = window.location.href;
+
+        if(curr_url.substring(0,5) =='http')
+        {
+            path = 'https' + curr_url.substring('5');
+            window.location.href = path;
+        }
+    }
+
     $('#modal_event_confirm').on('hidden.bs.modal', function (e) {
         $('#modal_event_confirm').attr('data-id',0);
     });
