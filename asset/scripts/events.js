@@ -126,7 +126,7 @@ const EVENTS = (()=>
 
         if(curr_url.substring(0,5) =='http:')
         {
-            path = 'https' + curr_url.substring('5');
+            path = 'https:' + curr_url.substring('5');
             window.location.href = path;
         }
     }
