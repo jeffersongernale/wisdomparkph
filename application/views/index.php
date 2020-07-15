@@ -339,7 +339,7 @@
           <div class="col-md-4 text-center">
             <p class="mb-4">
               <span class="icon-phone d-block h4 text-primary"></span>
-              <a href="#">721-0510 / 0939-374-3614</a>
+              <a href="#">8721-0510</a>
             </p>
           </div>
           <div class="col-md-4 text-center">
