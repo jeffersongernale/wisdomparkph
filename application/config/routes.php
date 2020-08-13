@@ -127,6 +127,7 @@ $route['send-announcement']['POST']       = 'EventAttendanceController/send_anno
   $route['get-orgchart']                = 'WebsiteDetailsController/get_orgchart';
   $route['get-users']['GET']            = 'UserManagementController/get_users';
   $route['get-flash']['GET']            = 'WebsiteDetailsController/get_flash';
+  $route['boom']['GET']                 = 'EventController/insert_link';
 
 
 

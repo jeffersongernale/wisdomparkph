@@ -11,6 +11,7 @@ class EventController extends CI_Controller {
         $this->load->model('Events');
         $this->load->model('EventAttendance');
         $this->load->model('Newsletter');
+        $this->load->model('EventLinks');
         $this->load->library('Mailer');
         $this->load->helper('mail_config');
         $this->mail = mail_config();
@@ -59,12 +60,13 @@ class EventController extends CI_Controller {
             $data = [
                 'title'         => $post['txt_title'],
                 'description'   => $post['txt_description'],
-                'event_date'    => $post['txt_date_event']." ".$post['txt_time_event'],
+                'event_date'    => $post['txt_date_event'],
                 'image'         => $new_name,
                 'section'       => $post['slc_section'],
             ];
     
             $result = $this->Events->insert_event($data);
+            $this->insert_link($post);
             $this->send_newsletter();
         }
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
@@ -98,7 +100,7 @@ class EventController extends CI_Controller {
             'title' => $post['title'],
             'description' => $post['description'],
             'event_date' => $post['event_date']." ".$post['event_time'],
-            'section' => $post['section']
+            'section' => $post['section'],
         ];
         $result  = $this->Events->update_event($condition,$data);
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
@@ -166,60 +168,83 @@ class EventController extends CI_Controller {
     public function send_newsletter()
     {
         
-    $newsletter = $this->Newsletter->get_newsletter();
+        $newsletter = $this->Newsletter->get_newsletter();
 
-    foreach($newsletter as $key => $value)
-    {
-        
-        $body = '
-        <div style="font-family:Calibri">
-        <br>
-        <br>
-        Greetings!
-        <br>
-        <br>
-        We have new upcoming events posted in our website. Come and visit the link below to check the complete details of our events. 
-        <br><br>
-        <div style=" text-align: center;">
-        <a href="https://wisdomparkph.com/" style="background-color: #532782;color: white !important; padding: 10px;font-weight: bold; border-radius: 5px;margin: 0 auto;text-decoration: none;">VISIT US!</a>
-        </div>
-        
-        <br>
-        If the above link don\'t work, please click this link to redirect you to our website<br>
-        <a href="https://wisdomparkph.com/">Widom park link</a>
-        <br><br>
-        See you!
-        <br>
-        
-        "The Gift of Dharma excels all other gifts." - DHAMMAPADA 354
-        <br><br>
-        Regards, <br>
-        <b>Wisdom Park Philippines</b><br>
-        <i>"Promoting Human Values through Education"</i>
-        <br><br>
-        <div style="border: 1px solid gray; padding: 10px; font-size: 12px">
-        Why receiving this email? You subscribed to our website to see the latest updates and information about wisdom park.<br>
-        Click this <a href="#">Unsubscribed</a> link to stop receiving email from our website.
-        </div>
-        </div>
-        ';
+        foreach($newsletter as $key => $value)
+        {
+            
+            $body = '
+            <div style="font-family:Calibri">
+            <br>
+            <br>
+            Greetings!
+            <br>
+            <br>
+            We have new upcoming events posted in our website. Come and visit the link below to check the complete details of our events. 
+            <br><br>
+            <div style=" text-align: center;">
+            <a href="https://wisdomparkph.com/" style="background-color: #532782;color: white !important; padding: 10px;font-weight: bold; border-radius: 5px;margin: 0 auto;text-decoration: none;">VISIT US!</a>
+            </div>
+            
+            <br>
+            If the above link don\'t work, please click this link to redirect you to our website<br>
+            <a href="https://wisdomparkph.com/">Widom park link</a>
+            <br><br>
+            See you!
+            <br>
+            
+            "The Gift of Dharma excels all other gifts." - DHAMMAPADA 354
+            <br><br>
+            Regards, <br>
+            <b>Wisdom Park Philippines</b><br>
+            <i>"Promoting Human Values through Education"</i>
+            <br><br>
+            <div style="border: 1px solid gray; padding: 10px; font-size: 12px">
+            Why receiving this email? You subscribed to our website to see the latest updates and information about wisdom park.<br>
+            Click this <a href="#">Unsubscribed</a> link to stop receiving email from our website.
+            </div>
+            </div>
+            ';
 
-            // $mail->AddAddress('jefferson.gernale@ph.fujitsu.com');
-            $this->mail->AddAddress($value['email']);
+                // $mail->AddAddress('jefferson.gernale@ph.fujitsu.com');
+                $this->mail->AddAddress($value['email']);
 
-            $this->mail->Subject  = "Wisdom Park News";
-            $this->mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";
-            $this->mail->WordWrap   = 80;
+                $this->mail->Subject  = "Wisdom Park News";
+                $this->mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";
+                $this->mail->WordWrap   = 80;
 
-            $this->mail->MsgHTML($body);
+                $this->mail->MsgHTML($body);
 
-            $this->mail->IsHTML(true);
+                $this->mail->IsHTML(true);
 
-        
-        $this->output->set_content_type('application/json')->set_output(json_encode($this->mail->Send()));
-    }
+            
+            $this->output->set_content_type('application/json')->set_output(json_encode($this->mail->Send()));
+        }
 
       
         
+    }
+
+    public function insert_link($data)
+    {
+     
+        $get_id = $this->Events->get_events(['title' => $data['txt_title']]);
+   
+     
+        $result[]= explode('~',$data['txt_list_links']);
+        $res ='';
+
+        for($x=0; $x < count($result[0]) -1 ; $x++)
+        {
+            $data2 = [
+                'event_id' => $get_id[0]['id'],
+                'link' =>  $result[0][$x]
+            ];
+           $res = $this->EventLinks->insert_event($data2);
+        }
+        
+
+        $this->output->set_content_type('application/json')->set_output(json_encode(count($result[0])));
+
     }
 }

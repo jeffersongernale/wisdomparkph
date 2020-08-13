@@ -33,3 +33,5 @@ ALTER TABLE `organizational_chart` CHANGE `image_name` `image_name` VARCHAR(255)
 https://accounts.google.com/b/0/DisplayUnlockCaptcha
 
 CREATE TABLE `u282041188_wisdompark`.`flash` ( `id` INT NOT NULL AUTO_INCREMENT , `flash_link` VARCHAR(250) NOT NULL , `flash_title` VARCHAR(250) NOT NULL , `type` VARCHAR(90) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `u282041188_wisdompark`.`event_links` ( `id` INT NOT NULL AUTO_INCREMENT , `event_id` INT NOT NULL , `link` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;

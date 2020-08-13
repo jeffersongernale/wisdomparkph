@@ -40,9 +40,7 @@ const EVENTS = (()=>
                                         <td class="text-nowrap">
                                             <input type="date" class="form-control" id="txt_event_date_${this.id}" value="${event_date}">
                                         </td>
-                                        <td class="text-nowrap">
-                                            <input type="time" class="form-control" id="txt_event_time_${this.id}" value="${event_time}">
-                                        </td>
+                                       
                                         <td class="text-nowrap">
                                             <input type="text" class="form-control" id="slc_section_${this.id}" value="${this.section}">
                                         </td>
@@ -281,6 +279,37 @@ const EVENTS = (()=>
 
 
       
+    }
+
+    this_events.add_lists = () =>
+    {
+        let link = $('#txt_add_link').val();
+        $('#txt_select_links').append(`<option value="${link}">${link}</option>`); 
+        $('#txt_select_links').val(link);
+
+    
+        $('#txt_add_link').val('');
+
+        let value = '';
+        $("#txt_select_links option").each(function()
+        {
+            value += $(this).val() + "~";
+        });
+
+        $('#txt_list_links').html(value);
+    }
+
+    this_events.delete_lists = () =>
+    {
+        let list_val = $('#txt_select_links').val();
+        $('select').children(`option[value="${list_val}"]`).remove();
+        let value = '';
+        $("#txt_select_links option").each(function()
+        {
+            value += $(this).val() + "~";
+        });
+
+        $('#txt_list_links').html(value);
     }
 
     return this_events;

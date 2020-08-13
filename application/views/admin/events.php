@@ -34,10 +34,32 @@
                 <datalist for="slc_section" id="datalist_section"></datalist>
                 <b>DATE</b>
                 <input type="date" id="txt_date_event" name="txt_date_event" class="form-control">
-                <b>TIME</b>
-                <input type="time" id="txt_date_event" name="txt_time_event" class="form-control">
+                <!-- <b>TIME</b>
+                <input type="time" id="txt_date_event" name="txt_time_event" class="form-control"> -->
                 <b>DESCRIPTION</b>
                 <textarea id="txt_description" name="txt_description" class="form-control" rows="5" placeholder="Input text"></textarea>
+                
+                <b>LIST OF LINKS</b>
+                <textarea id="txt_list_links" name="txt_list_links" class="form-control" rows="5" placeholder="Input text" readonly></textarea>
+                
+                
+
+                <div class="row">
+                    <div class="col-6">
+                        <b>DELETE LINKS</b>
+                        <select id="txt_select_links" class="form-control"></select>
+                    </div>
+                    <div class="col-6 pt-4"><button type="button" class="btn btn-sm btn-danger" onclick="EVENTS.delete_lists()"><i class="fa fa-trash"></i>&nbsp;DELETE</button></div>
+                    <div class="w-100"></div>
+                    <div class="col-6">
+                    <b>ADD LINKS</b>
+                        <input type="text"id="txt_add_link" name="txt_add_link" class="form-control " placeholder="Input text">
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-sm btn-success mt-4"  onclick="EVENTS.add_lists()"><i class="fa fa-plus"></i>&nbsp;ADD</button>
+                    </div>
+                </div>
+               
                 <button type="button" class="btn btn-sm btn-danger mt-4 float-right"><i class="fa fa-times"></i>&nbsp;CANCEL</button>
                 <button type="button" class="btn btn-sm btn-primary mt-4 mr-4 float-right" onclick="EVENTS.insert_event()"><i class="fa fa-paper-plane"></i>&nbsp;SAVE</button>
             </fieldset>
@@ -52,7 +74,6 @@
                         <th style="width: 20vw">TITLE</th>
                         <th style="width: 50vw">DESCRIPTION</th>
                         <th style="width: 20vw">DATE</th>
-                        <th style="width: 20vw">TIME</th>
                         <th style="width: 20vw">SECTION</th>
                     </thead>
                     <tbody></tbody>

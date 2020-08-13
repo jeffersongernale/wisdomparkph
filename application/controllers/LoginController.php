@@ -30,10 +30,13 @@ class LoginController extends CI_Controller {
             ]);
             
             return redirect('https://wisdomparkph.com/admin-details');
+            // return redirect('http://localhost/wisdomparkph/admin-details');
         }
         else
         {
             return redirect('https://wisdomparkph.com/login?error=true');
+            // return redirect('http://localhost/wisdomparkph/login?error=true');
+            
         }   
 
     }
