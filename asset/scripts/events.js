@@ -32,10 +32,15 @@ const EVENTS = (()=>
                                                 <h3>${this.title}</h3>
                                                 <p><b>EVENT DATE:</b> ${this.event_date}</p>
                                                 <p>${this.description}</p>
-                                            </div>
-                                            </div>
-                                            <button class="btn btn-xs btn-success" onclick="EVENTS.openModal(${this.id})">CONFIRM ATTENDANCE</button>
-                                        </div>`;
+                                                <b>LINKS:</b> <br>`;
+                    $.each(this.link,function(key,val){
+                        events_detail+=`<a href="${val}" target="_blank">${val}</a><br>`;
+                    });
+
+                    events_detail+=`</div>
+                                    </div>
+                                    <button class="btn btn-xs btn-success" onclick="EVENTS.openModal(${this.id})">CONFIRM ATTENDANCE</button>
+                                </div>`;
                 });
 
                 $('#facilities_data').html(events_detail);

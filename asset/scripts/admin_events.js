@@ -319,6 +319,7 @@ const EVENTS = (()=>
     {
         events_link_update_id = id;
         $('#modal_links').modal('show');
+        $('.modal_links_list').html('');
         EVENTS.load_links(id);
 
     }

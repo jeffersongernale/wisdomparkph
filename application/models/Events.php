@@ -42,6 +42,17 @@ class Events extends CI_Model {
         return $this->db->update('events',$data);
     }
 
+
+    public function website_event_details($condition = [0])
+    {
+        $this->db->select('*');
+        $this->db->from('events a');
+        $this->db->join('event_links b','a.id = b.event_id', 'left');
+        $this->db->where(['a.section'=>$condition]);
+        return $this->db->get()->result_array();
+
+        
+    }
   
     
    

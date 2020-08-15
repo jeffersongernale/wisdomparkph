@@ -22,7 +22,7 @@ class EventLinks extends CI_Model {
         return $this->db->delete('event_links');
     }
     
-    public function get_event_links($condition)
+    public function get_event_links($condition = [0])
     {
         $this->db->where($condition);
         $this->db->select('*');

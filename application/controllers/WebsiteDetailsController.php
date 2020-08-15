@@ -11,6 +11,7 @@ class WebsiteDetailsController extends CI_Controller {
         $this->load->model('Details');
         $this->load->model('Facilities');
         $this->load->model('Events');
+        $this->load->model('EventLinks');
         $this->load->model('OrgChart');
         $this->load->model('Flash');
         $this->load->library('Mailer');
@@ -41,6 +42,22 @@ class WebsiteDetailsController extends CI_Controller {
          
         }
         $result = $this->Events->get_events($condition);
+        $links = $this->EventLinks->get_event_links();
+
+     
+        foreach($result as $key =>$value)
+        {
+            $result[$key]['link'] = [];
+
+            foreach($links as $val)
+            {
+                if($val['event_id'] == $value['id'])
+                {
+                $result[$key]['link'][] = $val['link'];
+                }
+            }
+        }
+
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
 
     }
