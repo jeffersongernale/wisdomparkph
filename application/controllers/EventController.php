@@ -85,6 +85,7 @@ class EventController extends CI_Controller {
         }
 
         $this->EventAttendance->delete_event_attendance(['event_id' => $post['id']]);
+        $this->EventLinks->delete_event_link(['event_id' => $post['id']]);
 
         $result  = $this->Events->delete_event($post);
         $this->output->set_content_type('application/json')->set_output(json_encode($result));
@@ -240,11 +241,10 @@ class EventController extends CI_Controller {
                 'event_id' => $get_id[0]['id'],
                 'link' =>  $result[0][$x]
             ];
-           $res = $this->EventLinks->insert_event($data2);
+           $res = $this->EventLinks->insert_event_link($data2);
         }
-        
-
-        $this->output->set_content_type('application/json')->set_output(json_encode(count($result[0])));
 
     }
+
+
 }

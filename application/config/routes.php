@@ -110,6 +110,10 @@ $route['delete-users']['POST']            = 'UserManagementController/delete_use
 $route['update-users']['POST']            = 'UserManagementController/update_user';
 $route['get-users-data']['GET']           = 'UserManagementController/get_users_data';
 $route['send-announcement']['POST']       = 'EventAttendanceController/send_announcement';
+$route['get-event-links']['GET']          = 'EventLinksController/get_event_links';
+$route['delete-event-links']['POST']      = 'EventLinksController/delete_links';
+$route['insert-event-links']['POST']      = 'EventLinksController/add_links';
+$route['update-event-links']['POST']      = 'EventLinksController/update_links';
 
 
 /**
